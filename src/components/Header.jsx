@@ -35,7 +35,7 @@ export const Header = () => {
         <nav>
           <ul>
             <li>
-              <Link className={`${classes['navlink']} ${classes['active']}`} to="/">Home</Link>
+              <Link className={`${classes['navlink']} ${classes['active']}`} to="/">Home_</Link>
             </li>
             <li>
               <Link className={classes['navlink']} to="/">About</Link>
