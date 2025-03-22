@@ -1,0 +1,88 @@
+.container {
+    text-align: center;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.categoryCard {
+    justify-content: space-between;
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.categoryCard:hover {
+    transform: scale(1.05);
+}
+
+.icon {
+    font-size: 2rem;
+}
+
+.text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: black;
+}
+
+.categoriesContainer {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+
+    width: 100%;
+
+    justify-content: space-between;
+}
+
+.categoryItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+    padding: 20px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    height: 120px;
+}
+
+.categoryItem:hover {
+    background: grey;
+}
+
+.categoryIcon {
+    width: 70px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.categoriesContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categoryGrid {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

@@ -1,11 +1,29 @@
-import {Header} from "../components/Header.jsx";
+import React, { useEffect, useState } from 'react';
+import '../reset.scss';
 
-const Home = () => {
-  return (
-    <>
-     <Header />
-    </>
-  )
-};
+import Categories from "../components/Categories.jsx";
+import '../modules/Categories.module.css';
 
-export default Home
+import axios from 'axios';
+
+export default function Home() {
+    const [setCategories] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:3500/categories')
+            .then(response => {
+                setCategories(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, );
+
+    return (
+        <div>
+
+            <Categories />
+
+        </div>
+    );
+}
