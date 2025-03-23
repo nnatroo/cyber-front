@@ -2,9 +2,25 @@ import classes from '../modules/Product.module.scss'
 import arrow from '../assets/arrow.svg'
 import checkboxIcon from '../assets/checkbox-icon.svg'
 import arrowDown from '../assets/arrow-down.svg'
+import like from '../assets/like.svg'
 import {Link} from 'react-router'
+import {useState, useEffect} from "react";
+import axios from 'axios'
 
 const Product = () => {
+    const [smartphones, setSmartphones] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/products/smartphones')
+            .then(function (response) {
+                setSmartphones(response.data);
+                console.log(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }, []);
+
     return (
         <div className={classes['main-div']}>
             <nav className={classes['breadcrumb']}>
@@ -34,6 +50,19 @@ const Product = () => {
                             <img src={arrowDown} alt={"Arrow down icon"}/>
                         </div>
                     </figure>
+                    <div className={classes['item-container']}>
+                        {smartphones.map((item, index) => (
+                            <div key={index} className={classes['item']}>
+                                <button className={classes['like-button']}><img className={classes['like-img']}
+                                                                                src={like}/>
+                                </button>
+                                <img src={item.picture} alt={"Phone image"}/>
+                                <h1>{item.name}</h1>
+                                <p>{item.finalPrice}</p>
+                                <button className={classes['buy-button']}><span>Buy now</span></button>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
