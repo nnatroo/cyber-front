@@ -1,0 +1,122 @@
+.main-wrapper{
+  margin-top: 164px;
+  display: flex;
+justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-left: 135px;
+  margin-right: 135px;
+  .left-side{
+ background-color: white;
+    border-radius: 4px;
+    gap:32px;
+    box-shadow: 0 1px 13px 0 #0000000D;
+    .line{
+  border-bottom: 2px solid black;
+  width: 272px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left:35px;
+  margin-right: 35px;
+  opacity: 50%;
+}
+    .contact-div{
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 262px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      padding: 40px 43px 32px 35px;
+      height: auto;
+      overflow: hidden;
+
+
+      .contact-div-title{
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+      }
+      .contact-div-content{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+    }
+
+}
+  .right-side{
+    width: 800px;
+    height: 457px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 13px 0px #0000000D;
+  .right-side-content{
+    width: 737px;
+    height: 377px;
+    top: 40px;
+    left: 31px;
+    gap: 32px;
+
+    .info-inputs{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 737px;
+  height: 50px;
+  gap: 16px;
+
+
+  input{
+    width: 235px;
+    height: 50px;
+  }
+}
+.message-input{
+  padding: 32px 0 ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  input{
+    width: 737px;
+    height: 207px;
+    border-radius: 4px;
+
+  }
+}
+    .btn-box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+
+
+      .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 4px;
+        text-decoration: none;
+        background-color: black;
+        width: 215px;
+        height: 56px;
+        gap: 10px;
+margin-left: 500px;
+
+        p{
+          font-family: 'Poppins', sans-serif;
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+  }
+
+  }
+}
