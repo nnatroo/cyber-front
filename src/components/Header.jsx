@@ -8,7 +8,7 @@ import logo from '../assets/cyber-logo.svg'
 import search from '../assets/search-icon.svg'
 import {Link} from "react-router";
 
-export const Header = () => {
+const Header = () => {
   const [menus, setMenus] = useState({});
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,3 +52,5 @@ export const Header = () => {
     </>
   )
 }
+
+export default Header
