@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import classes from '../modules/Header.module.scss'
 import cart from '../assets/cart-icon.svg'
-import favorites from '../assets/favorites-icon.svg'
+import favorites from '../assets/favorites-icon.png'
 import profile from '../assets/profile-icon.svg'
 import logo from '../assets/cyber-logo.svg'
 import search from '../assets/search-icon.svg'

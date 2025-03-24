@@ -5,10 +5,10 @@ import {Contact} from "./pages/Contact.jsx";
 import Home from "./pages/Home.jsx";
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/contact" element={<Contact />} />
-    </Routes>
-  </BrowserRouter>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+        </Routes>
+    </BrowserRouter>
 )
