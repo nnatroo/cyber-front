@@ -144,29 +144,51 @@ export const Address = () => {
                         <div className={classes["address-details"]}>
                             {address.isEditing ? (
                                 <div className={classes["edit-address"]}>
-                                    <input
-                                        type="text"
-                                        value={address.name || ""}
-                                        onChange={(e) => handleChange(address.id, "name", e.target.value)}
-                                        placeholder="Enter Name"
-                                    />
-                                    {errors[address.id]?.name && <p className={classes["error"]}>{errors[address.id].name}</p>}
-
-                                    <input
-                                        type="text"
-                                        value={address.details || ""}
-                                        onChange={(e) => handleChange(address.id, "details", e.target.value)}
-                                        placeholder="Enter Address"
-                                    />
-                                    {errors[address.id]?.details && <p className={classes["error"]}>{errors[address.id].details}</p>}
-
-                                    <input
-                                        type="text"
-                                        value={address.phone || ""}
-                                        onChange={(e) => handleChange(address.id, "phone", e.target.value)}
-                                        placeholder="Enter Phone"
-                                    />
-                                    {errors[address.id]?.phone && <p className={classes["error"]}>{errors[address.id].phone}</p>}
+                                    <div className={classes["flexes"]}>
+                                        <div  className={classes["flexes-text"]}>
+                                            <h4>Name</h4>
+                                            <input
+                                                type="text"
+                                                value={address.name || ""}
+                                                onChange={(e) => handleChange(address.id, "name", e.target.value)}
+                                                placeholder="Enter Name"
+                                            />
+                                            {errors[address.id]?.name &&
+                                                <p className={classes["error"]}>{errors[address.id].name}</p>}
+                                        </div>
+                                        <div className={classes["flexes-text"]}>
+                                            <h4>Address</h4>
+                                            <input
+                                                type="text"
+                                                value={address.details || ""}
+                                                onChange={(e) => handleChange(address.id, "details", e.target.value)}
+                                                placeholder="Enter Address"
+                                            />
+                                            {errors[address.id]?.details &&
+                                                <p className={classes["error"]}>{errors[address.id].details}</p>}
+                                        </div>
+                                    </div>
+                                    <div className={classes["flexes"]}>
+                                        <div className={classes["flexes-text"]}>
+                                            <h4>Phone Number</h4>
+                                            <input
+                                                type="text"
+                                                value={address.phone || ""}
+                                                onChange={(e) => handleChange(address.id, "phone", e.target.value)}
+                                                placeholder="Enter Phone"
+                                            />
+                                            {errors[address.id]?.phone &&
+                                                <p className={classes["error"]}>{errors[address.id].phone}</p>}
+                                        </div>
+                                        <div className={classes["btns-add-delete"]}>
+                                            <button onClick={() => toggleEdit(address.id)}>
+                                                Save
+                                            </button>
+                                            <button onClick={() => deleteAddress(address.id)}>
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             ) : (
                                 <div className={classes["address"]}>
@@ -178,22 +200,24 @@ export const Address = () => {
                                         onChange={() => setSelectedAddress(address.id)}
                                     />
                                     <div className={classes["address-info"]}>
-                                        <h2>{address.name} <span className={classes["label"]}>{address.label}</span></h2>
-                                        <div className={classes["address-details"]}>
+                                        <h2>{address.name} <span className={classes["label"]}>{address.label}</span>
+                                        </h2>
+                                        <div className={classes["address-details-text"]}>
                                             <p>{address.details}</p>
                                             <p>{address.phone}</p>
                                         </div>
                                     </div>
-
+                                    <div className={classes["btns-add-deletes"]}>
+                                    <button onClick={() => toggleEdit(address.id)}>
+                                                <img src={edit} alt={"edit"}/>
+                                        </button>
+                                        <button onClick={() => deleteAddress(address.id)}><img src={close} alt={"close"}/></button>
+                                    </div>
                                 </div>
+
                             )}
                         </div>
-                        <div className={classes["btns-add-delete"]}>
-                        <button onClick={() => toggleEdit(address.id)}>
-                                {address.isEditing ? <img src={save} alt={"save"}/> : <img src={edit} alt={"edit"}/>}
-                            </button>
-                            <button onClick={() => deleteAddress(address.id)}><img src={close} alt={"close"}/></button>
-                        </div>
+
                     </div>
                 ))}
                 <div>

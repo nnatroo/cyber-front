@@ -7,20 +7,6 @@
   margin: auto;
   padding: 72px 120px;
   position: relative;
-  @media (max-width: 375px){
-    display: none;
-  }
-  @media (max-width:1400px) {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: auto;
-    position: relative;
-  }
-
   .step {
     display: flex;
     flex-direction: row;
@@ -64,15 +50,34 @@
       }
     }
   }
+  @media (max-width: 375px){
+    display: none;
+  }
+
+  @media (max-width:1400px) {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+  }
+  @media (max-width: 950px) {
+    justify-content: space-between;
+    width: 500px;
+  }
 }
 .address-container {
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   margin: auto;
-  padding: 20px;
+  width: 1120px;
+  border-radius: 7px;
+  padding: 24px;
   h3 {
     font-weight: 600;
     font-size: 20px;
@@ -80,23 +85,6 @@
     letter-spacing: 0;
     color: #17183B;
     margin-bottom: 32px;
-  }
-  @media (max-width: 375px){
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 341px;
-    gap: 48px;
-
-  }
-  @media (max-width: 1400px) {
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
   }
   .address-card {
     display: flex;
@@ -110,25 +98,85 @@
     border-radius: 7px;
     padding: 24px;
     width: 100%;
-    @media (max-width: 375px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 341px;
-    }
     &:hover {
       background: #f3f3f3;
     }
     .address-details {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 24px;
       .edit-address{
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        input{
-          border: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 1000px;
+        .flexes{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          .flexes-text{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 10px;
+            width: 400px;
+            input{
+              border: none;
+
+            }
+            @media (max-width: 1400px) {
+              width: 300px;
+            }
+          }
+          .btns-add-delete{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            height: 65.5px;
+            button {
+              background:transparent;
+              color: #000000;
+              border: none;
+              font-size: 18px;
+              cursor: pointer;
+              margin-left: 10px;
+              transition: transform 0.2s ease-in-out;
+              height: 65.5px;
+              width: 110px;
+              border-radius: 10px;
+              &:hover {
+                transform: scale(1.1);
+                background-color: white;
+                color: #000000;
+
+              }
+            }
+            @media (max-width: 1400px) {
+              margin-top: 20px;
+              gap: 10px;
+            }
+          }
+          @media (max-width: 1400px) {
+            width: 300px;
+            input{
+              width: 200px;
+            }
+          }
+        }
+        @media (max-width: 1400px) {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
         }
       }
       input[type="radio"] {
@@ -139,26 +187,51 @@
         border-width: 2px;
         border-radius: 3px;
         accent-color: black;
+        margin-bottom:90px ;
       }
       .address{
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
         gap: 16px;
+        .btns-add-deletes{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content:center;
+          gap: 10px;
+          margin-right: 60px;
+          button {
+            background:transparent;
+            color: #000000;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: transform 0.2s ease-in-out;
+            border-radius: 10px;
+            &:hover {
+              transform: scale(1.1);
+              background-color: #FFFFFF;
+              color: #000000;
+
+            }
+          }
+        }
         .address-info{
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          justify-content: space-between;
+          justify-content: center;
           gap: 16px;
+          width: 1000px;
           h2{
             font-weight: 400;
             font-size: 18px;
             line-height: 24px;
             letter-spacing: 0.15px;
             color: #17183B;
-
             span{
               width: 53px;
               height: 23px;
@@ -174,6 +247,34 @@
               margin-left: 16px;
             }
           }
+          .address-details-text{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            p{
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 24px;
+              letter-spacing: 0;
+              color: #17183B;
+            }
+            @media (max-width: 1400px) {
+              width: 600px;
+            }
+          }
+          @media (max-width: 760px) {
+            width: 400px;
+          }
+        }
+        @media (max-width: 1400px) {
+          max-width: 800px;
+          input[type="radio"] {
+            margin-left: 20px;
+          }
+        }
+        @media (max-width: 760px) {
+          width: 400px;
+          gap: 10px;
         }
       }
       input[type="text"]{
@@ -198,20 +299,35 @@
         border-radius: 4px;
         font-size: 12px;
       }
-    }
-
-    button {
-      background: none;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      margin-left: 10px;
-      transition: transform 0.2s ease-in-out;
-
-      &:hover {
-        transform: scale(1.2);
+      @media (max-width: 1400px) {
+          max-width: 800px;
+        padding: 20px;
+      }
+      @media (max-width: 760px) {
+        width: 400px;
       }
     }
+    @media (max-width: 375px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 341px;
+    }
+    @media (max-width: 760px) {
+      width: 500px;
+    }
+    @media (max-width: 1400px) {
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      border-radius: 7px;
+      padding: 24px;
+      width: 100%;
+    }
+
   }
 
   .add-button {
@@ -232,9 +348,11 @@
 
   .buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-top: 30px;
     gap: 24px;
+    width: 100%;
     @media (max-width: 1400px) {
       display: flex;
       align-items: center;
@@ -327,5 +445,34 @@
         color: #000000;
       }
     }
+  }
+  @media (max-width: 375px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 341px;
+    gap: 48px;
+    margin: 10px;
+
+  }
+  @media (max-width: 750px) {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    img{
+      max-width: 200px;
+    }
+
+  }
+  @media (max-width: 1400px) {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
   }
 }
