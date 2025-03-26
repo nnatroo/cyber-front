@@ -493,13 +493,13 @@
     margin: 10px;
   }
 }
-@media (max-width: 750px) {
+@media (max-width: 760px) {
   .address-container {
-    max-width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 500px;
   }
   .address-container img {
     max-width: 200px;
