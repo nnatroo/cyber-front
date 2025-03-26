@@ -2,6 +2,7 @@ import classes from '../modules/Contact.module.scss'
 import phone from '../assets/icons-phone.svg'
 import mail from '../assets/icons-mail.svg'
 import {useState} from "react";
+
 export const Contact = () => {
 
     const [username, setUsername] = useState("")
@@ -56,22 +57,20 @@ export const Contact = () => {
 
 
     return (
-    <>
         <div className={classes['main-wrapper']}>
             <div className={classes['left-side']}>
                 <div className={classes['contact-div']}>
                     <div className={classes['contact-div-title']}>
                         <img src={phone} alt="icons-phone"/>
-                        <p>  Call To Us</p>
+                        <p> Call To Us</p>
                     </div>
-
                     <div className={classes['contact-div-content']}>
-                        <p>we are available 24/7. 7 days a week.</p>
-                        <p>Phone:+8901611112222</p>
+                        <p>We are available 24/7, 7 days a week.</p>
+                        <p>Phone: +8801611112222</p>
                     </div>
                 </div>
 
-           <div className={classes['line']}></div>
+                <div className={classes['line']}></div>
 
                 <div className={classes['contact-div']}>
                     <div className={classes['contact-div-title']}>
@@ -89,28 +88,20 @@ export const Contact = () => {
 
             </div>
             <div className={classes['right-side']}>
-                <div className={classes['right-side-content']}>
-                    <div className={classes['info-inputs']}>
-                        <input type='text' placeholder='Your Name*' onChange={usernameHandler}/>
-                        <input type='text' placeholder='Your Email*' onChange={emailHandler}/>
-                        <input type='text' placeholder='Your Phone*' onChange={phoneHandler}/>
-                    </div>
-
-                    <div className={classes['message-input']}>
-                        <input type='text' placeholder='Your Message'/>
-                    </div>
-
-                    <div className={classes['btn-box']}>
-                        <button className={classes['btn']} onClick={sendMessage}>
-                            <p>Send Message</p>
-                        </button>
-                    </div>
-
+                <div className={classes['input-group']}>
+                    <input type='text' placeholder='Your Name *' onChange={usernameHandler}/>
+                    <input type='text' placeholder='Your Email *' onChange={emailHandler}/>
+                    <input type='text' placeholder='Your Phone *' onChange={phoneHandler}/>
                 </div>
-
+                <div className={classes['message-input']}>
+                    <textarea placeholder='Your Message'/>
+                </div>
+                <div className={classes['submit-wrapper']}>
+                    <button onClick={sendMessage}>
+                        <p>Send Message</p>
+                    </button>
+                </div>
             </div>
-
         </div>
-    </>
     )
 }
