@@ -37,14 +37,16 @@ justify-content: center;
   margin-left:35px;
   margin-right: 35px;
   opacity: 50%;
-      @media (max-width: 767px) {
-width: 200px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left:200px;
+      @media (max-width: 600px) {
+        width: 100px;
+        margin: 0 auto;
       }
-}
+      @media (max-width: 767px) {
+        width: 200px;
+        margin: 0 auto;
+      }
+
+    }
     .contact-div{
       display: flex;
       flex-direction: column;
@@ -131,30 +133,36 @@ width: 200px;
   width: 737px;
   height: 50px;
   gap: 16px;
-      @media (max-width: 767px) {
+      @media (max-width: 767px) { // Mobile
         width: 100%;
-        gap: 30px;
-        display: flex;
-align-items: flex-start;
+        flex-direction: column; // Stack inputs in mobile
+        align-items: center;
+        gap: 10px;
+
       }
-      @media (max-width: 1024px) and (min-width: 768px){
-        width: 180px;
-      margin-left: 50px;
+      @media (max-width: 1024px) and (min-width: 768px) { // Tablet
+        width: 80%; // Let it take most of the container width
+        margin: auto;
+        gap: 16px;
+      }
+      @media (max-width: 600px) {
+        width: 80%;;
+        margin:auto;
         border-radius: 5px;
       }
 
   input{
     width: 235px;
     height: 50px;
-    @media (max-width: 767px) {
-      width: 100px;
-      height: 50px;
-
-    }
-    @media (max-width: 1024px) and (min-width: 768px){
-      width: 90px;
+    @media (max-width: 767px) { // Mobile
+      width: 40%; // Full width of container
+      height: 40%;
       border: 2px solid black;
       border-radius: 5px;
+
+    }
+    @media (max-width: 1024px) and (min-width: 768px) { // Tablet
+      width: 80px; // Enough space for inputs to fit
     }
   }
 }
