@@ -1,15 +1,16 @@
-import "./Banner.scss"
+import classes from '../modules/Banner.module.scss'
+
 const BigSummerSale = () => {
     return (
-        <div className="container">
-            <div className="content">
-                <h1 className="title">
-                    Big Summer <span className="bold">Sale</span>
+        <div className={classes['container']}>
+            <div className={classes["content"]}>
+                <h1 className={classes["title"]}>
+                    Big Summer <span className={classes["sale"]}>Sale</span>
                 </h1>
-                <p className="subtitle">
+                <p className={classes["description"]}>
                     Commodo fames vitae vitae leo mauris in. Eu consequat.
                 </p>
-                <button className="shop-button">Shop Now</button>
+                <button className={classes["shop-now-btn"]}>Shop Now</button>
             </div>
         </div>
     );
