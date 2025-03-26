@@ -23,6 +23,11 @@ justify-content: center;
       margin: 0;
     }
 
+    @media (max-width: 1024px) and (min-width: 768px){
+      width: 60%;
+      margin: auto;
+    }
+
     .line{
   border-bottom: 2px solid black;
   width: 272px;
@@ -94,6 +99,11 @@ width: 200px;
       width: 100%;
       margin: 0;
     }
+
+    @media (max-width: 1024px) and (min-width: 768px){
+      width: 60%;
+      margin: auto;
+    }
   .right-side-content{
     width: 737px;
     height: 377px;
@@ -109,6 +119,10 @@ width: 200px;
       align-items: center;
       flex-direction: column;
     }
+    @media (max-width: 1024px) and (min-width: 768px){
+      width: 90%;
+
+    }
 
     .info-inputs{
   display: flex;
@@ -123,6 +137,11 @@ width: 200px;
         display: flex;
 align-items: flex-start;
       }
+      @media (max-width: 1024px) and (min-width: 768px){
+        width: 180px;
+      margin-left: 50px;
+        border-radius: 5px;
+      }
 
   input{
     width: 235px;
@@ -130,7 +149,11 @@ align-items: flex-start;
     @media (max-width: 767px) {
       width: 100px;
       height: 50px;
-border: 2px solid black;
+
+    }
+    @media (max-width: 1024px) and (min-width: 768px){
+      width: 90px;
+      border: 2px solid black;
       border-radius: 5px;
     }
   }
@@ -161,6 +184,10 @@ border: 2px solid black;
       @media (max-width: 767px) {
         width: 60%;
       }
+      @media (max-width: 1024px) and (min-width: 768px){
+        width: 40%;
+
+      }
 
       .btn{
         display: flex;
@@ -174,8 +201,16 @@ border: 2px solid black;
         gap: 10px;
 margin-left: 500px;
         @media (max-width: 767px) {
-          width: 100%;
-          margin-left:0;
+          width: 215px;
+          height: 56px;
+          margin-left: -15px;
+
+        }
+        @media (max-width: 1024px) and (min-width: 768px){
+          width: 130px;
+          margin-left: -15px;
+
+
         }
         p{
           font-family: 'Poppins', sans-serif;
