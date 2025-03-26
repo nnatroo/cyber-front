@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+
+    .content {
+        max-width: 90%;
+        width: 600px;
+
+        .title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .bold {
+            font-weight: bold;
+
+        }
+
+        .subtitle {
+            color: gray;
+            margin-top: 10px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .shop-button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            border: 1px solid white;
+            color: white;
+            font-size: 1rem;
+            background: transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        .content {
+            width: 90%;
+
+            .title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 0.5rem;
+            }
+
+            .shop-button {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 30px 15px;
+
+        .content {
+            .title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.4rem;
+            }
+
+            .shop-button {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+        }
+    }
+}

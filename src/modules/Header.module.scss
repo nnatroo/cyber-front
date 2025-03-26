@@ -42,3 +42,62 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .header-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .search-wrapper {
+    margin: 10px 0;
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+    }
+  }
+
+  nav {
+    width: 100%;
+    margin-top: 15px;
+
+    ul {
+      flex-direction: column;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      .navlink {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 480px) {
+  .header-wrapper {
+    padding: 10px;
+  }
+
+  .search-wrapper {
+    input {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  }
+
+  nav ul {
+    gap: 8px;
+  }
+
+  nav li {
+    .navlink {
+      font-size: 1.1rem;
+    }
+  }
+}
