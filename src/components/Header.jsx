@@ -8,47 +8,79 @@ import logo from '../assets/cyber-logo.svg'
 import search from '../assets/search-icon.svg'
 import {Link} from "react-router";
 
+
 export const Header = () => {
-  const [menus, setMenus] = useState({});
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [navItems, setNavItems] = useState([]);
+
 
   useEffect(() => {
+
     axios.get('http://localhost:5000/menus/navbarItems')
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
+        .then(response => {
+          setNavItems(response.data);
+          console.log('Navbar items:', response.data);
+          console.log(Array.isArray(navItems));
+        })
+        .catch(error => {
+          console.error('Error fetching data', error);
+        });
   }, []);
 
+
+
+  // const burgerMenu =()=>{
+  //   setMenuOpen(!menuOpen)
+  // }
+
   return (
-    <>
-      <header className={classes['header-wrapper']}>
-        <figure>
-          <img src={logo} alt="cyber-logo"/>
-        </figure>
-        <figure className={classes['search-wrapper']}>
-          <img src={search} alt="search-icon"/>
-          <input placeholder='Search' type='text'/>
-        </figure>
-        <nav>
-          <ul>
-            <li>
-              <Link className={`${classes['navlink']} ${classes['active']}`} to="/">Home</Link>
-            </li>
-            <li>
-              <Link className={classes['navlink']} to="/">About</Link>
-            </li>
-            <li>
-              <Link className={classes['navlink']} to="/">Contact Us</Link>
-            </li>
-            <li>
-              <Link className={classes['navlink']} to="/">Blog</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </>
+      <>
+        <header className={classes['header-wrapper']}>
+          <figure>
+            <Link className={`${classes['navlink']} ${classes['active']}`}
+                  to={'/'}>
+              <img src={logo} alt="cyber-logo"/>
+            </Link>
+
+          </figure>
+
+          <figure className={classes['search-wrapper']}>
+            <img src={search} alt="search-icon"/>
+            <input placeholder='Search' type='text'/>
+          </figure>
+
+          <nav>
+            <ul>
+              {navItems.map((navItem, index) => {
+
+                return (
+
+                    <li key={index} >
+                      <Link className={`${classes['navLink']} ${classes['active']}`}
+                            to={navItem.route}>
+                        {navItem.name}
+                      </Link>
+
+
+                    </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+
+
+          <figure className={classes['icons-wrapper']}>
+            <img src={cart} alt="cart-icon"/>
+            <img src={favorites} alt="favorites-icon"/>
+            <img src={profile} alt="profile-icon"/>
+          </figure>
+
+
+
+        </header>
+      </>
   )
 }
+
+
+export default Header
