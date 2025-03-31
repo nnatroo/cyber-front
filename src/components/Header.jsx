@@ -31,17 +31,16 @@ export const Header = () => {
     return (
         <>
             <header className={`${isOpen ? classes['header-wrapper-open'] : classes['header-wrapper']}`}>
-                <figure>
+                <figure className={`${isOpen ? classes['header-wrapper-inside-open'] : classes['header-wrapper-inside']}`}>
                     <Link className={classes['navlink']} to={'/'}>
                         <img src={logo} alt="cyber-logo"/>
                     </Link>
+
+                    <figure className={classes['burger-menu']} onClick={toggleMenu}>
+                        <img src={burger} alt="burger-menu"/>
+                    </figure>
+
                 </figure>
-
-
-                <figure className={classes['burger-menu']} onClick={toggleMenu}>
-                    <img src={burger} alt="burger-menu"/>
-                </figure>
-
 
 
                 <div className={`${isOpen ? classes['open-search'] : classes['search-wrapper']}`}>

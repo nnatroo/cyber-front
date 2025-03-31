@@ -9,7 +9,8 @@
     display: none;
 
     @media (max-width: 701px) {
-      display: block;
+      display: flex;
+
       cursor: pointer;
     }
   }
@@ -120,6 +121,12 @@
   }
 }
 .header-wrapper-open {
+
+
+.header-wrapper-inside-open{
+//  display: flex;
+//justify-content: flex-end;
+}
   .open-search {
     background-color: rgba(245, 245, 245, 1);
     border-radius: 8px;
@@ -167,8 +174,10 @@
   }
 
   .open-icons-wrapper {
+    padding-top: 12px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 3px;
   }
