@@ -30,9 +30,9 @@ export const Header = () => {
 
     return (
         <>
-            <header className={classes['header-wrapper']}>
+            <header className={`${isOpen ? classes['header-wrapper-open'] : classes['header-wrapper']}`}>
                 <figure>
-                    <Link className={`${classes['navlink']} ${classes['active']}`} to={'/'}>
+                    <Link className={classes['navlink']} to={'/'}>
                         <img src={logo} alt="cyber-logo"/>
                     </Link>
                 </figure>
@@ -43,44 +43,17 @@ export const Header = () => {
                 </figure>
 
 
-                {isOpen && (
-                    <div className={classes['menu']}>
-                        <div className={classes['search-wrapper-mobile']}>
-                            <img src={search} alt="search-icon-mobile"/>
-                            <input placeholder='Search' type='text'/>
-                        </div>
 
-                        <div className={classes['nav-mobile']}>
-                            <ul>
-                                {navItems.map((navItem, index) => (
-                                    <li key={index}>
-                                        <Link className={`${classes['navLink-mobile']} ${classes['active']}`} to={navItem.route}>
-                                            {navItem.name}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <figure className={classes['icons-wrapper-mobile']}>
-                            <img src={cart} alt="cart-icon"/>
-                            <img src={favorites} alt="favorites-icon"/>
-                            <img src={profile} alt="profile-icon"/>
-                        </figure>
-                    </div>
-                )}
-
-
-                <div className={classes['search-wrapper']}>
+                <div className={`${isOpen ? classes['open-search'] : classes['search-wrapper']}`}>
                     <img src={search} alt="search-icon"/>
-                    <input placeholder='Search' type='text'/>
+                    <input placeholder='Search' type='text' className={`${isOpen ? classes['open-input'] : classes['input']}`}/>
                 </div>
 
                 <nav>
-                    <ul>
+                    <ul className={`${isOpen ? classes['open-ul'] : classes['ul']}`}>
                         {navItems.map((navItem, index) => (
-                            <li key={index}>
-                                <Link className={`${classes['navLink']} ${classes['active']}`} to={navItem.route}>
+                            <li key={index} className={`${isOpen ? classes['open-li'] : classes['li']}`}>
+                                <Link className={`${isOpen ? classes['open-navLink'] : classes['navLink']}`} to={navItem.route}>
                                     {navItem.name}
                                 </Link>
                             </li>
@@ -88,7 +61,7 @@ export const Header = () => {
                     </ul>
                 </nav>
 
-                <figure className={classes['icons-wrapper']}>
+                <figure className={`${isOpen ? classes['open-icons-wrapper'] : classes['icons-wrapper']}`}>
                     <img src={cart} alt="cart-icon"/>
                     <img src={favorites} alt="favorites-icon"/>
                     <img src={profile} alt="profile-icon"/>
@@ -99,3 +72,5 @@ export const Header = () => {
 };
 
 export default Header;
+
+
