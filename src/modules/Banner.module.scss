@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 160px 90px;
+
+  .content {
+    max-width: 90%;
+    width: 600px;
+
+    .title {
+      font-family: Inter, sans-serif;
+      font-weight: 100;
+      font-size: 72px;
+      line-height: 72px;
+      letter-spacing: -1%;
+
+      .sale {
+        font-weight: 500;
+      }
+    }
+
+    .description {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 32px;
+      color: rgba(120, 120, 120, 1);
+    }
+
+    .shop-now-btn {
+      margin-top: 40px;
+      padding: 16px 56px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 1);
+      background-color: transparent;
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: rgba(255, 255, 255, 1);
+
+
+      &:hover {
+        background: white;
+        color: black;
+      }
+    }
+  }
+}
