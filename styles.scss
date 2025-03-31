@@ -1,0 +1,173 @@
+$primary-dark: #1b1b1d;
+$primary-light: #f5f5f7;
+$text-dark: #000;
+$text-light: #fff;
+$button-border: #ccc;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: $primary-light;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-dark;
+    color: $text-light;
+    padding: 50px 100px;
+
+    .hero-content {
+        h3 {
+            font-size: 18px;
+            color: #aaa;
+        }
+        h1 {
+            font-size: 56px;
+            span {
+                font-weight: bold;
+            }
+        }
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        button {
+            background: none;
+            border: 1px solid $button-border;
+            color: $text-light;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            &:hover {
+                background: $text-light;
+                color: $primary-dark;
+            }
+        }
+    }
+    .hero-image img {
+        width: 400px;
+    }
+}
+
+.products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 50px 100px;
+
+    .product {
+        display: flex;
+        align-items: center;
+        background: $text-light;
+        padding: 30px;
+        border-radius: 10px;
+        position: relative;
+        justify-content: space-between;
+
+        img {
+            width: 200px;
+        }
+        .product-info {
+            padding-left: 20px;
+            h2 {
+                font-size: 32px;
+                span {
+                    font-weight: bold;
+                }
+            }
+            p {
+                font-size: 16px;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .product-macbook {
+        background: $primary-light;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+        border-radius: 20px;
+        position: relative;
+        font-size: 2rem;
+
+
+        .product-info {
+            max-width: 40%;
+
+        }
+        img {
+            width: 320px;
+            position: absolute;
+            right: 20px;
+            bottom: -300px;
+        }
+
+        button {
+            background: none;
+            border: 1px solid $button-border;
+            color: $text-dark;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            &:hover {
+                background: $text-dark;
+                color: $text-light;
+            }
+        }
+    }
+    .product-playstation {
+        .product-info {
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+    }
+    .product-small {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+
+
+    .product-small-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: $text-light;
+            justify-content: space-between;
+
+            img {
+                width: 80px;
+            }
+            .text {
+                margin-left: 15px;
+                h3 {
+                    font-size: 18px;
+                }
+                p {
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .dark {
+            background: $primary-dark;
+            color: $text-light;
+        }
+    }
+}
