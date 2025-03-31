@@ -5,6 +5,36 @@
   gap: 56px;
   margin-top: 16px;
 
+  .burger-menu{
+    display: none;
+
+    @media (max-width: 575px) {
+   display: block;
+      cursor: pointer;
+    }
+
+  }
+
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    background-color: red;
+  }
+
+  @media (min-width: 576px) and (max-width: 767px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    background-color: #37041f;
+  }
+
+
+
+
   .search-wrapper {
     background-color: rgba(245, 245, 245, 1);
     border-radius: 8px;
@@ -19,6 +49,20 @@
       background-color: transparent;
       border: none;
       outline: none;
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      padding: 8px;
+      gap: 4px;
+      min-width: 180px;
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+      padding: 4px;
+      gap: 3px;
+      min-width: 130px;
+    }
+    @media (max-width: 575px) {
+
+      display: none;
     }
   }
 
@@ -39,6 +83,35 @@
           color: #000000;
         }
       }
+      @media (min-width: 576px) and (max-width: 767px) {
+        gap: 13px;
+        font-size: 13px;
+      }
+      @media (max-width: 575px) {
+
+        display: none;
+      }
+    }
+
+  }
+  .icons-wrapper{
+    display: flex;
+    gap:24px;
+    @media (min-width: 768px) and (max-width: 991px) {
+      gap: 15px;
+    }
+    @media (min-width: 576px) and (max-width: 767px) {
+      font-weight: 500;
+      gap: 7px;
+
+    }
+    @media (max-width: 575px) {
+      display: none;
     }
   }
+
+
+
 }
+
+
