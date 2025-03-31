@@ -1,40 +1,35 @@
-    import classes from '../modules/Categories.module.scss'
-    import {useEffect, useState} from "react";
-    import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import styles from '../modules/Categories.module.css';
 
+export default function Categories() {
+    const [categories, setCategories] = useState([]);
 
-    export const Categories = () => {
-        const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:5000/categories')
+            .then((response) => {
+                setCategories(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
 
-        useEffect(() => {
-            axios.get('http://localhost:5000/categories')
-                .then((response) => {
-                    setCategories(response.data);
-                })
-                .catch((error) => {
-                    console.error(error);
-                });
-        }, []);
-
-
-        return (
-            <>
-                <section className={classes["category-section"]}>
-                    <div className={classes["category-section-wrapper"]}>
-                        <div className={classes["category-section-title"]}>
-                            <h3>Browse By Category</h3>
+    return (
+        <section className={styles.categorySection}>
+            <div className={styles.categorySectionWrapper}>
+                <div className={styles.categorySectionTitle}>
+                    <h3>Browse By Category</h3>
+                </div>
+                <div className={styles.categoryCardsWrapper}>
+                    {categories.map((category, index) => (
+                        <div className={styles.categoryCard} key={index}>
+                            <img src={category.ImageSrc} alt={category.category} />
+                            <p>{category.category}</p>
                         </div>
-                        <div className={classes["category-cards-wrapper"]}>
-                            {categories.map((img, index) => (
-                                <div key={index} className={classes["category-card"]}>
-                                    <img src={`http://localhost:5000/${img.ImageSrc}`} alt={img.category}
-                                         className={classes["category-card-img"]}/>
-                                    <p className={classes["category-card-text"]}>{img.category}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            </>
-        )
-    }
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
