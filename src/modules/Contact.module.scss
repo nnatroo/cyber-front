@@ -1,5 +1,4 @@
 
-
 .main-wrapper {
   margin-top: 164px;
   display: flex;
@@ -8,12 +7,13 @@
   gap: 30px;
   height: fit-content;
 
-  @media (max-width: 1000px) {
-    flex-direction: column;
-    gap: 15px;
+  @media (max-width: 1680px) {
+    gap: 20px;
   }
 
-
+  @media (max-width:   1280px) {
+    flex-direction: column;
+}
 
   .left-side {
     background-color: #FFFFFF;
@@ -23,10 +23,13 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    @media (max-width: 1000px) {
-      align-items: center;
-      padding: 30px;
+
+    @media (max-width: 1680px) {
+  padding-left: 20px;
+      padding-right: 10px;
     }
+
+
     .line {
       background-color: #000;
       height: 1px;
@@ -63,15 +66,16 @@
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 1000px) {
-      align-items: center;
-      padding: 30px;
-    }
 
     .input-group {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+
+      @media (max-width: 1680px) {
+        flex-direction: column;
+        gap: 6px;
+      }
 
       input {
         flex: 1;
@@ -92,6 +96,12 @@ min-width: 600px;
         background-color: #F5F5F5;
         border: none;
         resize: none;
+
+        @media (max-width: 1680px) {
+          min-width: 300px;
+          height: 63px;
+        }
+
       }
     }
 
@@ -99,6 +109,9 @@ min-width: 600px;
       display: flex;
       justify-content: flex-end;
 
+      @media (max-width: 1680px) {
+        justify-content: flex-start;
+      }
       button {
         padding: 12px 40px;
         border-radius: 4px;
@@ -108,6 +121,7 @@ min-width: 600px;
         cursor: pointer;
         transition: 0.2s;
         border: 1px solid transparent;
+
 
         &:hover {
           background: white;
