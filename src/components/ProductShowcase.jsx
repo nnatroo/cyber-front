@@ -40,7 +40,7 @@ const ProductShowcase = () => {
                                 className="product-image"
                             />
                             <div className="product-content">
-                                <h2>Apple AirPods Max</h2>
+                                <h2>Apple AirPods <span className="product-title-accent">Max</span></h2>
 
                                 <p>Computational audio. Listen, it's powerful</p>
                             </div>
@@ -53,7 +53,7 @@ const ProductShowcase = () => {
                                 className="product-image"
                             />
                             <div className="product-content">
-                                <h2>Apple Vision Pro</h2>
+                                <h2>Apple Vision <span className="product-title-accent">Pro</span></h2>
                                 <p>An immersive way to experience entertainment</p>
                             </div>
                         </div>
@@ -70,7 +70,7 @@ const ProductShowcase = () => {
                         <div className="product-content">
 
                             <h2 className="macbook-title">Macbook</h2>
-                            <h3 className="macbook-title-pro1">Air</h3>
+                            <h3 className="macbook-title-pro1"><span className="product-title-accent">Air</span></h3>
 
                             <p>The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid Retina</p>
                             <button className="shop-button">Shop Now</button>
