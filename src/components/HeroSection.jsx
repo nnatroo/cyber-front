@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ProductShowcase.scss';
+import '../styles/HeroSection.scss';
 
 import iphoneImg from '../assets/iphone14pro.png';
 import ps5Img from '../assets/playstation5.png';
