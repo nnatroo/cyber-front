@@ -1,4 +1,4 @@
-import FeaturedProducts from "./src/components/ProductShowcase.jsx";
+import FeaturedProducts from "./src/components/HeroSection.jsx";
 
 function App() {
     return (
