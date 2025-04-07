@@ -15,8 +15,7 @@ export const Footer = () => {
                         <img src={CyberLogoWhite} alt={""}/>
                     </h2>
                     <p className={classes['footer-description']}>
-                        We are a residential interior design firm located in Portland.
-                        Our boutique-studio offers more than just design services.
+                        We are a residential interior design firm located in Portland. Our boutique-studio offers more than
                     </p>
                 </div>
 
