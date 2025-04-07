@@ -220,7 +220,7 @@ export const Address = () => {
 
                     </div>
                 ))}
-                <div>
+                <div className={classes["liner"]}>
                     <button className={classes["add-button"]} onClick={() => {
                         setAddresses([...addresses, {
                             id: Date.now(),
