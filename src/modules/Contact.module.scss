@@ -7,13 +7,9 @@
   gap: 30px;
   height: fit-content;
 
-  @media (max-width: 1680px) {
-    gap: 20px;
+    @media (max-width: 1024px) {
+      flex-direction: column;
   }
-
-  @media (max-width:   1280px) {
-    flex-direction: column;
-}
 
   .left-side {
     background-color: #FFFFFF;
@@ -23,11 +19,6 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-
-    @media (max-width: 1680px) {
-  padding-left: 20px;
-      padding-right: 10px;
-    }
 
 
     .line {
@@ -48,6 +39,7 @@
         display: flex;
         gap: 16px;
         align-items: center;
+
         p {
           font-weight: 500;
           font-size: 16px;
@@ -69,12 +61,15 @@
 
     .input-group {
       display: flex;
-      flex-wrap: wrap;
       gap: 16px;
 
-      @media (max-width: 1680px) {
+
+      @media (max-width: 1024px) {
+        display: flex;
         flex-direction: column;
-        gap: 6px;
+        gap: 9px;
+        justify-content: center;
+        align-items: center;
       }
 
       input {
@@ -84,12 +79,17 @@
         background-color: #F5F5F5;
         border: none;
         outline: none;
+
+        @media (max-width: 1280px) {
+          padding: 13px 16px;
+        }
+
       }
     }
 
     .message-input {
       textarea {
-min-width: 600px;
+        min-width: 600px;
         height: 150px;
         padding: 13px 16px;
         border-radius: 4px;
@@ -97,9 +97,9 @@ min-width: 600px;
         border: none;
         resize: none;
 
-        @media (max-width: 1680px) {
-          min-width: 300px;
-          height: 63px;
+        @media (max-width: 1024px) {
+          min-width: 340px;
+
         }
 
       }
@@ -109,9 +109,14 @@ min-width: 600px;
       display: flex;
       justify-content: flex-end;
 
-      @media (max-width: 1680px) {
-        justify-content: flex-start;
+
+      @media (max-width: 1024px) {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
       }
+
       button {
         padding: 12px 40px;
         border-radius: 4px;
@@ -132,4 +137,3 @@ min-width: 600px;
     }
   }
 }
-
