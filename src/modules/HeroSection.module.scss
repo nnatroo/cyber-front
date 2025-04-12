@@ -97,7 +97,23 @@ $background-color_8: #80808080;
   display: flex;
   justify-content: center;
   margin-top: 72px;
+  position: relative;
+  right: 140px;
 }
+
+@media only screen and (max-width: 768px) {
+  .hero-img-wrapper {
+    right: 0; /* Adjust right position for mobile */
+    margin-top: -100px; /* Reduce margin-top to move the photo higher */
+  }
+
+  .hero-content-wrapper {
+    margin-bottom: 100px;
+  }
+}
+
+
+
 .hero-img {
   width: 406px;
   top: 72px;
@@ -565,9 +581,7 @@ $background-color_8: #80808080;
     justify-content: center;
     margin-top: 10.5px;
   }
-  .hero-img-wrapper {
-    margin-top: 0;
-  }
+
   .hero-img {
     clip-path: inset(0 0 50.85% 0);
     top: 48px;
