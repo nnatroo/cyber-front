@@ -116,9 +116,12 @@
       }
 
       .footer-links {
+        color: #CFCFCF;
+
         @media (max-width: 768px) {
           padding-left: 0;
           list-style: none;
+          color: #CFCFCF;
         }
 
         li {
@@ -209,6 +212,10 @@
         height: 16px;
 
         @media (max-width: 480px) {
+          width: 24px;
+          height: 24px;
+        }
+        @media (max-width: 768px) {
           width: 24px;
           height: 24px;
         }
