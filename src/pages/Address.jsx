@@ -9,30 +9,15 @@ import subtract from "../assets/subtract.svg"
 import line from "../assets/line.svg"
 import line2 from "../assets/line-second.svg"
 import save from "../assets/save.svg"
+import Header from "../components/Header.jsx";
+
 export const Address = () => {
-    const [addresses, setAddresses] = useState(() => {
+    const [addresses, setAddresses] = useState([]);
+
+    useEffect(() => {
         const savedAddresses = localStorage.getItem("addresses");
-        return savedAddresses
-            ? JSON.parse(savedAddresses)
-            : [
-                {
-                    id: 1,
-                    label: "Home",
-                    name: "2118 Thornridge",
-                    details: "2118 Thornridge Cir. Syracuse, Connecticut 35624",
-                    phone: "(209) 555-0104",
-                    isEditing: false,
-                },
-                {
-                    id: 2,
-                    label: "Office",
-                    name: "Headoffice",
-                    details: "2715 Ash Dr. San Jose, South Dakota 83475",
-                    phone: "(704) 555-0127",
-                    isEditing: false,
-                },
-            ];
-    });
+        setAddresses(JSON.parse(savedAddresses) ?? []);
+    }, []);
 
     const [selectedAddress, setSelectedAddress] = useState(() => {
         const savedSelected = localStorage.getItem("selectedAddress");
@@ -111,6 +96,7 @@ export const Address = () => {
 
     return (
         <>
+            <Header />
             <div className={classes["stepper"]}>
                 <div className={classes["step"]}>
                     <div className={classes["step-icon"]}><img src={vector} alt={"destination"}/></div>
@@ -192,32 +178,34 @@ export const Address = () => {
                                 </div>
                             ) : (
                                 <div className={classes["address"]}>
-                                    <input
-                                        type="radio"
-                                        name="address"
-                                        value={address.id}
-                                        checked={selectedAddress === address.id}
-                                        onChange={() => setSelectedAddress(address.id)}
-                                    />
-                                    <div className={classes["address-info"]}>
-                                        <h2>{address.name} <span className={classes["label"]}>{address.label}</span>
-                                        </h2>
-                                        <div className={classes["address-details-text"]}>
-                                            <p>{address.details}</p>
-                                            <p>{address.phone}</p>
+                                    <div className={classes["address-content"]}>
+                                        <input
+                                            type="radio"
+                                            name="address"
+                                            value={address.id}
+                                            checked={selectedAddress === address.id}
+                                            onChange={() => setSelectedAddress(address.id)}
+                                        />
+                                        <div className={classes["address-info"]}>
+                                            <h2>{address.name} <span className={classes["label"]}>{address.label}</span>
+                                            </h2>
+                                            <div className={classes["address-details-text"]}>
+                                                <p>{address.details}</p>
+                                                <p>{address.phone}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className={classes["btns-add-deletes"]}>
-                                    <button onClick={() => toggleEdit(address.id)}>
+                                    <div>
+                                        <div className={classes["btns-add-deletes"]}>
+                                            <button onClick={() => toggleEdit(address.id)}>
                                                 <img src={edit} alt={"edit"}/>
-                                        </button>
-                                        <button onClick={() => deleteAddress(address.id)}><img src={close} alt={"close"}/></button>
+                                            </button>
+                                            <button onClick={() => deleteAddress(address.id)}><img src={close} alt={"close"}/></button>
+                                        </div>
                                     </div>
                                 </div>
-
                             )}
                         </div>
-
                     </div>
                 ))}
                 <div className={classes["liner"]}>
