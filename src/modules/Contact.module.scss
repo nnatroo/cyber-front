@@ -1,0 +1,139 @@
+
+.main-wrapper {
+  margin-top: 164px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  height: fit-content;
+
+    @media (max-width: 1024px) {
+      flex-direction: column;
+  }
+
+  .left-side {
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 1px 13px 0 #0000000D;
+    padding: 40px 35px 51px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+
+    .line {
+      background-color: #000;
+      height: 1px;
+      opacity: 50%;
+    }
+
+    .contact-div {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+
+      .contact-div-title {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+
+        p {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .right-side {
+    height: auto;
+    padding: 40px 32px;
+    gap: 24px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0 1px 13px 0 #0000000D;
+    display: flex;
+    flex-direction: column;
+
+
+    .input-group {
+      display: flex;
+      gap: 16px;
+
+
+      @media (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input {
+        flex: 1;
+        padding: 13px 16px;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+        border: none;
+        outline: none;
+
+        @media (max-width: 1280px) {
+          padding: 13px 16px;
+        }
+
+      }
+    }
+
+    .message-input {
+      textarea {
+        min-width: 600px;
+        height: 150px;
+        padding: 13px 16px;
+        border-radius: 4px;
+        background-color: #F5F5F5;
+        border: none;
+        resize: none;
+
+        @media (max-width: 1024px) {
+          min-width: 340px;
+
+        }
+
+      }
+    }
+
+    .submit-wrapper {
+      display: flex;
+      justify-content: flex-end;
+
+
+      @media (max-width: 1024px) {
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        padding: 12px 40px;
+        border-radius: 4px;
+        background: black;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.2s;
+        border: 1px solid transparent;
+
+
+        &:hover {
+          background: white;
+          color: black;
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+}
