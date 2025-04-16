@@ -1,6 +1,6 @@
-import classes from '../modules/Banner.module.scss'
+import classes from '../modules/SaleBanner.module.scss'
 
-const BigSummerSale = () => {
+const SaleBanner = () => {
     return (
         <div className={classes['container']}>
             <div className={classes["content"]}>
@@ -16,4 +16,4 @@ const BigSummerSale = () => {
     );
 };
 
-export default BigSummerSale;
+export default SaleBanner;
