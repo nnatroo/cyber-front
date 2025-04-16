@@ -1,14 +1,13 @@
 import {useEffect, useState} from "react";
 import classes from "../modules/Address.module.scss";
-import group from "../assets/credit-card.svg"
-import shopping from "../assets/shopping.svg"
-import vector from "../assets/location.svg"
-import edit from "../assets/edit.svg"
-import close from "../assets/close.svg"
-import subtract from "../assets/subtract.svg"
-import line from "../assets/line.svg"
-import line2 from "../assets/line-second.svg"
-import save from "../assets/save.svg"
+import CreditCard from "../assets/credit-card.svg"
+import Shopping from "../assets/shopping.svg"
+import Location from "../assets/location.svg"
+import Edit from "../assets/edit.svg"
+import Close from "../assets/close.svg"
+import Subtract from "../assets/subtract.svg"
+import Line from "../assets/line.svg"
+import Line2 from "../assets/line-second.svg"
 import Header from "../components/Header.jsx";
 
 export const Address = () => {
@@ -99,7 +98,7 @@ export const Address = () => {
             <Header />
             <div className={classes["stepper"]}>
                 <div className={classes["step"]}>
-                    <div className={classes["step-icon"]}><img src={vector} alt={"destination"}/></div>
+                    <div className={classes["step-icon"]}><img src={Location} alt={"destination"}/></div>
                     <div className={classes["step-label"]}>
                         <span>Step 1</span>
                         <h3>Address</h3>
@@ -107,15 +106,15 @@ export const Address = () => {
                 </div>
 
                 <div className={classes["step"]}>
-                    <div className={classes["step-icon"]}><img src={shopping} alt={"shipping"}/></div>
+                    <div className={classes["step-icon"]}><img src={Shopping} alt={"shipping"}/></div>
                     <div className={classes["step-label"]}>
                         <span>Step 2</span>
                         <h3>Shipping</h3>
                     </div>
                 </div>
 
-                <div className={classes["step"]}>
-                    <div className={classes["step-icon"]}><img src={group} alt={"payment"}/></div>
+                <div className={`${classes["step"]} ${classes["step-mobile"]}`}>
+                    <div className={classes["step-icon"]}><img src={CreditCard} alt={"payment"}/></div>
                     <div className={classes["step-label"]}>
                         <span>Step 3</span>
                         <h3>Payment</h3>
@@ -198,9 +197,9 @@ export const Address = () => {
                                     <div>
                                         <div className={classes["btns-add-deletes"]}>
                                             <button onClick={() => toggleEdit(address.id)}>
-                                                <img src={edit} alt={"edit"}/>
+                                                <img src={Edit} alt={"edit"}/>
                                             </button>
-                                            <button onClick={() => deleteAddress(address.id)}><img src={close} alt={"close"}/></button>
+                                            <button onClick={() => deleteAddress(address.id)}><img src={Close} alt={"close"}/></button>
                                         </div>
                                     </div>
                                 </div>
@@ -221,9 +220,9 @@ export const Address = () => {
                     }}
                             disabled={isAnyAddressInvalid()}
                     >
-                        <img src={line} alt={"line"} className={classes["line"]}/>
-                        <img src={subtract} alt={"add"}/>
-                        <img src={line2} alt={"line"} className={classes["line"]}/>
+                        <img src={Line} alt={"line"} className={classes["line"]}/>
+                        <img src={Subtract} alt={"add"}/>
+                        <img src={Line2} alt={"line"} className={classes["line"]}/>
                     </button>
                 </div>
                 <div className={classes["buttons"]}>
