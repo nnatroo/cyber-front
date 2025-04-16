@@ -4,6 +4,7 @@ import address from '../assets/address-icon.png'
 import payment from '../assets/payment-icon.png'
 import Calendar from 'react-calendar';
 import {useState} from "react";
+import Header from "../components/Header.jsx";
 const Shipping = () => {
 
 
@@ -18,6 +19,7 @@ const Shipping = () => {
 
     return (
         <>
+            <Header></Header>
             <div className={classes['main-wrapper']}>
                 <div className={classes['page-options']}>
                     <div className={classes['steps']}>
