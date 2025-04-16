@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import classes from "../modules/Address.module.scss";
-import group from "../assets/group.svg"
+import group from "../assets/credit-card.svg"
 import shopping from "../assets/shopping.svg"
-import vector from "../assets/vector.svg"
+import vector from "../assets/location.svg"
 import edit from "../assets/edit.svg"
 import close from "../assets/close.svg"
 import subtract from "../assets/subtract.svg"
