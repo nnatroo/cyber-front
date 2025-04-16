@@ -31,7 +31,7 @@ const Shipping = () => {
 
                     </div>
 
-                    <div className={classes['steps']}>
+                    <div className={classes['steps-active']}>
                         <img src={address}/>
                         <span>
                               <p>step 2</p>
