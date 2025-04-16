@@ -19,7 +19,7 @@ const Shipping = () => {
 
     return (
         <>
-            <Header></Header>
+        <Header></Header>
             <div className={classes['main-wrapper']}>
                 <div className={classes['page-options']}>
                     <div className={classes['steps']}>
