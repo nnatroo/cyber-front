@@ -1,11 +1,11 @@
 import {Header} from "../components/Header.jsx";
-import Banner from "../components/Banner.jsx"
+import {Categories} from "../components/Categories.jsx";
 
 const Home = () => {
     return (
         <>
-            {/*<Header />*/}
-            <Banner/>
+            <Header/>
+            <Categories/>
         </>
     )
 };
