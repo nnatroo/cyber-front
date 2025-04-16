@@ -1,10 +1,12 @@
 import classes from '../modules/Error.module.scss'
 import {Link} from "react-router";
+import Header from "../components/Header.jsx";
 
 export const Error = () => {
 
     return (
         <>
+            <Header></Header>
             <div className={classes['main-wrapper']}>
                 <div className={classes['inside-content']}>
                     <h1>404 Not Found</h1>

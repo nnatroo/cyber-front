@@ -2,6 +2,7 @@ import classes from '../modules/Contact.module.scss'
 import phone from '../assets/icons-phone.svg'
 import mail from '../assets/icons-mail.svg'
 import {useState} from "react";
+import {Header} from "../components/Header.jsx";
 
 export const Contact = () => {
 
@@ -57,6 +58,8 @@ export const Contact = () => {
 
 
     return (
+ <>
+     <Header></Header>
         <div className={classes['main-wrapper']}>
             <div className={classes['left-side']}>
                 <div className={classes['contact-div']}>
@@ -103,5 +106,6 @@ export const Contact = () => {
                 </div>
             </div>
         </div>
+ </>
     )
 }
