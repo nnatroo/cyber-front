@@ -20,7 +20,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-left: 0%;
+      margin-left: 0;
     }
   }
 
@@ -200,6 +200,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   h2 {
     font-weight: 500;
     font-size: 49px;
@@ -221,12 +222,14 @@
 .second-line-products {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   .left-second-line-products,
   .right-second-line-products {
     display: flex;
     align-items: center;
     gap: 30px;
   }
+
   .left-second-line-products {
     background-color: #ededed;
   }
@@ -293,15 +296,10 @@
   }
 
   .airpods-img {
-    width: 100%;
     height: 100%;
     object-fit: contain;
     position: absolute;
     overflow: hidden;
-
-    @media (max-width: 1440px) {
-      left: -90px;
-    }
   }
 
   .vision-img-wrapper {
@@ -408,6 +406,7 @@
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
   .feature-product-card {
     display: flex;
     flex-direction: column;
@@ -417,7 +416,6 @@
       margin-bottom: 40px;
     }
   }
-
 
 
   .airpods-card-mobile {
