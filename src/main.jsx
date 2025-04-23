@@ -4,6 +4,7 @@ import {BrowserRouter, Route, Routes} from "react-router";
 import {Contact} from "./pages/Contact.jsx";
 import {Address} from "./pages/Address.jsx";
 import Home from "./pages/Home.jsx";
+import Products from "./pages/Products.jsx";
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/address" element={<Address />} />
+      <Route path="/product" element={<Products/>} />
     </Routes>
   </BrowserRouter>
 )

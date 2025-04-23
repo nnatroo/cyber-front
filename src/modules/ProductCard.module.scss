@@ -1,0 +1,85 @@
+.item {
+  width: 234px;
+  height: 384px;
+  border-radius: 9px;
+  background-color: white;
+  padding: 24px 16px;
+  gap: 16px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media(max-width: 700px) {
+    width: 130px;
+    transform: translateX(-95%);
+  }
+
+  .like-button {
+    border: none;
+    background-color: transparent;
+    transform: translateX(300%);
+    @media(max-width: 700px) {
+      transform: translateX(150%);
+    }
+
+    .like-img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  img {
+    width: 160px;
+    height: 160px;
+  }
+
+  h1 {
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    color: #000000;
+  }
+
+  p {
+    font-family: Inter, serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #000000;
+  }
+
+  .buy-button {
+    width: 183px;
+    height: 48px;
+    padding: 12px 64px;
+    gap: 8px;
+    border-radius: 8px;
+    background-color: #000000;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid #000000;
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    white-space: nowrap;
+    color: #FFFFFF;
+
+    @media(max-width: 700px) {
+      width: 130px;
+    }
+
+    &:hover {
+      border: 1px solid #000000;
+      color: #000000;
+      background-color: #FFFFFF;
+    }
+  }
+}

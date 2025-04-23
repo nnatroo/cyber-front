@@ -16,7 +16,6 @@ export const Header = () => {
         axios.get('http://localhost:5000/menus/navbarItems')
             .then(response => {
                 setNavItems(response.data);
-                console.log('Navbar items:', response.data);
             })
             .catch(error => {
                 console.error('Error fetching data', error);
