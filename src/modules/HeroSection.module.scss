@@ -1,0 +1,500 @@
+.hero-section {
+  height: 632px;
+  background: linear-gradient(90.7deg, #211c24 0.64%, #211c24 101%);
+  overflow: hidden;
+
+  @media (max-width: 1120px) {
+    height: 769px;
+  }
+
+  .hero-section-wrapper {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    margin-left: 10%;
+
+    @media (max-width: 1230px) {
+      flex-direction: row;
+    }
+    @media (max-width: 1115px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-left: 0%;
+    }
+  }
+
+  .hero-content-wrapper {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    padding-top: 188px;
+
+    @media (max-width: 1400px) {
+      padding-top: 188px;
+      gap: 16px;
+    }
+
+    span {
+      font-weight: 600;
+      font-size: 96px;
+      line-height: 72px;
+
+      @media (max-width: 1120px) {
+        font-size: 72px;
+        align-items: center;
+        text-align: center;
+        padding-left: 0;
+      }
+    }
+  }
+
+  .hero-first-line {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    color: #909090;
+
+    @media (max-width: 1120px) {
+      text-align: center;
+    }
+  }
+
+  .hero-title {
+    font-weight: 100;
+    font-size: 96px;
+    line-height: 72px;
+    color: #ffffff;
+
+    @media (max-width: 1120px) {
+      font-size: 72px;
+      text-align: center;
+    }
+  }
+
+  .hero-third-line {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #909090;
+
+    @media (max-width: 1120px) {
+      font-size: 19px;
+      text-align: center;
+    }
+  }
+
+  .hero-btn-wrapper {
+    display: flex;
+
+    @media (max-width: 1120px) {
+      justify-content: center;
+    }
+  }
+
+  .hero-img-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-img {
+    width: 406px;
+    object-fit: contain;
+    margin-right: 180%;
+    height: 100%;
+    @media (max-width: 1600px) {
+      margin-right: 100%;
+    }
+    @media (max-width: 1400px) {
+      object-fit: contain;
+      scale: 0.9999;
+      transition: 0.2s;
+    }
+    @media (max-width: 1304px) {
+      scale: 0.99999;
+      object-fit: contain;
+      margin-top: 16%;
+      margin-left: 60%;
+      transition: 0.2s;
+    }
+
+    @media (max-width: 1150px) {
+      scale: 0.88;
+      object-fit: contain;
+    }
+
+    @media (max-width: 1130px) {
+      scale: 0.88;
+      object-fit: contain;
+      flex-direction: row;
+      margin-top: -20%;
+      margin-left: 120%;
+    }
+    @media (max-width: 600px) {
+      scale: 0.8;
+      margin-top: -20%;
+    }
+  }
+}
+
+.white-btn-large {
+  padding: 16px 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  color: #ffffff;
+  transition: 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: #ffffff;
+    color: #211c24;
+  }
+}
+
+.featured-products-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1120px) {
+    display: none;
+  }
+}
+
+.first-line-products {
+  display: flex;
+  align-items: center;
+
+  p {
+    max-width: 338px;
+  }
+}
+
+.ps5-img-wrapper {
+  position: relative;
+  width: 360px;
+  height: 343px;
+
+  @media (max-width: 1200px) {
+    width: 330px;
+  }
+
+  @media (max-width: 1140px) {
+    width: 320px;
+  }
+}
+
+.ps5-img {
+  position: absolute;
+  left: -64px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.ps5-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  h2 {
+    font-weight: 500;
+    font-size: 49px;
+    line-height: 40px;
+    color: #000000;
+  }
+
+}
+
+.feature-card-description {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #909090;
+  max-width: 305px;
+}
+
+
+.second-line-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .left-second-line-products,
+  .right-second-line-products {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  .left-second-line-products {
+    background-color: #ededed;
+  }
+
+  .right-second-line-products {
+    background-color: #353535;
+  }
+
+  .airpods-details-wrapper {
+    max-width: 159px;
+    right: 70px;
+
+    @media (max-width: 1440px) {
+      right: 45px;
+    }
+
+    @media (max-width: 1220px) {
+      max-width: 120px;
+    }
+
+    h2,
+    span {
+      font-size: 29px;
+      line-height: 40px;
+      color: #000000;
+    }
+
+    h2 {
+      font-weight: 300;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .vision-pro-details-wrapper {
+    max-width: 155px;
+
+    h2,
+    span {
+      font-size: 29px;
+      line-height: 40px;
+      color: #ffffff;
+    }
+
+    h2 {
+      font-weight: 300;
+    }
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .airpods-img-wrapper {
+    position: relative;
+    width: 208px;
+    height: 272px;
+
+    @media (max-width: 1220px) {
+      width: 160px;
+    }
+  }
+
+  .airpods-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    overflow: hidden;
+
+    @media (max-width: 1440px) {
+      left: -90px;
+    }
+  }
+
+  .vision-img-wrapper {
+    position: relative;
+    width: 136px;
+    height: 190px;
+    margin-right: 16px;
+
+    @media (max-width: 1168px) {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 1150px) {
+      margin-right: 4px;
+    }
+  }
+
+  .vision-pro-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: contain;
+  }
+
+}
+
+.right-side-products {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ededed;
+
+  .right-side-products-content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    max-width: 336px;
+    padding: 56px;
+
+    @media (max-width: 1300px) {
+      padding: 32px;
+    }
+
+    @media (max-width: 1200px) {
+      padding: 18px;
+    }
+
+    h2 {
+      font-weight: 100;
+      font-size: 64px;
+      line-height: 56px;
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 64px;
+      line-height: 56px;
+    }
+  }
+
+  .right-side-product-img-wrapper {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.mac-img {
+  @media (max-width: 1300px) {
+    width: 250px;
+  }
+
+  @media (max-width: 1140px) {
+    width: 240px;
+  }
+}
+
+.black-btn-large {
+  padding: 16px 56px;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  margin-top: 16px;
+  transition: 0.2s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #000000;
+    color: #ededed;
+  }
+}
+
+.featured-products-section-mobile {
+  display: none;
+
+  @media (max-width: 1120px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+  .feature-product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      margin-bottom: 40px;
+    }
+  }
+
+
+
+  .airpods-card-mobile {
+    background-color: #ededed;
+  }
+
+  .airpods-img-mobile {
+    width: 192px;
+    margin-top: 40px;
+  }
+
+  .vision-pro-card-mobile {
+    background-color: #353535;
+  }
+
+  .vision-pro-img-mobile {
+    width: 325.87px;
+    margin-top: 40px;
+  }
+
+
+  .ps5-img-mobile {
+    width: 200px;
+    margin-top: 40px;
+  }
+
+  .macbook-card-mobile {
+    background-color: #ededed;
+  }
+
+  .macbook-img-mobile {
+    width: 330.48px;
+    margin-top: 40px;
+  }
+
+  .feature-product-card-title {
+    font-weight: 300;
+    font-size: 34px;
+    line-height: 40px;
+    margin-top: 24px;
+
+    span {
+      font-weight: 500;
+      font-size: 34px;
+      line-height: 40px;
+    }
+  }
+
+  .vision-pro-mobile-title {
+    color: #ffffff;
+  }
+
+  .black-btn-large-mobile {
+    padding: 16px 132px;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: transparent;
+    border: 1px solid #000000;
+    border-radius: 6px;
+    color: #000000;
+    margin-top: 16px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: 0.2s ease;
+
+    &:hover {
+      background-color: #000000;
+      color: #ededed;
+    }
+
+    @media (max-width: 375px) {
+      padding: 16px 110px;
+      width: 300px;
+    }
+  }
+
+}
+
