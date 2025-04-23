@@ -123,7 +123,7 @@ export const Address = () => {
             </div>
 
             <div className={classes["address-container"]}>
-                <h3>Select Address</h3>
+                {addresses.length === 0 ? (<h3>Add Address</h3>) :(<h3>Select Address</h3> ) }
                 {addresses.map((address) => (
                     <div key={address.id} className={classes["address-card"]}>
                         <div className={classes["address-details"]}>
@@ -224,6 +224,7 @@ export const Address = () => {
                         <img src={Subtract} alt={"add"}/>
                         <img src={Line2} alt={"line"} className={classes["line"]}/>
                     </button>
+                    <h3>Add New Address</h3>
                 </div>
                 <div className={classes["buttons"]}>
                     <button className={classes["back-button"]}>Back</button>
