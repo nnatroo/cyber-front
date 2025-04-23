@@ -1,17 +1,15 @@
 import {Header} from "../components/Header.jsx";
-import NewArrival from "../components/NewArrival.jsx"
-import Discounts from "../components/Discounts.jsx"
+import {NewArrivalSection} from "../components/NewArrivalSection.jsx"
+import {DiscountsSection} from "../components/DiscountsSection.jsx"
 
 const Home = () => {
-  return (
-    <>
-     <Header />
-        <br/><br/><br/>
-     <NewArrival/>
-        <br/><br/>
-     <Discounts/>
-    </>
-  )
+    return (
+        <>
+            <Header/>
+            <NewArrivalSection/>
+            <DiscountsSection/>
+        </>
+    )
 };
 
 export default Home

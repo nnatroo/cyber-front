@@ -1,207 +1,118 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.new-arrival_container {
+.discount_container {
+  margin-top: 80px;
   display: grid;
   padding-left: 160px;
   padding-right: 160px;
   gap: 32px;
 
+  @media (max-width: 1920px) {
+    padding-left: 160px;
+    padding-right: 160px;
+  }
+
+  @media (max-width: 1680px) {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  @media (max-width: 1440px) {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
+  @media (max-width: 1280px) {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  @media (max-width: 1024px) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media (max-width: 992px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (max-width: 576px) {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  @media (max-width: 365px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .discount-title {
     font-family: "Inter", sans-serif;
     font-weight: 500;
     transform: translate(42px, 0);
+
+    @media (max-width: 1920px) {
+      transform: translate(35px, 0);
+    }
+
+    @media (max-width: 1440px) {
+      transform: translate(30px, 0);
+    }
+
+    @media (max-width: 1024px) {
+      transform: translate(25px, 0);
+    }
+
+    @media (max-width: 768px) {
+      transform: translate(240px, 0);
+    }
+
+    @media (max-width: 576px) {
+      transform: translate(80px, 0);
+    }
+
+    @media (max-width: 365px) {
+      transform: translate(10px, 0);
+    }
   }
 
-
-
-
   .products-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
     gap: 16px;
     justify-content: center;
 
+    @media (max-width: 1920px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     @media (max-width: 768px) {
-      display: flex;
-      flex-wrap: wrap;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 576px) {
       gap: 10px;
-      justify-content: center;
+    }
+
+    @media (max-width: 365px) {
+      gap: 8px;
     }
 
 
-    .products {
-      width: 268px;
-      height: 432px;
-      background-color: #f6f6f6;
-      border-radius: 9px;
-      gap: 16px;
-
-      @media (max-width: 880px) {
-        max-width: 220px;
-        max-height: 380px;
-
-        .flex-center {
-          h2 {
-            transform: translate(0, 13px);
-            font-size: 18px;
-          }
-
-          p {
-            font-size: 14px;
-          }
-        }
-      }
-
-      @media (max-width: 768px) {
-        width: 180px;
-        height: 340px;
-
-        .flex-center {
-          h2 {
-            transform: translate(0, 13px);
-          }
-        }
-      }
-
-      @media (max-width: 694px) {
-        max-width: 150px;
-        max-height: 310px;
-
-        .flex-center {
-          h2 {
-            transform: translate(0, 13px);
-            font-size: 14px;
-          }
-
-          p {
-            font-size: 12px;
-          }
-        }
-      }
-
-      @media (max-width: 480px) {
-        width: 100%;
-        max-width: 300px;
-        height: 380px;
-      }
-
-      .fav-icon {
-        width: 28px;
-        height: 28px;
-        transform: translate(221px, 17px);
-        cursor: pointer;
-
-        @media (max-width: 880px) {
-          transform: translate(180px, 17px);
-        }
-
-        @media (max-width: 777px) {
-          transform: translate(140px, 17px);
-        }
-
-        @media (max-width: 694px) {
-          transform: translate(115px, 17px);
-        }
-
-        @media (max-width: 480px) {
-          transform: translate(110px, 17px);
-        }
-      }
-
-      .flex-center {
-        width: 100%;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-
-        .products-image {
-          width: 160px;
-          height: 160px;
-
-          @media (max-width: 880px) {
-            width: 120px;
-            height: 120px;
-          }
-
-          @media (max-width: 777px) {
-            width: 100px;
-            height: 100px;
-          }
-
-          @media (max-width: 694px) {
-            width: 80px;
-            height: 80px;
-          }
-
-          @media (max-width: 480px) {
-            width: 75px;
-            height: 75px;
-          }
-        }
-
-        p {
-          width: 78%;
-          font-family: "Inter", sans-serif;
-          font-weight: 500;
-          height: 45px;
-          display: flex;
-          justify-content: center;
-
-          @media (max-width: 480px) {
-            width: 90%;
-            font-size: 14px;
-          }
-
-          @media (max-width: 777px) {
-            width: 90%;
-            font-size: 13px;
-          }
-        }
-
-        h2 {
-          font-family: "Inter", sans-serif;
-          font-weight: 600;
-
-          @media (max-width: 480px) {
-            font-size: 14px;
-          }
-        }
-
-        button {
-          display: block;
-          width: 188px;
-          height: 48px;
-          background-color: black;
-          color: white;
-          font-family: "Inter", sans-serif;
-          font-weight: 500;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transform: translate(0, 20px);
-          transition: all 0.3s;
-
-          @media (max-width: 768px) {
-            width: 160px;
-            height: 42px;
-          }
-
-          @media (max-width: 694px) {
-            width: 130px;
-            height: 35px;
-          }
-
-          @media (max-width: 480px) {
-            width: 120px;
-            height: 30px;
-            font-size: 14px;
-          }
-
-          &:hover {
-            background-color: #282828;
-          }
-        }
-      }
-    }
   }
 }
