@@ -213,7 +213,7 @@
 }
 .address-container .address-card .address-details .edit-address {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 30px;
@@ -247,7 +247,7 @@
 }
 .address-container .address-card .address-details .edit-address .flexes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -259,14 +259,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 @media (max-width: 992px) {
   .address-container .address-card .address-details .edit-address .flexes {
     display: flex;
     flex-direction: column;
-    margin-top: 25px;
   }
 }
 .address-container .address-card .address-details .edit-address .flexes .flexes-text {
@@ -311,7 +310,7 @@
 }
 @media (max-width: 1400px) {
   .address-container .address-card .address-details .edit-address .flexes .btns-add-delete {
-    max-width: 300px;
+    max-width: 350px;
   }
 }
 .address-container .address-card .address-details .edit-address .flexes .btns-add-delete button {
