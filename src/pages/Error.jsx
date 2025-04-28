@@ -12,13 +12,13 @@ export const Error = () => {
                     <h1>404 Not Found</h1>
                     <p>Your visited page not found. You may go home page.</p>
                 </div>
+
                 <div className={classes['btn-wrapper']}>
                     <Link to='/'>
                         <button className={classes['btn']}>
                             <p>Back to Home Page</p>
                         </button>
                     </Link>
-
                 </div>
 
             </div>
