@@ -221,7 +221,7 @@ export const Address = () => {
                             disabled={isAnyAddressInvalid()}
                     >
                         <img src={Line} alt={"line"} className={classes["line"]}/>
-                        <img src={Subtract} alt={"add"}/>
+                        <img src={Subtract} alt={"add"} className={classes["subtract"]}/>
                         <img src={Line2} alt={"line"} className={classes["line"]}/>
                     </button>
                     <h3>Add New Address</h3>
