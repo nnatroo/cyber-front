@@ -9,47 +9,46 @@ export const Contact = () => {
     const [email, setEmail] = useState("")
     const [telephone, setTelephone] = useState("")
     const [error, setError] = useState({username: "", email: "", telephone: ""})
+    const [message, setMessage] = useState("")
 
     const usernameHandler = (event) => {
         setError({...error, username: ""})
         setUsername(event.target.value)
     }
+    const messageHandler = (event) => {
+        setError({...error, message: ""})
+        setMessage(event.target.value)
+    }
 
     const emailHandler = (event) => {
+        setError({...error, email: ""})
         setEmail(event.target.value)
     }
 
     const phoneHandler = (event) => {
+        setError({...error, telephone: ""})
         setTelephone(event.target.value)
     }
 
     const sendMessage = (event) => {
         event.preventDefault();
 
-        if (username.length < 6) {
-            setError({...error, username: "Name isn't valid, it must be at least 6 characters."})
-            return;
-        }
+        const usernameError = username.length < 6 ? "Name isn't valid, it must be at least 6." : "";
+        const emailError = (email.length < 8 || !email.includes("@")) ? "email isn't valid." : "";
+        const phoneError = (telephone.length < 8 || isNaN(telephone)) ? "phone isn't valid." : "";
+        const messageError = message.length ===  0 ? "Message can not be empty" : "";
 
-        if (email.length === 0) {
-            alert("Email can't be empty.");
-            return;
-        } else if (email.length < 8 || !email.includes("@")) {
-            alert("Email is not valid, it must include '@'.");
-            return;
-        }
-
-        if (telephone.length === 0) {
-            alert("Phone number can't be empty.");
-
-        } else if (telephone.length < 8 || isNaN(telephone)) {
-            alert("Phone number is not correct, it must be a number.");
-        }
+        setError({
+            username: usernameError,
+            email: emailError,
+            telephone: phoneError,
+            message:messageError
+        });
     };
 
     return (
         <>
-            <Header></Header>
+            <Header/>
             <div className={classes['main-wrapper']}>
                 <div className={classes['left-side']}>
                     <div className={classes['contact-div']}>
@@ -83,28 +82,30 @@ export const Contact = () => {
                 <div className={classes['right-side']}>
                     <div className={classes['input-group']}>
                         <div className={classes['input-wrapper']}>
-                            {error.username &&
-                                <label className={classes['error']} htmlFor="username">{error.username}</label>}
-                            <input name="username" className={error.username && classes['error']} type='text'
+                            {error.username && <label className={`${error.username ? classes['error'] : ''}`} >{error.username}</label>}
+                            <input name="username"  type='text'
                                    placeholder='Your Name *'
                                    onChange={usernameHandler}/>
                         </div>
                         <div className={classes['input-wrapper']}>
                             {error.email && <label className={classes['error']} htmlFor="email">{error.email}</label>}
-                            <input name="email" className={error.email && classes['error']} type='text'
+                            <input  name="email"  type='text'
                                    placeholder='Your Email *'
                                    onChange={emailHandler}/>
                         </div>
                         <div className={classes['input-wrapper']}>
                             {error.telephone &&
                                 <label className={classes['error']} htmlFor="telephone">{error.telephone}</label>}
-                            <input name="telephone" className={error.username && classes['error']} type='text'
+
+                            <input name="telephone"  type='number'
                                    placeholder='Your Phone *'
                                    onChange={phoneHandler}/>
                         </div>
                     </div>
                     <div className={classes['message-input']}>
-                        <textarea placeholder='Your Message'/>
+                        {error.message &&
+                            <label className={classes['error']} htmlFor="messsage">{error.message}</label>}
+                        <textarea placeholder='Your Message'   onChange={messageHandler}/>
                     </div>
                     <div className={classes['submit-wrapper']}>
                         <button onClick={sendMessage}>
