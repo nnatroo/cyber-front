@@ -8,16 +8,14 @@ import Iphone from "../assets/Iphone-14-mobile.png"
 import SimCard from "../assets/sim-card.png"
 import NFCLogo from "../assets/NFC-logo.png"
 import MasterCard from "../assets/Mastercard-Logo.png"
-
 import Header from "../components/Header.jsx";
 import Footer from "../components/footer.jsx"
 
 export const Payment = () => {
 
-
     return (
         <>
-            <Header />
+            <Header/>
             <div className={classes["stepper"]}>
                 <div className={`${classes["step"]} ${classes["step-mobile"]} ${classes["step-dark"]}`}>
                     <div className={classes["step-icon"]}><img src={Location} alt={"destination"}/></div>
@@ -49,19 +47,22 @@ export const Payment = () => {
                     <h3>Summary</h3>
                     <div className={classes["products-box"]}>
                         <div className={classes["product-box"]}>
-                            <div className={classes["product-image-box"]}> <img src={Iphone} className={classes["images"]}/> </div>
+                            <div className={classes["product-image-box"]}><img src={Iphone}
+                                                                               className={classes["images"]}/></div>
                             <div className={classes["product-name-box"]}><b>Apple Iphone 14 Pro Max 128Gb</b></div>
                             <div className={classes["product-price-box"]}><b>$1399</b></div>
                         </div>
 
                         <div className={classes["product-box"]}>
-                            <div className={classes["product-image-box"]}> <img src={Airpods} className={classes["images"]}/> </div>
+                            <div className={classes["product-image-box"]}><img src={Airpods}
+                                                                               className={classes["images"]}/></div>
                             <div className={classes["product-name-box"]}><b>Airpods Max SIlver</b></div>
                             <div className={classes["product-price-box"]}><b>$549</b></div>
                         </div>
 
                         <div className={classes["product-box"]}>
-                            <div className={classes["product-image-box"]}> <img src={AppleWatch} className={classes["images"]}/> </div>
+                            <div className={classes["product-image-box"]}><img src={AppleWatch}
+                                                                               className={classes["images"]}/></div>
                             <div className={classes["product-name-box"]}><b>Apple Watch Series 9 GPS 41mm</b></div>
                             <div className={classes["product-price-box"]}><b>$399</b></div>
                         </div>
@@ -98,7 +99,6 @@ export const Payment = () => {
                     </div>
 
 
-
                 </div>
 
                 <div className={classes["payment-card"]}>
@@ -118,7 +118,9 @@ export const Payment = () => {
                         <div className={classes["credit-card-shine-box-1"]}></div>
                         <div className={classes["credit-card-shine-box-2"]}></div>
 
-                        <div className={classes["credit-card-numbers"]}>4085 &nbsp; &nbsp; 9536 &nbsp; &nbsp; 8475 &nbsp; &nbsp; 9530</div>
+                        <div
+                            className={classes["credit-card-numbers"]}>4085 &nbsp; &nbsp; 9536 &nbsp; &nbsp; 8475 &nbsp; &nbsp; 9530
+                        </div>
 
                         <div className={classes["credit-card-mastercard-box"]}>
                             <p> &nbsp; &nbsp; &nbsp;Cardholder</p>
@@ -139,21 +141,16 @@ export const Payment = () => {
                     </div>
 
                     <div className={classes["last-box"]}>
-                       <p> <input type={"checkbox"} className={classes["checkbox"]}/> <b>Same as billing address</b></p>
+                        <p><input type={"checkbox"} className={classes["checkbox"]}/> <b>Same as billing address</b></p>
 
                         <div className={classes["buttons-box"]}>
                             <button className={classes["back-btn"]}>Back</button>
                             <button className={classes["pay-btn"]}>Pay</button>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
-
-
-            <Footer />
+            <Footer/>
         </>
     );
 };
