@@ -3,18 +3,18 @@
   display: grid;
   gap: 32px;
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1530px) {
     padding: 56px 100px 56px 100px;
   }
 
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 1440px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
-  @media screen and (max-width: 576px) {
+  @media screen and (max-width: 630px) {
     font-size: 16px;
     padding: 26px 50px 26px 50px;
   }
@@ -27,18 +27,18 @@
     width: fit-content;
 
     @media screen and (max-width: 1680px) {
-      transform: translate(63px, 0);
+      transform: translate(64px, 0);
     }
 
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1530px) {
       transform: translate(3px, 0);
     }
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1440px) {
       transform: translate(0, 0);
     }
 
-    @media screen and (max-width: 476px) {
+    @media screen and (max-width: 530px) {
       gap: 20px;
     }
 
@@ -49,11 +49,11 @@
       cursor: pointer;
       transition: all 0.3s;
 
-      @media screen and (max-width: 576px) {
+      @media screen and (max-width: 630px) {
         font-size: 16px;
       }
 
-      @media screen and (max-width: 476px) {
+      @media screen and (max-width: 530px) {
         font-size: 15px;
       }
 
@@ -74,15 +74,19 @@
     gap: 16px;
     justify-content: center;
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 1440px) {
+      grid-template-columns: auto auto auto;
+    }
+
+    @media screen and (max-width: 1150px) {
       grid-template-columns: 308px 308px;
     }
 
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 630px) {
       grid-template-columns: 268px 268px;
     }
 
-    @media screen and (max-width: 430px) {
+    @media screen and (max-width: 530px) {
       grid-template-columns: 198px 198px;
     }
   }
