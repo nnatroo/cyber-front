@@ -1,0 +1,126 @@
+.footer {
+  background-color: #000000;
+}
+
+@media only screen and (max-width: 1120px) {
+  .footer {
+    background-color: #000000;
+  }
+}
+
+.footerWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 104px;
+}
+
+@media only screen and (max-width: 1120px) {
+  .footerWrapper {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding-top: 48px;
+  }
+}
+
+.descriptionWrapper p {
+  max-width: 384px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 23.87px;
+  color: #cfcfcf;
+}
+
+@media only screen and (max-width: 1120px) {
+  .descriptionWrapper p {
+    margin-top: 16px;
+  }
+}
+
+.footerOptionsWrapper {
+  display: flex;
+  gap: 32px;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 1120px) {
+  .footerOptionsWrapper {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 32px;
+  }
+}
+
+.footerOptionsWrapper ul li {
+  width: 295.5px;
+  list-style: none;
+}
+
+.firstOptionLine li,
+.secondOptionLine li {
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 32px;
+  color: #cfcfcf;
+}
+
+.boldFooterOption {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  color: #ffffff !important;
+}
+
+@media only screen and (max-width: 1120px) {
+  .boldFooterOption {
+    margin-top: 0 !important;
+  }
+}
+
+.socialWrapper {
+  display: flex;
+  gap: 36.33px;
+  padding-top: 24px;
+  padding-bottom: 104px;
+}
+
+@media only screen and (max-width: 1120px) {
+  .socialWrapper {
+    padding-top: 32px;
+  }
+}
+
+.socialWrapper img {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.socialWrapper img:hover {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 1120px) {
+  .socialWrapper {
+    justify-content: center;
+    margin-top: 32px;
+    padding-bottom: 48px;
+  }
+}
+
+.container {
+  max-width: 1120px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1168px) {
+  .container {
+    padding-inline: 24px;
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  .container {
+    padding-inline: 16px;
+  }
+}
