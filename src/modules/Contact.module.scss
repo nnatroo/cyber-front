@@ -1,5 +1,6 @@
 .main-wrapper {
   margin-top: 164px;
+  margin-bottom: 165px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +15,7 @@
     background-color: #FFFFFF;
     border-radius: 4px;
     box-shadow: 0 1px 13px 0 #0000000D;
-    padding: 25px 35px 51px;
+    padding: 21px 35px 51px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -130,6 +131,7 @@
         z-index: 1000;
       }
       textarea {
+        outline: none;
         min-width: 600px;
         height: 150px;
         padding: 13px 16px;

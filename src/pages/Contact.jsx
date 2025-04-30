@@ -3,12 +3,13 @@ import phone from '../assets/icons-phone.svg'
 import mail from '../assets/icons-mail.svg'
 import {useState} from "react";
 import {Header} from "../components/Header.jsx";
+import {Footer} from "../components/Footer.jsx";
 
 export const Contact = () => {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [telephone, setTelephone] = useState("")
-    const [error, setError] = useState({username: "", email: "", telephone: ""})
+    const [error, setError] = useState({username: "", email: "", telephone: "", message: ""})
     const [message, setMessage] = useState("")
 
     const usernameHandler = (event) => {
@@ -32,12 +33,10 @@ export const Contact = () => {
 
     const sendMessage = (event) => {
         event.preventDefault();
-
         const usernameError = username.length < 6 ? "Name isn't valid, it must be at least 6." : "";
-        const emailError = (email.length < 8 || !email.includes("@")) ? "email isn't valid." : "";
-        const phoneError = (telephone.length < 8 || isNaN(telephone)) ? "phone isn't valid." : "";
+        const emailError = (email.length < 8 || !email.includes("@")) ? "Email isn't valid." : "";
+        const phoneError = (telephone.length < 8 || isNaN(telephone)) ? "Phone isn't valid." : "";
         const messageError = message.length ===  0 ? "Message can not be empty" : "";
-
         setError({
             username: usernameError,
             email: emailError,
@@ -114,6 +113,7 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 }
