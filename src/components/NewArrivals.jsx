@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useState} from "react";
+import classes from "../modules/NewArrivals.module.css";
 export const NewArrivals = () => {
     const [products, setProducts] = useState([]);
     axios.get('/http://localhost:5000/products/newArrival')
@@ -16,7 +17,7 @@ export const NewArrivals = () => {
         });
     return (
         <>
-            <div className="container">
+            <div>
 
             </div>
         </>
