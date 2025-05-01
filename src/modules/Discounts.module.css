@@ -5,6 +5,9 @@
   align-items: center;
   margin-bottom: 80px;
 }
+.discounts .discount-title {
+  margin-bottom: 32px;
+}
 .discounts .discount-title h2 {
   font-weight: 500;
   font-size: 24px;

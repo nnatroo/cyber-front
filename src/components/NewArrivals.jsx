@@ -19,11 +19,11 @@ export const NewArrivals = () => {
     return (
         <>
             <div className={classes["product-container"]}>
-                {productData.map((product, index) => (
-                    <div className={classes["product-card"]} key={index}>
-                        <div className={classes["new-arrival-item"]}>
+                <div className={classes["product-card"]}>
+                    {productData.map((product, index) => (
+                        <div key={index} className={classes["new-arrival-item"]}>
                             <figure className={classes["new-arrival-image"]}>
-                                <img src={product.image} alt="" />
+                                <img src={product.image} alt=""/>
                             </figure>
                             <div className={classes["new-arrival-info"]}>
                                 <p>{product.name}</p>
@@ -32,9 +32,10 @@ export const NewArrivals = () => {
 
                             <button className={classes["buy-btn"]}>Buy Now</button>
                         </div>
-                    </div>
-                ))}
-            </div>
-        </>
-    );
-};
+
+                        ))}
+                     </div>
+                </div>
+            </>
+            );
+            };
