@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  margin-left: 135px;
+}
+.product-container .product-card {
+  width: 268px;
+  height: 432px;
+  padding: 24px 16px;
+  gap: 16px;
+  border-radius: 8px;
+  background-color: #F6F6F6;
+}
+.product-container .product-card .buy-btn {
+  background-color: black;
+  border: none;
+  border-radius: 8px;
+  height: 48px;
+  width: 188px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=NewArrivals.module.css.map */
