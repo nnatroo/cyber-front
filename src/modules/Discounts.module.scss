@@ -1,0 +1,78 @@
+.discounts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+
+  .discount-title{
+    h2{
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      text-align: center;
+    }
+  }
+  .discounts-product{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    .discounts-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #F6F6F6;
+      padding: 24px 16px 24px 16px;
+      box-sizing: border-box;
+      .discounts-info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        width: 236px;
+
+
+        h3{
+          font-weight: 600;
+          font-size: 24px;
+          line-height: 24px;
+          text-align: center;
+          color: #000000;
+        }
+        p{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 24px;
+          text-align: center;
+          color: #000000;
+        }
+      }
+      .buy-btn{
+        width: 188px;
+        height: 48px;
+        background: #000000;
+        gap: 8px;
+        border-radius: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        text-align: center;
+        color: #FFFFFF;
+        margin-top: 24px;
+        cursor: pointer;
+        &:hover{
+          background: #FFFFFF;
+          color: #000000;
+          transition: all 0.2s;
+        }
+
+      }
+    }
+
+  }
+}

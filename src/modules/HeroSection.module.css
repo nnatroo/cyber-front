@@ -1,0 +1,481 @@
+.hero-section {
+  height: 632px;
+  background: linear-gradient(90.7deg, #211c24 0.64%, #211c24 101%);
+  overflow: hidden;
+}
+@media (max-width: 1120px) {
+  .hero-section {
+    height: 769px;
+  }
+}
+.hero-section .hero-section-wrapper {
+  display: flex;
+  overflow: hidden;
+  justify-content: space-between;
+  margin-left: 10%;
+}
+@media (max-width: 1230px) {
+  .hero-section .hero-section-wrapper {
+    flex-direction: row;
+  }
+}
+@media (max-width: 1115px) {
+  .hero-section .hero-section-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+.hero-section .hero-content-wrapper {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  padding-top: 188px;
+}
+@media (max-width: 1400px) {
+  .hero-section .hero-content-wrapper {
+    padding-top: 188px;
+    gap: 16px;
+  }
+}
+.hero-section .hero-content-wrapper span {
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 72px;
+}
+@media (max-width: 1120px) {
+  .hero-section .hero-content-wrapper span {
+    font-size: 72px;
+    align-items: center;
+    text-align: center;
+    padding-left: 0;
+  }
+}
+.hero-section .hero-first-line {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 32px;
+  color: #909090;
+}
+@media (max-width: 1120px) {
+  .hero-section .hero-first-line {
+    text-align: center;
+  }
+}
+.hero-section .hero-title {
+  font-weight: 100;
+  font-size: 96px;
+  line-height: 72px;
+  color: #ffffff;
+}
+@media (max-width: 1120px) {
+  .hero-section .hero-title {
+    font-size: 72px;
+    text-align: center;
+  }
+}
+.hero-section .hero-third-line {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #909090;
+}
+@media (max-width: 1120px) {
+  .hero-section .hero-third-line {
+    font-size: 19px;
+    text-align: center;
+  }
+}
+.hero-section .hero-btn-wrapper {
+  display: flex;
+}
+@media (max-width: 1120px) {
+  .hero-section .hero-btn-wrapper {
+    justify-content: center;
+  }
+}
+.hero-section .hero-img-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.hero-section .hero-img {
+  width: 406px;
+  object-fit: contain;
+  margin-right: 180%;
+  height: 100%;
+}
+@media (max-width: 1600px) {
+  .hero-section .hero-img {
+    margin-right: 100%;
+  }
+}
+@media (max-width: 1400px) {
+  .hero-section .hero-img {
+    object-fit: contain;
+    scale: 0.9999;
+    transition: 0.2s;
+  }
+}
+@media (max-width: 1304px) {
+  .hero-section .hero-img {
+    scale: 0.99999;
+    object-fit: contain;
+    margin-top: 16%;
+    margin-left: 60%;
+    transition: 0.2s;
+  }
+}
+@media (max-width: 1150px) {
+  .hero-section .hero-img {
+    scale: 0.88;
+    object-fit: contain;
+  }
+}
+@media (max-width: 1130px) {
+  .hero-section .hero-img {
+    scale: 0.88;
+    object-fit: contain;
+    flex-direction: row;
+    margin-top: -20%;
+    margin-left: 120%;
+  }
+}
+@media (max-width: 600px) {
+  .hero-section .hero-img {
+    scale: 0.8;
+    margin-top: -20%;
+  }
+}
+
+.white-btn-large {
+  padding: 16px 56px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  color: #ffffff;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.white-btn-large:hover {
+  background: #ffffff;
+  color: #211c24;
+}
+
+.featured-products-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 1120px) {
+  .featured-products-section {
+    display: none;
+  }
+}
+
+.first-line-products {
+  display: flex;
+  align-items: center;
+}
+.first-line-products p {
+  max-width: 338px;
+}
+
+.ps5-img-wrapper {
+  position: relative;
+  width: 360px;
+  height: 343px;
+}
+@media (max-width: 1200px) {
+  .ps5-img-wrapper {
+    width: 330px;
+  }
+}
+@media (max-width: 1140px) {
+  .ps5-img-wrapper {
+    width: 320px;
+  }
+}
+
+.ps5-img {
+  position: absolute;
+  left: -64px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.ps5-details-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.ps5-details-wrapper h2 {
+  font-weight: 500;
+  font-size: 49px;
+  line-height: 40px;
+  color: #000000;
+}
+
+.feature-card-description {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #909090;
+  max-width: 305px;
+}
+
+.second-line-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.second-line-products .left-second-line-products,
+.second-line-products .right-second-line-products {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.second-line-products .left-second-line-products {
+  background-color: #ededed;
+}
+.second-line-products .right-second-line-products {
+  background-color: #353535;
+}
+.second-line-products .airpods-details-wrapper {
+  max-width: 159px;
+  right: 70px;
+}
+@media (max-width: 1440px) {
+  .second-line-products .airpods-details-wrapper {
+    right: 45px;
+  }
+}
+@media (max-width: 1220px) {
+  .second-line-products .airpods-details-wrapper {
+    max-width: 120px;
+  }
+}
+.second-line-products .airpods-details-wrapper h2,
+.second-line-products .airpods-details-wrapper span {
+  font-size: 29px;
+  line-height: 40px;
+  color: #000000;
+}
+.second-line-products .airpods-details-wrapper h2 {
+  font-weight: 300;
+}
+.second-line-products .airpods-details-wrapper span {
+  font-weight: 500;
+}
+.second-line-products .vision-pro-details-wrapper {
+  max-width: 155px;
+}
+.second-line-products .vision-pro-details-wrapper h2,
+.second-line-products .vision-pro-details-wrapper span {
+  font-size: 29px;
+  line-height: 40px;
+  color: #ffffff;
+}
+.second-line-products .vision-pro-details-wrapper h2 {
+  font-weight: 300;
+}
+.second-line-products .vision-pro-details-wrapper span {
+  font-weight: 500;
+}
+.second-line-products .airpods-img-wrapper {
+  position: relative;
+  width: 208px;
+  height: 272px;
+}
+@media (max-width: 1220px) {
+  .second-line-products .airpods-img-wrapper {
+    width: 160px;
+  }
+}
+.second-line-products .airpods-img {
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  overflow: hidden;
+}
+.second-line-products .vision-img-wrapper {
+  position: relative;
+  width: 136px;
+  height: 190px;
+  margin-right: 16px;
+}
+@media (max-width: 1168px) {
+  .second-line-products .vision-img-wrapper {
+    margin-right: 8px;
+  }
+}
+@media (max-width: 1150px) {
+  .second-line-products .vision-img-wrapper {
+    margin-right: 4px;
+  }
+}
+.second-line-products .vision-pro-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: contain;
+}
+
+.right-side-products {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ededed;
+}
+.right-side-products .right-side-products-content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-width: 336px;
+  padding: 56px;
+}
+@media (max-width: 1300px) {
+  .right-side-products .right-side-products-content {
+    padding: 32px;
+  }
+}
+@media (max-width: 1200px) {
+  .right-side-products .right-side-products-content {
+    padding: 18px;
+  }
+}
+.right-side-products .right-side-products-content h2 {
+  font-weight: 100;
+  font-size: 64px;
+  line-height: 56px;
+}
+.right-side-products .right-side-products-content span {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 56px;
+}
+.right-side-products .right-side-product-img-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1300px) {
+  .mac-img {
+    width: 250px;
+  }
+}
+@media (max-width: 1140px) {
+  .mac-img {
+    width: 240px;
+  }
+}
+
+.black-btn-large {
+  padding: 16px 56px;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  margin-top: 16px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.black-btn-large:hover {
+  background-color: #000000;
+  color: #ededed;
+}
+
+.featured-products-section-mobile {
+  display: none;
+}
+@media (max-width: 1120px) {
+  .featured-products-section-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .featured-products-section-mobile {
+    grid-template-columns: 1fr;
+  }
+}
+.featured-products-section-mobile .feature-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.featured-products-section-mobile .feature-product-card p {
+  margin-bottom: 40px;
+}
+.featured-products-section-mobile .airpods-card-mobile {
+  background-color: #ededed;
+}
+.featured-products-section-mobile .airpods-img-mobile {
+  width: 192px;
+  margin-top: 40px;
+}
+.featured-products-section-mobile .vision-pro-card-mobile {
+  background-color: #353535;
+}
+.featured-products-section-mobile .vision-pro-img-mobile {
+  width: 325.87px;
+  margin-top: 40px;
+}
+.featured-products-section-mobile .ps5-img-mobile {
+  width: 200px;
+  margin-top: 40px;
+}
+.featured-products-section-mobile .macbook-card-mobile {
+  background-color: #ededed;
+}
+.featured-products-section-mobile .macbook-img-mobile {
+  width: 330.48px;
+  margin-top: 40px;
+}
+.featured-products-section-mobile .feature-product-card-title {
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 40px;
+  margin-top: 24px;
+}
+.featured-products-section-mobile .feature-product-card-title span {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 40px;
+}
+.featured-products-section-mobile .vision-pro-mobile-title {
+  color: #ffffff;
+}
+.featured-products-section-mobile .black-btn-large-mobile {
+  padding: 16px 132px;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.featured-products-section-mobile .black-btn-large-mobile:hover {
+  background-color: #000000;
+  color: #ededed;
+}
+@media (max-width: 375px) {
+  .featured-products-section-mobile .black-btn-large-mobile {
+    padding: 16px 110px;
+    width: 300px;
+  }
+}
+
+/*# sourceMappingURL=HeroSection.module.css.map */
