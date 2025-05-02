@@ -6,6 +6,9 @@
   margin-bottom: 80px;
 
   .discount-title{
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
     margin-bottom: 32px;
     h2{
       font-weight: 500;
@@ -31,6 +34,17 @@
       box-sizing: border-box;
       border-radius: 9px;
       height: 432px;
+      .discounts-heart{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        .heart-btn{
+          border: none  ;
+          background: transparent;
+        }
+
+      }
       .discounts-info{
         display: flex;
         flex-direction: column;

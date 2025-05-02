@@ -6,6 +6,9 @@
   margin-bottom: 80px;
 }
 .discounts .discount-title {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
   margin-bottom: 32px;
 }
 .discounts .discount-title h2 {
@@ -31,6 +34,16 @@
   box-sizing: border-box;
   border-radius: 9px;
   height: 432px;
+}
+.discounts .discounts-product .discounts-item .discounts-heart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.discounts .discounts-product .discounts-item .discounts-heart .heart-btn {
+  border: none;
+  background: transparent;
 }
 .discounts .discounts-product .discounts-item .discounts-info {
   display: flex;

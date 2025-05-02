@@ -12,6 +12,16 @@
   justify-content: center;
   gap: 16px;
 }
+.product-container .product-card .arrivals-heart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.product-container .product-card .arrivals-heart .heart-btn {
+  border: none;
+  background: transparent;
+}
 .product-container .product-card .new-arrival-item {
   display: flex;
   flex-direction: column;

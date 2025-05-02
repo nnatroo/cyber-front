@@ -12,6 +12,16 @@
     align-items: center;
     justify-content: center;
     gap: 16px;
+    .arrivals-heart{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      .heart-btn{
+        border: none  ;
+        background: transparent;
+      }
+    }
     .new-arrival-item{
       display: flex;
       flex-direction: column;
