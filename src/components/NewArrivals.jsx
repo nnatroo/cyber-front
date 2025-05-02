@@ -23,7 +23,7 @@ export const NewArrivals = () => {
                     {productData.map((product, index) => (
                         <div key={index} className={classes["new-arrival-item"]}>
                             <figure className={classes["new-arrival-image"]}>
-                                <img src={product.image} alt=""/>
+                                <img src={`http://localhost:5000/${product.image}`} alt={product.category} />
                             </figure>
                             <div className={classes["new-arrival-info"]}>
                                 <p>{product.name}</p>

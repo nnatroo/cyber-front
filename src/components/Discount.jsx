@@ -25,10 +25,10 @@ export const Discount = () => {
                     {productData.map((product, index) => (
                         <div key={index} className={classes["discounts-item"]}>
                             <figure className={classes["discounts-image"]}>
-                                <img src={product.image} alt="image"/>
+                                <img src={`http://localhost:5000/${product.image}`} alt={product.category}/>
                             </figure>
                             <div className={classes["discounts-info"]}>
-                                <p>{product.name}</p>
+                            <p>{product.name}</p>
                                 <h3>${product.price}</h3>
                             </div>
 

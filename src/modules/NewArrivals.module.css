@@ -20,6 +20,12 @@
   background: #F6F6F6;
   padding: 24px 16px 24px 16px;
   box-sizing: border-box;
+  border-radius: 9px;
+  height: 432px;
+}
+.product-container .product-card .new-arrival-item figure img {
+  width: 160px;
+  height: 160px;
 }
 .product-container .product-card .new-arrival-item .new-arrival-info {
   display: flex;
@@ -28,6 +34,8 @@
   justify-content: center;
   gap: 16px;
   width: 236px;
+  height: 88px;
+  margin-top: 16px;
 }
 .product-container .product-card .new-arrival-item .new-arrival-info h3 {
   font-weight: 600;

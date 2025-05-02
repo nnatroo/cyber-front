@@ -29,6 +29,8 @@
       background: #F6F6F6;
       padding: 24px 16px 24px 16px;
       box-sizing: border-box;
+      border-radius: 9px;
+      height: 432px;
       .discounts-info{
         display: flex;
         flex-direction: column;
@@ -36,6 +38,7 @@
         justify-content: center;
         gap: 16px;
         width: 236px;
+        margin-top: 16px;
 
 
         h3{
