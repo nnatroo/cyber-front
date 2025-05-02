@@ -7,9 +7,10 @@
 }
 .discounts .discount-title {
   display: flex;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
   margin-bottom: 32px;
+  width: 1120px;
 }
 .discounts .discount-title h2 {
   font-weight: 500;

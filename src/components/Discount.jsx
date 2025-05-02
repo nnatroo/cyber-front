@@ -5,11 +5,8 @@ import redHeart from "../assets/redHeart.svg";
 import heart from "../assets/heart.svg";
 export const Discount = () => {
     const [productData, setProductData] = useState([])
-    const [favourite, setFavourite] = useState(false);
-    const [favouriteData, setFavouriteData] = useState([]);
-    const favouriteHandler = () => {
-        setFavourite(!favourite)
-    }
+    const [favorites, setFavorites] = useState([]);
+
     useEffect(() => {
         axios.get(`http://localhost:5000/products/discounts`)
             .then(function (response) {
@@ -19,7 +16,43 @@ export const Discount = () => {
             .catch(function (error) {
                 console.log(error);
             })
+        try {
+            const favsFromStorage = localStorage.getItem("favorites");
+            const parsed = JSON.parse(favsFromStorage);
+            if (Array.isArray(parsed)) {
+                setFavorites(parsed);
+            } else {
+                setFavorites([]);
+            }
+        } catch (err) {
+            console.error("Failed to parse favorites from localStorage", err);
+            setFavorites([]);
+        }
     }, []);
+    const toggleFavorite = (product) => {
+        const isFav = favorites.some((item) => item.id === product.id);
+        let updatedFavorites;
+
+        if (isFav) {
+            updatedFavorites = favorites.filter((item) => item.id !== product.id);
+        } else {
+            const cleanProduct = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+            };
+            updatedFavorites = [...favorites, cleanProduct];
+        }
+
+        setFavorites(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    };
+
+    // Check if a product is a favorite
+    const isFavorite = (productId) => {
+        return favorites.some((item) => item.id === productId);
+    };
 
     return (
         <>
@@ -31,9 +64,9 @@ export const Discount = () => {
                     {productData.map((product, index) => (
                         <div key={index} className={classes["discounts-item"]}>
                             <div className={classes["discounts-heart"]}>
-                                <button className={classes["heart-btn"]} onClick={()=>{favouriteHandler}}>{favourite ?
-                                    <img src={redHeart} alt="redheart"/>:<img src={heart} alt="heart"/>
-                                }</button>
+                                <button className={classes["heart-btn"]} onClick={() => toggleFavorite(product)}>
+                                    <img src={isFavorite(product.id) ? redHeart : heart} alt="heart"/>
+                                </button>
                             </div>
                             <figure className={classes["discounts-image"]}>
                                 <img src={`http://localhost:5000/${product.image}`} alt={product.category}/>
