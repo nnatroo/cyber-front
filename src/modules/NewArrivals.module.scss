@@ -20,6 +20,12 @@
     @media(max-width: 850px){
       max-width: 552px;
     }
+    @media(max-width: 576px){
+      max-width: 456px;
+    }
+    @media (max-width: 476px) {
+      display: none;
+    }
     h2 {
       font-weight: 500;
       font-size: 18px;
@@ -39,6 +45,33 @@
       font-size: 18px;
       line-height: 32px;
       text-align: center;
+    }
+  }
+  .nav-mobile{
+    display: none;
+    button {
+      background: none;
+      border: none;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      text-align: center;
+    }
+    .dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      gap: 8px;
+      font-size: 18px;
+    }
+    @media (max-width: 476px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 8px;
     }
   }
   .product-card {
@@ -68,6 +101,11 @@
       max-width: 220px;
       max-height: 400px;
     }
+    @media (max-width: 476px){
+      max-width: 163px;
+      max-height: 352px;
+    }
+
     .arrivals-heart {
       display: flex;
       align-items: center;
@@ -93,6 +131,11 @@
           width: 120px;
           height: 120px;
         }
+        @media (max-width: 476px){
+          max-width: 104px;
+          max-height: 104px;
+          margin-top: 8px;
+        }
       }
     }
 
@@ -107,7 +150,10 @@
       margin-top: 16px;
       @media (max-width: 576px) {
         width: 100%;
-
+      }
+      @media (max-width: 476px){
+        width: 100%;
+        margin-top: 8px;
       }
       h3 {
         font-weight: 600;
@@ -123,6 +169,14 @@
         line-height: 24px;
         text-align: center;
         color: #000000;
+        @media (max-width: 476px) {
+          font-size: 16px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 100%;
+          display: block;
+        }
       }
     }
 
@@ -139,6 +193,12 @@
       color: #FFFFFF;
       margin-top: 24px;
       cursor: pointer;
+      @media(max-width: 476px){
+        width: 140px;
+        height: 48px;
+        padding: 12px 20px;
+        margin-top: 16px;
+      }
       &:hover {
         background: #FFFFFF;
         color: #000000;

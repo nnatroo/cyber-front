@@ -18,6 +18,12 @@
     @media (max-width: 850px) {
       max-width: 552px;
     }
+    @media(max-width: 576px){
+      max-width: 456px;
+    }
+    @media (max-width: 476px) {
+      max-width: 342px;
+    }
     h2{
       font-weight: 500;
       font-size: 24px;
@@ -47,6 +53,14 @@
       box-sizing: border-box;
       border-radius: 9px;
       height: 432px;
+      @media (max-width: 576px) {
+        max-width: 220px;
+        max-height: 400px;
+      }
+      @media (max-width: 476px){
+        max-width: 163px;
+        max-height: 352px;
+      }
       .discounts-heart{
         display: flex;
         align-items: center;
@@ -59,6 +73,23 @@
         }
 
       }
+      .discounts-image{
+        img{
+          width: 160px;
+          height: 164px;
+          @media (max-width: 576px) {
+            width: 120px;
+            height: 120px;
+          }
+          @media (max-width: 476px){
+            max-width: 104px;
+            max-height: 104px;
+            margin-top: 8px;
+          }
+        }
+
+
+      }
       .discounts-info{
         display: flex;
         flex-direction: column;
@@ -67,8 +98,13 @@
         gap: 16px;
         width: 236px;
         margin-top: 16px;
-
-
+        @media (max-width: 576px) {
+          width: 100%;
+        }
+        @media (max-width: 476px){
+          width: 100%;
+          margin-top: 8px;
+        }
         h3{
           font-weight: 600;
           font-size: 24px;
@@ -82,6 +118,14 @@
           line-height: 24px;
           text-align: center;
           color: #000000;
+          @media (max-width: 476px) {
+            font-size: 16px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+            display: block;
+          }
         }
       }
       .buy-btn{
@@ -97,6 +141,12 @@
         color: #FFFFFF;
         margin-top: 24px;
         cursor: pointer;
+        @media(max-width: 476px){
+          width: 140px;
+          height: 48px;
+          padding: 12px 20px;
+          margin-top: 16px;
+        }
         &:hover{
           background: #FFFFFF;
           color: #000000;

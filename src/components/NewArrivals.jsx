@@ -7,6 +7,7 @@ import redHeart from "../assets/redHeart.svg";
 export const NewArrivals = () => {
     const [productData, setProductData] = useState([]);
     const [favorites, setFavorites] = useState([]);
+    const [isDropdownOpen, setDropdownOpen] = useState(false);
     useEffect(() => {
         axios.get(`http://localhost:5000/products/newArrival`)
             .then(function (response) {
@@ -49,10 +50,10 @@ export const NewArrivals = () => {
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
     };
 
-    // Check if a product is a favorite
     const isFavorite = (productId) => {
         return favorites.some((item) => item.id === productId);
     };
+    const toggleDropdown = () => setDropdownOpen((prev) => !prev);
     return (
         <>
             <div className={classes["product-container"]}>
@@ -60,6 +61,15 @@ export const NewArrivals = () => {
                     <h2 className={classes["new-arrival-heading"]}>New Arrival</h2>
                     <h2>Bestseller</h2>
                     <h2>Featured products</h2>
+                </div>
+                <div className={classes["nav-mobile"]}>
+                    <button onClick={toggleDropdown}>New Arrival</button>
+                    {isDropdownOpen && (
+                        <ul className={classes["dropdown"]}>
+                            <li>Bestseller</li>
+                            <li>Featured Products</li>
+                        </ul>
+                    )}
                 </div>
                 <div className={classes["product-card"]}>
                     {productData.map((product) => (
