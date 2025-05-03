@@ -55,16 +55,14 @@ export const NewArrivals = () => {
     };
     return (
         <>
-            <div className={classes["category-section"]}>
+            <div className={classes["product-container"]}>
                 <div className={classes["category-nav"]}>
                     <h2 className={classes["new-arrival-heading"]}>New Arrival</h2>
                     <h2>Bestseller</h2>
                     <h2>Featured products</h2>
                 </div>
-            </div>
-            <div className={classes["product-container"]}>
                 <div className={classes["product-card"]}>
-                {productData.map((product) => (
+                    {productData.map((product) => (
                         <div key={product._id || product.id} className={classes["new-arrival-item"]}>
                             <div className={classes["arrivals-heart"]}>
                                 <button className={classes["heart-btn"]} onClick={() => toggleFavorite(product)}>

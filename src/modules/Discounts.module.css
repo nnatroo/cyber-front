@@ -12,6 +12,16 @@
   margin-bottom: 32px;
   width: 1120px;
 }
+@media (max-width: 1150px) {
+  .discounts .discount-title {
+    max-width: 836px;
+  }
+}
+@media (max-width: 850px) {
+  .discounts .discount-title {
+    max-width: 552px;
+  }
+}
 .discounts .discount-title h2 {
   font-weight: 500;
   font-size: 24px;
@@ -24,6 +34,16 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+}
+@media (max-width: 1150px) {
+  .discounts .discounts-product {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 850px) {
+  .discounts .discounts-product {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .discounts .discounts-product .discounts-item {
   display: flex;
