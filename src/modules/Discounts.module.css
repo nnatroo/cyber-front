@@ -45,6 +45,7 @@
 .discounts .discounts-product .discounts-item .discounts-heart .heart-btn {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 .discounts .discounts-product .discounts-item .discounts-info {
   display: flex;

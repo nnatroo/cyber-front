@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import classes from "../modules/NewArrivals.module.scss";
 import heart from "../assets/heart.svg";
+import redHeart from "../assets/redHeart.svg";
 
 export const NewArrivals = () => {
     const [productData, setProductData] = useState([]);
-
+    const [favorites, setFavorites] = useState([]);
     useEffect(() => {
         axios.get(`http://localhost:5000/products/newArrival`)
             .then(function (response) {
@@ -15,21 +16,60 @@ export const NewArrivals = () => {
             .catch(function (error) {
                 console.log(error);
             });
+        try {
+            const favsFromStorage = localStorage.getItem("favorites");
+            const parsed = JSON.parse(favsFromStorage);
+            if (Array.isArray(parsed)) {
+                setFavorites(parsed);
+            } else {
+                setFavorites([]);
+            }
+        } catch (err) {
+            console.error("Failed to parse favorites from localStorage", err);
+            setFavorites([]);
+        }
     }, []);
+    const toggleFavorite = (product) => {
+        const isFav = favorites.some((item) => item.id === product.id);
+        let updatedFavorites;
 
+        if (isFav) {
+            updatedFavorites = favorites.filter((item) => item.id !== product.id);
+        } else {
+            const cleanProduct = {
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                image: product.image,
+            };
+            updatedFavorites = [...favorites, cleanProduct];
+        }
+
+        setFavorites(updatedFavorites);
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    };
+
+    // Check if a product is a favorite
+    const isFavorite = (productId) => {
+        return favorites.some((item) => item.id === productId);
+    };
     return (
         <>
             <div className={classes["category-section"]}>
-                <h2 className={classes["new-arrival-heading"]}>New Arrival</h2>
-                <h2>Bestseller</h2>
-                <h2>Featured products</h2>
+                <div className={classes["category-nav"]}>
+                    <h2 className={classes["new-arrival-heading"]}>New Arrival</h2>
+                    <h2>Bestseller</h2>
+                    <h2>Featured products</h2>
+                </div>
             </div>
             <div className={classes["product-container"]}>
                 <div className={classes["product-card"]}>
-                    {productData.map((product) => (
+                {productData.map((product) => (
                         <div key={product._id || product.id} className={classes["new-arrival-item"]}>
                             <div className={classes["arrivals-heart"]}>
-                                <img src={heart} alt="heart icon" />
+                                <button className={classes["heart-btn"]} onClick={() => toggleFavorite(product)}>
+                                    <img src={isFavorite(product.id) ? redHeart : heart} alt="heart"/>
+                                </button>
                             </div>
                             <figure className={classes["new-arrival-image"]}>
                                 <img src={`http://localhost:5000/${product.image}`}
