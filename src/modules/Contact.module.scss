@@ -3,32 +3,29 @@
   margin-bottom: 165px;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 30px;
-  height: fit-content;
 
-  @media (max-width: 1024px) {
+  @media(max-width:1024px){
     flex-direction: column;
+    align-items: center;
   }
-
   .left-side {
     background-color: #FFFFFF;
     border-radius: 4px;
     box-shadow: 0 1px 13px 0 #0000000D;
-    padding: 21px 35px 51px;
+    padding: 21px 35px 51px ;
     display: flex;
     flex-direction: column;
     gap: 32px;
+    box-sizing: border-box;
 
-    @media (max-width: 1024px) {
-      flex-direction: column;
-      padding: 40px 15px 45px;
-
+    @media(max-width:1440px){
+margin-left: 60px;
     }
-    @media (max-width: 1280px) {
-      flex-direction: column;
-      padding: 25px 15px 45px;
 
+    @media(max-width:1024px){
+      margin: 0 auto;
+      width: fit-content;
     }
 
     .line {
@@ -59,7 +56,6 @@
   }
 
   .right-side {
-    height: auto;
     padding: 40px 32px;
     gap: 24px;
     background-color: #FFFFFF;
@@ -67,57 +63,60 @@
     box-shadow: 0 1px 13px 0 #0000000D;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
-    @media (max-width: 1100px) {
-      padding: 50px 32px;
+    @media(max-width:1440px){
+      margin-right: 60px;
     }
-    @media (max-width: 1024px) {
-      padding: 40px 32px;
+
+    @media(max-width:1024px){
+      width: 100%;
+      max-width: 500px;
+      padding: 20px 16px;
+      margin: 0 auto;
     }
 
     .input-group {
       display: flex;
       gap: 16px;
 
+      @media(max-width:1024px){
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
 
       .input-wrapper {
         display: flex;
-        flex-direction: column;
         position: relative;
+
+        @media(max-width:1024px){
+          flex: 1 1 45%;
+          min-width: 140px;
+        }
+
+        input {
+          padding: 13px 16px;
+          border-radius: 4px;
+          background-color: #F5F5F5;
+          border: none;
+          outline: none;
+          box-sizing: border-box;
+
+          @media(max-width:1024px){
+            width: 100%;
+          }
+        }
+
         .error {
           color: #670000;
           font-size: 10px;
           position: absolute;
           top: -15px;
           left: 0;
-          border: 2px solid transparent;
           z-index: 1000;
         }
-
-
-      input {
-        flex: 1;
-        padding: 13px 16px;
-        border-radius: 4px;
-        background-color: #F5F5F5;
-        border: none;
-        outline: none;
-
-        @media (max-width: 1280px) {
-          padding: 13px 16px;
-        }
       }
-
-    }
-
-      @media (max-width: 1024px) {
-        display: flex;
-        flex-direction: column;
-        gap: 9px;
-        justify-content: center;
-        align-items: center;
-      }
-
     }
 
     .message-input {
@@ -132,7 +131,7 @@
       }
       textarea {
         outline: none;
-        min-width: 600px;
+        width: 100%;
         height: 150px;
         padding: 13px 16px;
         border-radius: 4px;
@@ -140,26 +139,19 @@
         border: none;
         resize: none;
         box-sizing: border-box;
-        width: 100%;
+        min-width: 0;
 
-
-        @media (max-width: 1024px) {
-          min-width: 340px;
-
+        @media(max-width:1024px){
+          width: 100%;
         }
       }
     }
-
     .submit-wrapper {
       display: flex;
       justify-content: flex-end;
-
-      @media (max-width: 1024px) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      @media(max-width:1024px){
+justify-content: center;
       }
-
       button {
         padding: 12px 40px;
         border-radius: 4px;
