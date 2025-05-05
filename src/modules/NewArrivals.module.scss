@@ -169,6 +169,10 @@
         line-height: 24px;
         text-align: center;
         color: #000000;
+        height: 48px;
+        @media (max-width: 577px){
+          height: 72px;
+        }
         @media (max-width: 476px) {
           font-size: 16px;
           white-space: nowrap;
