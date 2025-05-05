@@ -1,0 +1,381 @@
+.featured-products-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width: 1120px) {
+  .featured-products-section {
+    display: none;
+  }
+}
+
+.first-line-products {
+  display: flex;
+  align-items: center;
+}
+
+.first-line-products p {
+  max-width: 338px;
+}
+
+.ps5-img-wrapper {
+  position: relative;
+  width: 360px;
+  height: 343px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .ps5-img-wrapper {
+    width: 330px;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .ps5-img-wrapper {
+    width: 320px;
+  }
+}
+
+.ps5-img {
+  position: absolute;
+  left: -64px;
+  transform: scale(1.27);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.ps5-details-wrapper h2 {
+  font-weight: 500;
+  font-size: 49px;
+  line-height: 40px;
+  color: #000000;
+}
+
+.feature-card-description {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #909090;
+  max-width: 305px;
+  text-align: center;
+}
+
+.margin-top-16px {
+  margin-top: 16px;
+}
+
+.margin-top-8px {
+  margin-top: 8px;
+}
+
+.second-line-products {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.left-second-line-products {
+  display: flex;
+  align-items: center;
+  background-color: #ededed;
+  z-index: 2;
+}
+
+.airpods-details-wrapper {
+  max-width: 159px;
+  right: 70px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .airpods-details-wrapper {
+    right: 45px;
+  }
+}
+
+@media only screen and (max-width: 1220px) {
+  .airpods-details-wrapper {
+    max-width: 120px;
+  }
+}
+
+.airpods-details-wrapper h2 {
+  font-weight: 300;
+  font-size: 29px;
+  line-height: 40px;
+  color: #000000;
+}
+
+.airpods-details-wrapper span {
+  font-weight: 500;
+  font-size: 29px;
+  line-height: 40px;
+  color: #000000;
+}
+
+.right-second-line-products {
+  display: flex;
+  align-items: center;
+  background-color: #353535;
+  z-index: 1;
+}
+
+.vision-pro-details-wrapper {
+  max-width: 155px;
+}
+
+.vision-pro-details-wrapper h2 {
+  font-weight: 300;
+  font-size: 29px;
+  line-height: 40px;
+  color: #ffffff;
+}
+
+.vision-pro-details-wrapper span {
+  font-weight: 500;
+  font-size: 29px;
+  line-height: 40px;
+  color: #ffffff;
+}
+
+.airpods-img-wrapper {
+  position: relative;
+  width: 208px;
+  height: 272px;
+}
+
+@media only screen and (max-width: 1220px) {
+  .airpods-img-wrapper {
+    width: 160px;
+  }
+}
+
+.airpods-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+  left: -115px;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1440px) {
+  .airpods-img {
+    left: -90px;
+  }
+}
+
+.vision-img-wrapper {
+  position: relative;
+  width: 136px;
+  height: 190px;
+  margin-right: 16px;
+}
+
+@media only screen and (max-width: 1168px) {
+  .vision-img-wrapper {
+    margin-right: 8px;
+  }
+}
+
+@media only screen and (max-width: 1150px) {
+  .vision-img-wrapper {
+    margin-right: 4px;
+  }
+}
+
+.vision-pro-img {
+  width: 100%;
+  height: 100%;
+  left: -77px;
+  overflow: hidden;
+  object-fit: contain;
+  transform: rotateY(-180deg) scale(2.4);
+  z-index: -1;
+}
+
+.right-side-products {
+  display: flex;
+  justify-content: space-between;
+  background-color: #ededed;
+}
+
+.right-side-products-content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-width: 336px;
+  padding: 56px;
+}
+
+@media only screen and (max-width: 1300px) {
+  .right-side-products-content {
+    padding: 32px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .right-side-products-content {
+    padding: 18px;
+  }
+}
+
+.right-side-products-content h2 {
+  font-weight: 100;
+  font-size: 64px;
+  line-height: 56px;
+}
+
+.right-side-products-content span {
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 56px;
+}
+
+.right-side-product-img-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1300px) {
+  .mac-img {
+    width: 250px;
+  }
+}
+
+@media only screen and (max-width: 1140px) {
+  .mac-img {
+    width: 240px;
+  }
+}
+
+.black-btn-large {
+  padding: 16px 56px;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  margin-top: 16px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.black-btn-large:hover {
+  background-color: #000000;
+  color: #ededed;
+}
+
+/* === Mobile Section === */
+
+.featured-products-section-mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 1120px) {
+  .featured-products-section-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .featured-products-section-mobile {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feature-product-card p {
+  margin-bottom: 40px;
+}
+
+.bottom-margin-none {
+  margin-bottom: 0;
+}
+
+.airpods-card-mobile {
+  background-color: #ededed;
+}
+
+.airpods-img-mobile {
+  width: 192px;
+  margin-top: 40px;
+}
+
+.vision-pro-card-mobile {
+  background-color: #353535;
+}
+
+.vision-pro-img-mobile {
+  width: 325.87px;
+  margin-top: 40px;
+}
+
+.ps5-img-mobile {
+  width: 200px;
+  margin-top: 40px;
+}
+
+.macbook-card-mobile {
+  background-color: #ededed;
+}
+
+.macbook-img-mobile {
+  width: 330.48px;
+  margin-top: 40px;
+}
+
+.feature-product-card-title {
+  font-weight: 300;
+  font-size: 34px;
+  line-height: 40px;
+  margin-top: 24px;
+}
+
+.feature-product-card-title span {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.vision-pro-mobile-title {
+  color: #ffffff;
+}
+
+.black-btn-large-mobile {
+  padding: 16px 132px;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  color: #000000;
+  margin-top: 16px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.black-btn-large-mobile:hover {
+  background-color: #000000;
+  color: #ededed;
+}
+
+@media only screen and (max-width: 375px) {
+  .black-btn-large-mobile {
+    padding: 16px 110px;
+    width: 300px;
+  }
+}
