@@ -1,93 +1,58 @@
 .new-arrival_container {
-  padding: 56px 160px 56px 160px;
-  display: grid;
+  width: 1120px;
+  margin: 56px auto 0 auto;
+  display: flex;
+  flex-direction: column;
   gap: 32px;
 
-  @media screen and (max-width: 1530px) {
-    padding: 56px 100px 56px 100px;
+  @media screen and (max-width: 1280px) {
+    width: 1000px;
   }
 
-  @media screen and (max-width: 1440px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  @media screen and (max-width: 1168px) {
+    width: 900px;
   }
 
-  @media screen and (max-width: 630px) {
-    font-size: 16px;
-    padding: 26px 50px 26px 50px;
+  @media screen and (max-width: 1024px) {
+    width: auto;
+    padding-inline: 50px;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: auto;
+    padding-inline: 25px;
   }
 
   .text-side {
     display: flex;
     gap: 32px;
     color: #8b8b8b;
-    transform: translate(173px, 0);
     width: fit-content;
-
-    @media screen and (max-width: 1680px) {
-      transform: translate(64px, 0);
-    }
-
-    @media screen and (max-width: 1530px) {
-      transform: translate(3px, 0);
-    }
-
-    @media screen and (max-width: 1440px) {
-      transform: translate(0, 0);
-    }
-
-    @media screen and (max-width: 530px) {
-      gap: 20px;
-    }
 
     h3 {
       font-family: "Inter", sans-serif;
-      font-weight: 500;
-      font-size: 18px;
       cursor: pointer;
       transition: all 0.3s;
-
-      @media screen and (max-width: 630px) {
-        font-size: 16px;
-      }
-
-      @media screen and (max-width: 530px) {
-        font-size: 15px;
-      }
+      color: black;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: 0;
 
       &:hover {
         color: black;
       }
     }
-
-    .action {
-      color: black;
-      border-bottom: 2px solid black;
-    }
   }
 
   .products-container {
+    width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 16px;
-    justify-content: center;
 
-    @media screen and (max-width: 1440px) {
-      grid-template-columns: auto auto auto;
-    }
-
-    @media screen and (max-width: 1150px) {
-      grid-template-columns: 308px 308px;
-    }
-
-    @media screen and (max-width: 630px) {
-      grid-template-columns: 268px 268px;
-    }
-
-    @media screen and (max-width: 530px) {
-      grid-template-columns: 198px 198px;
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
     }
   }
 }

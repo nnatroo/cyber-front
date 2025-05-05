@@ -21,8 +21,6 @@ export const NewArrivalSection = () => {
             <div className={classes["new-arrival_container"]}>
                 <div className={classes["text-side"]}>
                     <h3 className={classes["action"]}>New Arrival</h3>
-                    <h3>Bestseller</h3>
-                    <h3>Featured Products</h3>
                 </div>
                 <div className={classes["products-container"]}>
                     {productData.map((product, index) => (
