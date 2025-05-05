@@ -4,7 +4,7 @@ import ShippingIcon from '../assets/shipping-icon.svg'
 import AddressIcon from '../assets/location-icon.svg'
 import PaymentIcon from '../assets/payment-icon.svg'
 import Calendar from 'react-calendar';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Header from "../components/Header.jsx";
 import 'react-calendar/dist/Calendar.css';
 import useShippingDataStore from '../zustand-store/shipping-data.jsx';
@@ -14,6 +14,11 @@ const Shipping = () => {
     const [isCalendarVisible, setCalendarVisible] = useState(false);
     const [formatedSelectedDate, setFormatedSelectedDate] = useState("");
     const [showError, setShowError] = useState(false);
+
+    useEffect(() => {
+        setSelectedMethod(JSON.stringify({ method: "free", date: "17 Oct, 2023" }));
+    }, []);
+
     const {
         selectedMethod,
         setSelectedMethod,
@@ -31,14 +36,19 @@ const inputChangeHandler = (e)=>{
     setSelectedMethod(e.target.value);
         setShowError(false);
 }
-const buttonHandler = () => {
-        if (!selectedMethod) {
+
+    const buttonHandler = () => {
+        const parsed = selectedMethod ? JSON.parse(selectedMethod) : null;
+        if (!selectedMethod || (parsed.method === "schedule" && !parsed.date)) {
             setShowError(true);
-        } else {
-            console.log("Selected Method:", selectedMethod);
+            return;
         }
+        console.log("Selected Method:", parsed);
     };
-return (
+
+
+
+    return (
     <>
         <Header/>
         <div className={`${classes['main-wrapper']} ${layout['container']}`}>
@@ -71,13 +81,13 @@ return (
                 <div className={classes['methods-wrapper']}>
                     <label className={classes['methods']}>
                         <div className={classes['methods-info']}>
-                        <input type="radio"
-                               name="payment-method"
-                               defaultChecked
-                               onChange={inputChangeHandler}
-                               value={JSON.stringify(
-                                   { method: "free", date: "17 Oct, 2023" }
-                               )}/>
+                            <input type="radio"
+                                   name="payment-method"
+                                   defaultChecked
+                                   onChange={inputChangeHandler}
+                                   value={JSON.stringify(
+                                       {method: "free", date: "17 Oct, 2023"}
+                                   )}/>
                             <b>Free</b>
                             <p>Regularly shipment</p>
                         </div>
@@ -90,7 +100,7 @@ return (
                             <input type="radio"
                                    name="payment-method"
                                    value={JSON.stringify(
-                                       {method: "$8.50", date: "1 Oct, 2023" }
+                                       {method: "$8.50", date: "1 Oct, 2023"}
                                    )}
                                    onChange={inputChangeHandler}/>
                             <b>$8.50</b>
@@ -100,44 +110,58 @@ return (
                             <p>1 Oct, 2023</p>
                         </div>
                     </label>
+
                     <label className={classes['methods']}>
                         <div className={classes['methods-info']}>
-                            <input type="radio"
-                                   name="payment-method"
-                                   value={JSON.stringify(
-                                       { method: "schedule",
-                                date: selectedDate ? formatedSelectedDate : null,}
-                                   )}
-                                   onChange={inputChangeHandler}/>
+                            <input
+                                type="radio"
+                                name="payment-method"
+                                value={JSON.stringify({
+                                    method: "schedule",
+                                    date: selectedDate ? formatedSelectedDate : null
+                                })}
+                                checked={selectedMethod === JSON.stringify({
+                                    method: "schedule",
+                                    date: selectedDate ? formatedSelectedDate : null
+                                })}
+                                onChange={inputChangeHandler}
+                            />
                             <b>Schedule</b>
-                            <p>Pick a date when you want to get your delivery</p>
+                            <p>Pick a date for your delivery</p>
                         </div>
                         <div className={classes['methods-date']}>
-                            <div onClick={() => setCalendarVisible(!isCalendarVisible)}
-                                 className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}>
-                                {selectedDate ? formatedSelectedDate : <p> Select Date &gt; </p>}
-                            </div >
-                            {isCalendarVisible && (<div className={classes['calendar-dropdown']}>
-                                <Calendar
-                                    onChange={handleDateChange}
-                                    value={selectedDate || new Date()}
-                                />
-                            </div>)}
+                            <div
+                                onClick={() => setCalendarVisible(prev => !prev)}
+                                className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}
+                            >
+                                {selectedDate ? formatedSelectedDate : <p>Select Date &gt;</p>}
+                            </div>
+
+                            {isCalendarVisible && (
+                                <div className={classes['calendar-dropdown']}>
+                                    <Calendar
+                                        onChange={handleDateChange}
+                                        value={selectedDate || new Date()}
+                                    />
+                                </div>
+                            )}
                         </div>
                     </label>
-                </div>
-                <div className={classes['buttons-wrapper']}>
-                    <button className={classes['btn-back']}>
-                        Back
-                    </button>
 
-                    <button className={classes['btn-next']} onClick={buttonHandler}>
-                        Next
-                    </button>
+                    <div className={classes['buttons-wrapper']}>
+                        <button className={classes['btn-back']}>
+                            Back
+                        </button>
+
+                        <button className={classes['btn-next']} onClick={buttonHandler}>
+                            Next
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </>)
-};
+        </>
+        )
+        };
 
-export default Shipping
+        export default Shipping

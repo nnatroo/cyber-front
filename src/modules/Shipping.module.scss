@@ -133,6 +133,7 @@
               color: #000000;
             }
           }
+
           @media (max-width: 992px) {
             justify-content: center;
             display: flex;
@@ -144,6 +145,16 @@
             top: 30px;
             right: 0;
             z-index: 10;
+
+            .selected-tile {
+              background-color: transparent;
+              color: black;
+              font-weight: bold;
+            }
+
+            .default-tile {
+              color: black;
+            }
           }
         }
         .methods-info {
