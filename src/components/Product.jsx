@@ -1,7 +1,13 @@
 import classes from "../modules/Product.module.scss"
 import favoriteIcon from "../assets/favorites-icon.png";
+import {useDispatch} from "react-redux";
 
 export const Product = ({product}) => {
+    const dispatch = useDispatch();
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
     return (
         <>
             <div className={classes["product"]}>
@@ -12,7 +18,7 @@ export const Product = ({product}) => {
                     <div className={classes['about-product']}>
                         <p>{product?.name}</p>
                         <h2>${product?.price}</h2>
-                        <button>Buy Now</button>
+                        <button  onClick={() => handleAddToCart(product)}>Buy Now</button>
                     </div>
                 </div>
             </div>
