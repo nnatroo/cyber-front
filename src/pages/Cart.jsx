@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import classes from '../modules/ShoppingCart.module.scss';
 import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
+import airpod from "../assets/airpods-mobile.png"
 
 export const ShoppingCart = () => {
     const [products, setProducts] = useState([]);
@@ -17,22 +18,43 @@ export const ShoppingCart = () => {
             <div className={classes["shopping-cart-container"]}>
                 <div className={classes["cart-items"]}>
                     <h2>Shopping Cart</h2>
-                    {products.map((product) => (
-                        <div className={classes["cart-item"]} key={product.id}>
-                            <img src={product.image} alt={product.name}/>
-                            <div className={classes["item-details"]}>
-                                <p className={classes["name"]}>{product.name}</p>
-                                <p className={classes["id"]}>#{product.id}</p>
+                    <div className={classes["cart-item"]}>
+                        <figure>
+                            <img src={airpod} alt={"airpod"}/>
+                        </figure>
+                        <div className={classes["item-details"]}>
+                            <div className={classes["item-header"]}>
+                                <h3 className={classes["name"]}>ipone123</h3>
+                                <div className={classes["functionality"]}>
+                                    <div className={classes["quantity-controls"]}>
+                                        <button>-</button>
+                                        <span></span>
+                                        <button>+</button>
+                                    </div>
+                                    <h3 className={classes["price"]}>$322</h3>
+                                    <button className={classes["remove"]}>×</button>
+                                </div>
                             </div>
-                            <div className={classes["quantity-controls"]}>
-                                <button>-</button>
-                                <span>{product.quantity}</span>
-                                <button>+</button>
-                            </div>
-                            <p className={classes["price"]}>${product.price}</p>
-                            <button className={classes["remove"]}>×</button>
                         </div>
-                    ))}
+                    </div>
+
+
+                    {/*{products.map((product) => (*/}
+                    {/*    <div className={classes["cart-item"]} key={product.id}>*/}
+                    {/*        <img src={product.image} alt={product.name}/>*/}
+                    {/*        <div className={classes["item-details"]}>*/}
+                    {/*            <p className={classes["name"]}>{product.name}</p>*/}
+                    {/*            <p className={classes["id"]}>#{product.id}</p>*/}
+                    {/*        </div>*/}
+                    {/*        <div className={classes["quantity-controls"]}>*/}
+                    {/*            <button>-</button>*/}
+                    {/*            <span></span>*/}
+                    {/*            <button>+</button>*/}
+                    {/*        </div>*/}
+                    {/*        <p className={classes["price"]}>${product.price}</p>*/}
+                    {/*        <button className={classes["remove"]}>×</button>*/}
+                    {/*    </div>*/}
+                    {/*))}*/}
                 </div>
 
                 <div className={classes["order-summary"]}>
