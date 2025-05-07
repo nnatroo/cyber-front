@@ -7,7 +7,7 @@ import Calendar from 'react-calendar';
 import {useEffect, useState} from "react";
 import Header from "../components/Header.jsx";
 import 'react-calendar/dist/Calendar.css';
-import useShippingDataStore from '../zustand-store/shipping-data.jsx';
+import useShippingDataStore from '../store/shipping-store.jsx';
 
 const Shipping = () => {
     const [selectedDate, setSelectedDate] = useState(null);
