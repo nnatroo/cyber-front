@@ -36,12 +36,12 @@ export const Contact = () => {
         const usernameError = username.length < 6 ? "Name isn't valid, it must be at least 6." : "";
         const emailError = (email.length < 8 || !email.includes("@")) ? "Email isn't valid." : "";
         const phoneError = (telephone.length < 8 || isNaN(telephone)) ? "Phone isn't valid." : "";
-        const messageError = message.length ===  0 ? "Message can not be empty" : "";
+        const messageError = message.length === 0 ? "Message can not be empty" : "";
         setError({
             username: usernameError,
             email: emailError,
             telephone: phoneError,
-            message:messageError
+            message: messageError
         });
     };
 
@@ -55,40 +55,36 @@ export const Contact = () => {
                             <img src={phone} alt="icons-phone"/>
                             <p> Call To Us</p>
                         </div>
-                        <div className={classes['contact-div-content']}>
+                        <div>
                             <p>We are available 24/7, 7 days a week.</p>
                             <p>Phone: +8801611112222</p>
                         </div>
                     </div>
-
                     <div className={classes['line']}></div>
-
                     <div className={classes['contact-div']}>
                         <div className={classes['contact-div-title']}>
                             <img src={mail} alt="icons-mail"/>
                             <p> Write To Us</p>
                         </div>
-
-                        <div className={classes['contact-div-content']}>
+                        <div>
                             <p>Fill out our form and we will contact you within 24 hours.</p>
                             <p>Emails: customer@cyber.com</p>
                             <p>Emails: support@cyber.com</p>
                         </div>
-
                     </div>
-
                 </div>
                 <div className={classes['right-side']}>
                     <div className={classes['input-group']}>
                         <div className={classes['input-wrapper']}>
-                            {error.username && <label className={`${error.username ? classes['error'] : ''}`} >{error.username}</label>}
-                            <input name="username"  type='text'
+                            {error.username &&
+                                <label className={`${error.username ? classes['error'] : ''}`}>{error.username}</label>}
+                            <input name="username" type='text'
                                    placeholder='Your Name *'
                                    onChange={usernameHandler}/>
                         </div>
                         <div className={classes['input-wrapper']}>
                             {error.email && <label className={classes['error']} htmlFor="email">{error.email}</label>}
-                            <input  name="email"  type='text'
+                            <input name="email" type='text'
                                    placeholder='Your Email *'
                                    onChange={emailHandler}/>
                         </div>
@@ -96,7 +92,8 @@ export const Contact = () => {
                             {error.telephone &&
                                 <label className={classes['error']} htmlFor="telephone">{error.telephone}</label>}
 
-                            <input name="telephone"  type='number'
+                            <input name="telephone"
+                                   type='text'
                                    placeholder='Your Phone *'
                                    onChange={phoneHandler}/>
                         </div>
@@ -104,7 +101,7 @@ export const Contact = () => {
                     <div className={classes['message-input']}>
                         {error.message &&
                             <label className={classes['error']} htmlFor="messsage">{error.message}</label>}
-                        <textarea placeholder='Your Message'   onChange={messageHandler}/>
+                        <textarea placeholder='Your Message' onChange={messageHandler}/>
                     </div>
                     <div className={classes['submit-wrapper']}>
                         <button onClick={sendMessage}>
@@ -113,7 +110,7 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </>
     )
 }

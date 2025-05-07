@@ -4,10 +4,9 @@ import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
 
 export const Error = () => {
-
     return (
         <>
-            <Header />
+            <Header/>
             <div className={classes['main-wrapper']}>
                 <div className={classes['inside-content']}>
                     <h1>404 Not Found</h1>
@@ -16,8 +15,8 @@ export const Error = () => {
 
                 <div className={classes['btn-wrapper']}>
                     <Link to='/'>
-                        <button className={classes['btn']}>
-                            <p>Back to Home Page</p>
+                        <button>
+                            Back to Home Page
                         </button>
                     </Link>
                 </div>

@@ -74,21 +74,23 @@
       text-decoration: none;
     }
 
-    .btn {
+    button {
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 4px;
-      border: 2px solid black;
+      border: 1px solid #000000;
       padding: 16px 48px;
       text-decoration: none;
-      background-color: black;
+      background-color: #000000;
+      font-family: 'Poppins', sans-serif;
+      color: #FFFFFF;
+      transition: 0.2s all;
 
-      p {
-        font-family: 'Poppins', sans-serif;
-        color: white;
-        text-decoration: none;
+      &:hover {
+        background-color: #FFFFFF;
+        color: #000000;
       }
     }
   }
