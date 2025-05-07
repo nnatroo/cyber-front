@@ -7,9 +7,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart, decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
 
 export const ShoppingCart = () => {
+    const [total , setTotal] = useState(0);
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
-
+    // {item.title} (x{item.quantity}) - ${item.price * item.quantity
     return (
         <>
             <Header/>
@@ -33,7 +34,7 @@ export const ShoppingCart = () => {
                                             <button onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
                                         </div>
                                         <h3 className={classes["price"]}>${item.price}</h3>
-                                        <p>{item.title} (x{item.quantity}) - ${item.price * item.quantity}</p>
+
                                         <button className={classes["remove"]}
                                                 onClick={() => dispatch(removeFromCart(item.id))}><img src={close}
                                                                                                        alt={"close"}/>
@@ -47,19 +48,23 @@ export const ShoppingCart = () => {
 
                     <div className={classes["order-summary"]}>
                         <h2>Order Summary</h2>
-                        <input type="text" placeholder="Code"/>
+                        <div className={classes["discount-code-input"]}>
+                            <p>Discount code / Promo code</p>
+                            <input type="text" placeholder="Code"/>
+                        </div>
                         <div className={classes["card-input"]}>
-                            <input type="text" placeholder="Enter Card Number"/>
+                            <p>Your bonus card number</p>
+                            <input type="text" placeholder="Enter Card Number  "/>
                             <button>Apply</button>
                         </div>
                         <div className={classes["summary-row"]}>
-                            <span>Subtotal</span><span></span>
+                            <span>Subtotal</span>
                         </div>
                         <div className={classes["summary-row"]}>
-                            <span>Estimated Tax</span><span></span>
+                            <span>Estimated Tax</span>
                         </div>
                         <div className={classes["summary-row"]}>
-                            <span>Estimated shipping & Handling</span><span></span>
+                            <span>Estimated shipping & Handling</span>
                         </div>
                         <div className={`${classes["summary-row"]} ${classes["total"]}`}>
                             <span>Total</span><span></span>
