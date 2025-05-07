@@ -7,16 +7,17 @@ import Calendar from 'react-calendar';
 import {useEffect, useState} from "react";
 import Header from "../components/Header.jsx";
 import 'react-calendar/dist/Calendar.css';
-import useShippingDataStore from '../store/shipping-store.jsx';
+import useShippingDataStore from '../store/shippingStore.js';
+import {Link} from "react-router";
 
-const Shipping = () => {
+export const Shipping = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [isCalendarVisible, setCalendarVisible] = useState(false);
     const [formatedSelectedDate, setFormatedSelectedDate] = useState("");
     const [showError, setShowError] = useState(false);
 
     useEffect(() => {
-        setSelectedMethod(JSON.stringify({ method: "free", date: "17 Oct, 2023" }));
+        setSelectedMethod(JSON.stringify({method: "free", date: "17 Oct, 2023"}));
     }, []);
 
     const {
@@ -25,6 +26,7 @@ const Shipping = () => {
     } = useShippingDataStore();
 
     const handleDateChange = (date) => {
+        console.log(date);
         const monthsNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
@@ -32,10 +34,12 @@ const Shipping = () => {
         setSelectedDate(date);
         setCalendarVisible(false);
     };
-const inputChangeHandler = (e)=>{
-    setSelectedMethod(e.target.value);
+
+    const inputChangeHandler = (e) => {
+        setSelectedMethod(e.target.value);
+        console.log(e.target.value);
         setShowError(false);
-}
+    }
 
     const buttonHandler = () => {
         const parsed = selectedMethod ? JSON.parse(selectedMethod) : null;
@@ -46,122 +50,120 @@ const inputChangeHandler = (e)=>{
         console.log("Selected Method:", parsed);
     };
 
-
-
     return (
-    <>
-        <Header/>
-        <div className={`${classes['main-wrapper']} ${layout['container']}`}>
-            <div className={classes['page-options']}>
-                <div className={`${classes['steps']} ${classes['mobile-hide']}`}>
-                    <img src={AddressIcon} alt={'location-icon'}/>
-                    <span>
-                        <p>Step 1</p>
-                        <h2>Address</h2>
-                    </span>
+        <>
+            <Header/>
+            <div className={`${classes['main-wrapper']} ${layout['container']}`}>
+                <div className={classes['page-options']}>
+                    <Link className={classes['mobile-hide']} to='/address'>
+                        <div className={`${classes['steps']} ${classes['mobile-hide']}`}>
+                            <img src={AddressIcon} alt={'location-icon'}/>
+                            <span>
+                            <p>Step 1</p>
+                            <h2>Address</h2>
+                        </span>
+                        </div>
+                    </Link>
+                    <div className={`${classes['steps']}  ${classes['active']}`}>
+                        <img src={ShippingIcon} alt={'shipping-icon'}/>
+                        <span>
+                            <p>Step 2</p>
+                            <h2>Shipping</h2>
+                        </span>
+                    </div>
+                    <div className={classes['steps']}>
+                        <img src={PaymentIcon} alt={'payment-icon'}/>
+                        <span>
+                            <p>Step 3</p>
+                            <h2>Payment</h2>
+                        </span>
+                    </div>
                 </div>
-                <div className={`${classes['steps']}  ${classes['active']}`}>
-                    <img src={ShippingIcon} alt={'shipping-icon'}/>
-                    <span>
-                        <p>Step 2</p>
-                        <h2>Shipping</h2>
-                    </span>
-                </div>
-                <div className={classes['steps']}>
-                    <img src={PaymentIcon} alt={'payment-icon'}/>
-                    <span>
-                        <p>Step 3</p>
-                        <h2>Payment</h2>
-                    </span>
-                </div>
-            </div>
-            <div className={classes['shipment-method']}>
-                <h1>Shipment Method</h1>
-                {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
-                <div className={classes['methods-wrapper']}>
-                    <label className={classes['methods']}>
-                        <div className={classes['methods-info']}>
-                            <input type="radio"
-                                   name="payment-method"
-                                   defaultChecked
-                                   onChange={inputChangeHandler}
-                                   value={JSON.stringify(
-                                       {method: "free", date: "17 Oct, 2023"}
-                                   )}/>
-                            <b>Free</b>
-                            <p>Regularly shipment</p>
-                        </div>
-                        <div className={classes['methods-date']}>
-                            <p>17 Oct, 2023 </p>
-                        </div>
-                    </label>
-                    <label className={classes['methods']}>
-                        <div className={classes['methods-info']}>
-                            <input type="radio"
-                                   name="payment-method"
-                                   value={JSON.stringify(
-                                       {method: "$8.50", date: "1 Oct, 2023"}
-                                   )}
-                                   onChange={inputChangeHandler}/>
-                            <b>$8.50</b>
-                            <p> Get your delivery as soon as possible</p>
-                        </div>
-                        <div className={classes['methods-date']}>
-                            <p>1 Oct, 2023</p>
-                        </div>
-                    </label>
-
-                    <label className={classes['methods']}>
-                        <div className={classes['methods-info']}>
-                            <input
-                                type="radio"
-                                name="payment-method"
-                                value={JSON.stringify({
-                                    method: "schedule",
-                                    date: selectedDate ? formatedSelectedDate : null
-                                })}
-                                checked={selectedMethod === JSON.stringify({
-                                    method: "schedule",
-                                    date: selectedDate ? formatedSelectedDate : null
-                                })}
-                                onChange={inputChangeHandler}
-                            />
-                            <b>Schedule</b>
-                            <p>Pick a date for your delivery</p>
-                        </div>
-                        <div className={classes['methods-date']}>
-                            <div
-                                onClick={() => setCalendarVisible(prev => !prev)}
-                                className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}
-                            >
-                                {selectedDate ? formatedSelectedDate : <p>Select Date &gt;</p>}
+                <div className={classes['shipment-method']}>
+                    <h1>Shipment Method</h1>
+                    {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
+                    <div className={classes['methods-wrapper']}>
+                        <label className={classes['methods']}>
+                            <div className={classes['methods-info']}>
+                                <input type="radio"
+                                       name="payment-method"
+                                       defaultChecked
+                                       onChange={inputChangeHandler}
+                                       value={JSON.stringify(
+                                           {method: "free", date: "17 Oct, 2023"}
+                                       )}/>
+                                <b>Free</b>
+                                <p>Regularly shipment</p>
                             </div>
+                            <div className={classes['methods-date']}>
+                                <p>17 Oct, 2023 </p>
+                            </div>
+                        </label>
+                        <label className={classes['methods']}>
+                            <div className={classes['methods-info']}>
+                                <input type="radio"
+                                       name="payment-method"
+                                       value={JSON.stringify(
+                                           {method: "$8.50", date: "1 Oct, 2023"}
+                                       )}
+                                       onChange={inputChangeHandler}/>
+                                <b>$8.50</b>
+                                <p> Get your delivery as soon as possible</p>
+                            </div>
+                            <div className={classes['methods-date']}>
+                                <p>1 Oct, 2023</p>
+                            </div>
+                        </label>
 
-                            {isCalendarVisible && (
-                                <div className={classes['calendar-dropdown']}>
-                                    <Calendar
-                                        onChange={handleDateChange}
-                                        value={selectedDate || new Date()}
-                                    />
+                        <label className={classes['methods']}>
+                            <div className={classes['methods-info']}>
+                                <input
+                                    type="radio"
+                                    name="payment-method"
+                                    value={JSON.stringify({
+                                        method: "schedule",
+                                        date: selectedDate ? formatedSelectedDate : null
+                                    })}
+                                    checked={selectedMethod === JSON.stringify({
+                                        method: "schedule",
+                                        date: selectedDate ? formatedSelectedDate : null
+                                    })}
+                                    onChange={inputChangeHandler}
+                                />
+                                <b>Schedule</b>
+                                <p>Pick a date for your delivery</p>
+                            </div>
+                            <div className={classes['methods-date']}>
+                                <div
+                                    onClick={() => setCalendarVisible(prev => !prev)}
+                                    className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}
+                                >
+                                    {selectedDate ? formatedSelectedDate : <p>Select Date &gt;</p>}
                                 </div>
-                            )}
+
+                                {isCalendarVisible && (
+                                    <div className={classes['calendar-dropdown']}>
+                                        <Calendar
+                                            onChange={handleDateChange}
+                                            value={selectedDate || new Date()}
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </label>
+
+                        <div className={classes['buttons-wrapper']}>
+                            <button className={classes['btn-back']}>
+                                Back
+                            </button>
+
+                            <button className={classes['btn-next']} onClick={buttonHandler}>
+                                Next
+                            </button>
                         </div>
-                    </label>
-
-                    <div className={classes['buttons-wrapper']}>
-                        <button className={classes['btn-back']}>
-                            Back
-                        </button>
-
-                        <button className={classes['btn-next']} onClick={buttonHandler}>
-                            Next
-                        </button>
                     </div>
                 </div>
             </div>
-        </div>
         </>
-        )
-        };
-
-        export default Shipping
+    )
+};

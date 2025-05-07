@@ -3,10 +3,10 @@ import './reset.scss'
 import {BrowserRouter, Route, Routes} from "react-router";
 import {Contact} from "./pages/Contact.jsx";
 import {Address} from "./pages/Address.jsx";
+import { Shipping } from './pages/Shipping.jsx'
+import { Error } from './pages/Error.jsx'
 import Home from "./pages/Home.jsx";
-import Shipping from './pages/Shipping.jsx'
 
-import Error from './pages/Error.jsx'
 
 createRoot(document.getElementById('root')).render(
     <BrowserRouter>

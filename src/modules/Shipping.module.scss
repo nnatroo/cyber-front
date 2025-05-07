@@ -1,20 +1,21 @@
 .main-wrapper {
   display: flex;
   flex-direction: column;
+
   .error-text {
     color: red;
   }
+
   .page-options {
     display: flex;
     justify-content: space-between;
     padding-top: 72px;
-    @media (max-width: 1024px) {
-      padding-inline: 50px;
-    }
+
     @media (max-width: 700px) {
       gap: 15px;
       align-items: center;
     }
+
     .steps {
       display: flex;
       align-items: center;
@@ -26,6 +27,7 @@
         height: 24px;
         opacity: 50%;
       }
+
       span {
         p {
           font-family: Inter, 'sans-serif';
@@ -34,6 +36,7 @@
           line-height: 16px;
           color: #B2B2B2;
         }
+
         h2 {
           font-family: Inter, 'sans-serif';
           font-weight: 500;
@@ -43,6 +46,7 @@
         }
       }
     }
+
     .active {
       display: flex;
       align-items: center;
@@ -54,6 +58,7 @@
         height: 24px;
         opacity: 100%;
       }
+
       span {
         p {
           font-family: Inter, 'sans-serif';
@@ -61,6 +66,7 @@
           font-size: 14px;
           color: #000000;
         }
+
         h2 {
           font-family: Inter, 'sans-serif';
           font-weight: 500;
@@ -71,36 +77,41 @@
       }
     }
   }
+
   .shipment-method {
     display: flex;
     flex-direction: column;
     padding-top: 48px;
     padding-bottom: 48px;
     gap: 32px;
+
     h1 {
       font-family: Inter, 'sans-serif';
       font-weight: 600;
       font-size: 20px;
       line-height: 24px;
       padding-bottom: 8px;
+      color: rgba(23, 24, 59, 1);
 
       @media (max-width: 992px) {
         display: flex;
         justify-content: center;
         align-items: center;
       }
+
       @media (max-width: 500px) {
         display: flex;
-
         justify-content: center;
         align-items: center;
-        font-size: 15px;
+        font-size: 20px;
       }
     }
+
     .methods-wrapper {
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       .methods {
         display: flex;
         justify-content: space-between;
@@ -117,11 +128,11 @@
         }
 
         @media (max-width: 992px) {
-          padding-top: 10px;
-          padding-left: 10px;
+          padding: 10px;
           display: flex;
           flex-direction: row;
         }
+
         .methods-date {
           color: #B2B2B2;
 
@@ -140,6 +151,7 @@
             flex-direction: column;
             align-items: flex-end;
           }
+
           .calendar-dropdown {
             position: absolute;
             top: 30px;
@@ -157,17 +169,20 @@
             }
           }
         }
+
         .methods-info {
           display: flex;
           gap: 16px;
           align-items: center;
-color: #B2B2B2;
+          color: #B2B2B2;
           @media (max-width: 992px) {
             justify-content: center;
             align-items: flex-start;
             display: flex;
             flex-direction: column;
+            max-width: 160px;
           }
+
           input[type="radio"] {
             appearance: none;
             -webkit-appearance: none;
@@ -195,15 +210,23 @@ color: #B2B2B2;
         }
       }
     }
+
     .buttons-wrapper {
       display: flex;
       gap: 23px;
       justify-content: flex-end;
-      padding-top: 224px;
+      margin-top: 224px;
+
       @media (max-width: 1024px) {
         justify-content: center;
         align-items: center;
-        padding-top: 104px;
+        margin-top: 104px;
+      }
+
+      button {
+        @media (max-width: 1024px) {
+          flex: 1;
+        }
       }
 
       .btn-back {
@@ -220,6 +243,7 @@ color: #B2B2B2;
         color: #000;
         transition: 0.2s all;
         cursor: pointer;
+
         &:hover {
           color: #fff;
           background-color: #000;
@@ -229,6 +253,7 @@ color: #B2B2B2;
           padding: 24px 46px;
         }
       }
+
       .btn-next {
         padding: 24px 86px;
         gap: 8px;
@@ -243,10 +268,12 @@ color: #B2B2B2;
         text-align: center;
         transition: 0.2s all;
         cursor: pointer;
+
         &:hover {
           color: #000;
           background-color: #fff;
         }
+
         @media (max-width: 1024px) {
           padding: 24px 46px;
         }
@@ -254,6 +281,7 @@ color: #B2B2B2;
     }
   }
 }
+
 .mobile-hide {
   @media (max-width: 1024px) {
     display: none !important;
