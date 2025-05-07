@@ -17,7 +17,8 @@ export const ShoppingCart = () => {
             <div className={classes["shopping-cart"]}>
                 <div className={classes["shopping-cart-container"]}>
                     <div className={classes["cart-items"]}>
-                        <h2>Shopping Cart</h2>
+                        {cartItems.length === 0 ? <h3 className={classes["empty-cart"]}>Your cart is empty</h3> :
+                            <h2>Shopping Cart</h2>}
                         {cartItems.map((item) => (
                             <div className={classes["cart-item"]} key={item.id}>
                                 <figure>
