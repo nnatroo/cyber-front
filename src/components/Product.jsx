@@ -1,6 +1,7 @@
 import classes from "../modules/Product.module.scss"
 import favoriteIcon from "../assets/favorites-icon.png";
 import {useDispatch} from "react-redux";
+import {addToCart} from "../redux/cartSlice.jsx";
 
 export const Product = ({product}) => {
     const dispatch = useDispatch();

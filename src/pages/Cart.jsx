@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
 import close from  "../assets/close.svg"
 import {useDispatch, useSelector} from "react-redux";
-import { removeFromCart } from '../redux/cartSlice';
+import {addToCart, decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
 
 export const ShoppingCart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -20,7 +20,7 @@ export const ShoppingCart = () => {
                         {cartItems.map((item) => (
                             <div className={classes["cart-item"]} key={item.id}>
                                 <figure>
-                                    <img src={item.img} alt={"image"}/>
+                                    <img src={`http://localhost:5000${item?.image}`} alt={"image"}/>
                                 </figure>
                                 <div className={classes["item-details"]}>
                                     <div className={classes["item-header"]}>
@@ -28,9 +28,9 @@ export const ShoppingCart = () => {
                                     </div>
                                     <div className={classes["functionality"]}>
                                         <div className={classes["quantity-controls"]}>
-                                            <button>-</button>
+                                            <button onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
                                             <span>{item.quantity}</span>
-                                            <button>+</button>
+                                            <button onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
                                         </div>
                                         <h3 className={classes["price"]}>${item.price}</h3>
                                         <p>{item.title} (x{item.quantity}) - ${item.price * item.quantity}</p>
