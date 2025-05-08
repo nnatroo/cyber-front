@@ -4,17 +4,16 @@ import Header from "../components/Header.jsx";
 import { Footer } from "../components/Footer.jsx";
 import close from "../assets/close.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, decreaseQuantity, increaseQuantity, removeFromCart } from '../redux/cartSlice';
+import {  decreaseQuantity, increaseQuantity, removeFromCart } from '../redux/cartSlice';
 
 export const ShoppingCart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
-
     const [subtotal, setSubtotal] = useState(0);
     const [total, setTotal] = useState(0);
     const [estimatedTax, setEstimatedTax] = useState(0);
     const estimatedShipping = 29;
-    const taxRate = 0.1;
+    const taxRate = 0.02;
 
     useEffect(() => {
         const newSubtotal = cartItems.reduce(
@@ -105,7 +104,8 @@ export const ShoppingCart = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 };
+
