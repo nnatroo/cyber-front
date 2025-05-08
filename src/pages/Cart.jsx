@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import { Footer } from "../components/Footer.jsx";
 import close from "../assets/close.svg";
 import { useDispatch, useSelector } from "react-redux";
-import {  decreaseQuantity, increaseQuantity, removeFromCart } from '../redux/cartSlice';
+import { decreaseQuantity, increaseQuantity, removeFromCart } from '../redux/cartSlice';
 
 export const ShoppingCart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -27,8 +27,6 @@ export const ShoppingCart = () => {
         setEstimatedTax(tax);
         setTotal(totalAmount);
     }, [cartItems]);
-
-
 
     return (
         <>
@@ -57,10 +55,7 @@ export const ShoppingCart = () => {
                                             <button onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
                                         </div>
                                         <h3 className={classes["price"]}>${item.price}</h3>
-                                        <button
-                                            className={classes["remove"]}
-                                            onClick={() => dispatch(removeFromCart(item.id))}
-                                        >
+                                        <button className={classes["remove"]} onClick={() => dispatch(removeFromCart(item.id))}>
                                             <img src={close} alt={"close"} />
                                         </button>
                                     </div>
@@ -83,21 +78,31 @@ export const ShoppingCart = () => {
                             <button>Apply</button>
                         </div>
 
-                        <div className={classes["summary-row"]}>
-                            <span>Subtotal</span>
-                            <span>${subtotal}</span>
-                        </div>
-                        <div className={classes["summary-row"]}>
-                            <span>Estimated Tax</span>
-                            <span>${estimatedTax}</span>
-                        </div>
-                        <div className={classes["summary-row"]}>
-                            <span>Estimated shipping & Handling</span>
-                            <span>${estimatedShipping}</span>
-                        </div>
-                        <div className={`${classes["summary-row"]} ${classes["total"]}`}>
-                            <span>Total</span>
-                            <span>${total}</span>
+                        <div className={classes["summary-box"]}>
+                            <div className={`${classes["summary-row"]} ${classes["total"]}`}>
+                                <span>Subtotal</span>
+                                <span>${subtotal}</span>
+                            </div>
+                            <div className={`${classes["summary-row"]} ${classes["Estimated-Tax"]}`}>
+                                <span>Estimated Tax</span>
+                                <span className={classes["price"]}>${estimatedTax}</span>
+                            </div>
+                            <div className={classes["summary-row"]}>
+                                <span>Estimated shipping & Handling</span>
+                                {cartItems.length === 0 ? (
+                                    <span>$0</span>
+                                ) : (
+                                    <span className={classes["price"]}>${estimatedShipping}</span>
+                                )}
+                            </div>
+                            <div className={`${classes["summary-row"]} ${classes["total"]}`}>
+                                <span>Total</span>
+                                {cartItems.length === 0 ? (
+                                    <span>$0</span>
+                                ) : (
+                                    <span>${total}</span>
+                                )}
+                            </div>
                         </div>
 
                         <button className={classes["checkout"]}>Checkout</button>
