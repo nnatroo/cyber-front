@@ -22,6 +22,8 @@
       height: 656px;
       gap: 40px;
       width: 536px;
+      overflow-y: auto;
+      overflow-x: hidden;
       h2{
         font-weight: 600;
         font-size: 24px;
@@ -33,7 +35,6 @@
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
-        gap: 15px;
         width: 536px;
         height: 138px;
         padding: 16px 0 32px 0;
@@ -64,6 +65,7 @@
               font-weight: 500;
               font-size: 16px;
               line-height: 24px;
+
             }
           }
           .functionality{
@@ -89,135 +91,152 @@
                   height: 100%;
                 }
               }
+              span{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 32px;
+                border-radius: 4px;
+                border: 0.5px solid #D9D9D9;
+                box-sizing: border-box;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 16px;
+                text-align: center;
 
+              }
             }
             h3{
               font-weight: 500;
               font-size: 20px;
               line-height: 32px;
+              width: 62px;
             }
             .remove{
               background: transparent;
               border: none;
               width: 24px;
               height: 24px;
-
+              cursor: pointer;
             }
           }
         }
       }
     }
   }
-      .discount-code-input{
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 16px;
-        max-height: 80px;
-        max-width: 408px;
-        p{
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 16px;
-          color: #545454;
-        }
-        input {
-          font-size: 14px;
-          width: 408px;
-          height: 56px;
-          border-radius: 7px;
-          padding: 16px;
-          border: 0.5px solid #9F9F9F
-        }
-      }
-      .card-input {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        position: relative;
-        max-height: 80px;
-        p{
-          font-weight: 500;
-          font-size: 14px;
-          line-height: 16px;
-          color: #545454;
-        }
-        input {
-          font-size: 14px;
-          width: 408px;
-          height: 64px;
-          border-radius: 7px;
-          border: 0.5px solid #9F9F9F;
-          padding: 20px 93px 20px 16px;
-        }
-        button {
-          position: absolute;
-          right: 0;
-          top: 100%;
-          transform: translateY(-150%);
-          width: 76px;
-          height: 32px;
-          border-radius: 6px;
-          cursor: pointer;
-          border: 1px solid #000000;
-          background:transparent;
-          margin-right: 16px;
-          color: black;
-          font-weight: 500;
-
-        }
-      }
-
-  .summary-box {
+  .order-summary{
     display: flex;
     flex-direction: column;
-
-
-    .summary-row {
+    width: 536px;
+    height: 656px;
+    padding : 56px 64px 56px 64px;
+    box-sizing: border-box;
+    gap: 24px;
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+    .discount-code-input{
       display: flex;
-      justify-content: space-between;
-      padding: 8px 0;
-      font-size: 14px;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+      max-height: 80px;
+      max-width: 408px;
+      p{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #545454;
+      }
+      input {
+        font-size: 14px;
+        width: 408px;
+        height: 56px;
+        border-radius: 7px;
+        padding: 16px;
+        border: 0.5px solid #9F9F9F
+      }
+    }
+    .card-input {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      max-height: 80px;
+      p{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #545454;
+      }
+      input {
+        font-size: 14px;
+        width: 408px;
+        height: 64px;
+        border-radius: 7px;
+        border: 0.5px solid #9F9F9F;
+        padding: 20px 93px 20px 16px;
+      }
+      button {
+        position: absolute;
+        right: 0;
+        top: 100%;
+        transform: translateY(-150%);
+        width: 76px;
+        height: 32px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 1px solid #000000;
+        background:transparent;
+        margin-right: 16px;
+        color: black;
+        font-weight: 500;
 
-
-      &:nth-child(2) {
-        margin-top: 16px;
-        color:#545454;
-        .price {
-          color: black;
+      }
+    }
+    .summary-box {
+      display: flex;
+      flex-direction: column;
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        font-size: 14px;
+        &:nth-child(2) {
+          margin-top: 16px;
+          color:#545454;
+          .price {
+            color: black;
+          }
+        }
+        &:nth-child(3) {
+          color:  #545454;
+        }
+        &.total {
+          margin-top: 16px;
+          font-weight: 600;
+          font-size: 16px;
         }
       }
-
-      &:nth-child(3) {
-      color:  #545454;
-      }
-
-      &.total {
-        margin-top: 16px;
-        font-weight: 600;
-        font-size: 16px;
+    }
+    .checkout {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 408px;
+      height: 56px;
+      padding: 16px 56px;
+      &:hover {
+        background-color: #fff;
+        border: 1px solid #000;
+        color: #000;
+        transition: all 0.2s;
       }
     }
   }
-
-      .checkout {
-        background-color: #000;
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        font-size: 16px;
-        margin-top: 20px;
-        cursor: pointer;
-        width: 408px;
-        height: 56px;
-        padding: 16px 56px;
-        &:hover {
-          background-color: #fff;
-          border: 1px solid #000;
-          color: #000;
-          transition: all 0.2s;
-        }
-
-      }
-    }
+}
 

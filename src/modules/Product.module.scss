@@ -66,6 +66,7 @@
       margin-top: 16px;
       font-size: 24px;
       font-weight: 600;
+      margin-bottom: 24px;
 
       @media screen and (max-width: 1024px) {
         margin-top: 34px;
@@ -100,6 +101,10 @@
         border: 1px solid #000;
         color: #000;
       }
+    }
+    a {
+      height: 188px;
+
     }
   }
 }
