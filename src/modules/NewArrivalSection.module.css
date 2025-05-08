@@ -1,0 +1,61 @@
+.new-arrival_container {
+  width: 1120px;
+  margin: 56px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+@media screen and (max-width: 1280px) {
+  .new-arrival_container {
+    width: 1000px;
+  }
+}
+@media screen and (max-width: 1168px) {
+  .new-arrival_container {
+    width: 900px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .new-arrival_container {
+    width: auto;
+    padding-inline: 50px;
+  }
+}
+@media screen and (max-width: 576px) {
+  .new-arrival_container {
+    width: auto;
+    padding-inline: 25px;
+  }
+}
+.new-arrival_container .text-side {
+  display: flex;
+  gap: 32px;
+  color: #8b8b8b;
+  width: fit-content;
+}
+.new-arrival_container .text-side h3 {
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: black;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+.new-arrival_container .text-side h3:hover {
+  color: black;
+}
+.new-arrival_container .products-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+}
+@media screen and (max-width: 1024px) {
+  .new-arrival_container .products-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/*# sourceMappingURL=NewArrivalSection.module.css.map */
