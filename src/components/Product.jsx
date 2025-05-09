@@ -23,7 +23,11 @@ export const Product = ({product}) => {
                     <div className={classes['about-product']}>
                         <p>{product?.name}</p>
                         <h2>${product?.price}</h2>
-                        {isAdded ? <div className={classes["link-container"]}><Link to={"/ShoppingCart"} className={classes["link"]}>In cart</Link></div> : <button  onClick={() => handleAddToCart(product)} className={classes["buy-btn"]}>Buy Now</button>}
+                        {isAdded ? <button className={classes["link-btn"]}>
+                            <Link to={"/ShoppingCart"} className={classes["link"]}>In
+                                cart</Link></button> : <button  onClick={() => handleAddToCart(product)}
+                        className={classes["buy-btn"]}>Buy Now
+                    </button>}
                     </div>
                 </div>
             </div>
