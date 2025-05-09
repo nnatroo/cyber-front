@@ -23,7 +23,7 @@ export const Product = ({product}) => {
                     <div className={classes['about-product']}>
                         <p>{product?.name}</p>
                         <h2>${product?.price}</h2>
-                        {isAdded ? <Link to={"/ShoppingCart"}>Added to cart</Link> : <button  onClick={() => handleAddToCart(product)}>Buy Now</button>}
+                        {isAdded ? <div className={classes["link-container"]}><Link to={"/ShoppingCart"} className={classes["link"]}>In cart</Link></div> : <button  onClick={() => handleAddToCart(product)} className={classes["buy-btn"]}>Buy Now</button>}
                     </div>
                 </div>
             </div>

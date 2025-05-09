@@ -79,28 +79,28 @@ export const ShoppingCart = () => {
                         </div>
 
                         <div className={classes["summary-box"]}>
-                            <div className={`${classes["summary-row"]} ${classes["total"]}`}>
+                            <div className={classes["total"]}>
                                 <span>Subtotal</span>
                                 <span>${subtotal}</span>
                             </div>
-                            <div className={`${classes["summary-row"]} ${classes["Estimated-Tax"]}`}>
+                            <div className={classes["Estimated-Tax"]}>
                                 <span>Estimated Tax</span>
                                 <span className={classes["price"]}>${estimatedTax}</span>
                             </div>
-                            <div className={classes["summary-row"]}>
+                            <div className={classes["shipping-row"]}>
                                 <span>Estimated shipping & Handling</span>
                                 {cartItems.length === 0 ? (
-                                    <span>$0</span>
+                                    <span className={classes["price"]}>$0</span>
                                 ) : (
                                     <span className={classes["price"]}>${estimatedShipping}</span>
                                 )}
                             </div>
-                            <div className={`${classes["summary-row"]} ${classes["total"]}`}>
+                            <div className={classes["total"]}>
                                 <span>Total</span>
                                 {cartItems.length === 0 ? (
                                     <span>$0</span>
                                 ) : (
-                                    <span>${total}</span>
+                                    <span> ${total}</span>
                                 )}
                             </div>
                         </div>
