@@ -34,7 +34,13 @@
         height: auto;
         width: 536px;
       }
+      @media(max-width: 576px){
+        max-width: 341px;
+
+      }
+
       h2{
+        font-family: Inter, serif;
         font-weight: 600;
         font-size: 24px;
         line-height: 24px;
@@ -187,6 +193,17 @@
       width: 536px;
       padding: 40px 0;
     }
+    @media (max-width: 576px) {
+      max-width: 341px;
+      padding: 56px 16px;
+      align-items: flex-start;
+    }
+    h2{
+      font-family: Inter, serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 16px;
+    }
     .discount-code-input{
       display: flex;
       flex-direction: column;
@@ -202,7 +219,11 @@
         justify-content: center;
         width: 400px;
       }
+      @media (max-width: 576px) {
+        max-width: 309px;
+      }
       p{
+        font-family: Inter, serif;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
@@ -221,6 +242,9 @@
         @media(max-width: 1024px){
           width: 400px;
         }
+        @media (max-width: 576px) {
+          max-width: 309px;
+        }
       }
     }
     .card-input {
@@ -236,6 +260,9 @@
         align-items: flex-start;
         justify-content: center;
         width: 400px;
+      }
+      @media (max-width: 576px) {
+        max-width: 309px;
       }
       p{
         font-weight: 500;
@@ -255,6 +282,9 @@
         }
         @media(max-width: 1024px){
           width: 400px;
+        }
+        @media (max-width: 576px) {
+          max-width: 309px;
         }
       }
       button {
@@ -291,6 +321,9 @@
       @media (max-width: 1024px) {
         width: 400px;
       }
+      @media (max-width: 576px) {
+        max-width: 309px;
+      }
 
       .total{
         display: flex;
@@ -299,6 +332,7 @@
         height: 32px;
         margin-top: 8px;
         span{
+          font-family: Inter, serif;
           font-weight: 500;
           font-size: 16px;
           line-height: 32px;
@@ -312,12 +346,14 @@
         height: 32px;
         margin-top: 8px;
         span{
+          font-family: Inter, serif;
           font-weight: 400;
           font-size: 16px;
           line-height: 32px;
           color: #545454;
         }
         .price{
+          font-family: Inter, serif;
           font-weight: 500;
           font-size: 16px;
           line-height: 32px;
@@ -330,12 +366,14 @@
         font-size: 14px;
         height: 32px;
         span{
+          font-family: Inter, serif;
           font-weight: 400;
           font-size: 16px;
           line-height: 32px;
           color: #545454;
         }
         .price{
+          font-family: Inter, serif;
           font-weight: 500;
           font-size: 16px;
           line-height: 32px;
@@ -360,6 +398,9 @@
       }
       @media(max-width: 1024px){
         max-width: 400px;
+      }
+      @media (max-width: 576px) {
+        max-width: 309px;
       }
       &:hover {
         background-color: #fff;
