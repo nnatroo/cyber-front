@@ -6,16 +6,25 @@ import {Address} from "./pages/Address.jsx";
 import { Shipping } from './pages/Shipping.jsx'
 import { Error } from './pages/Error.jsx'
 import Home from "./pages/Home.jsx";
-
+import { Provider } from 'react-redux';
+import { paymentStore } from './store/paymentStore';
 
 createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/contact" element={<Contact/>}/>
-            <Route path="/address" element={<Address/>}/>
-            <Route path="/shipping" element={<Shipping/>}/>
-            <Route path="/*" element={<Error/>}/>
-        </Routes>
-    </BrowserRouter>
+
+    <Provider store={paymentStore}>
+        <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/contact" element={<Contact/>}/>
+
+                    <Route path="/address" element={<Address/>}/>
+                    <Route path="/shipping" element={<Shipping/>}/>
+
+                    <Route path="/*" element={<Error/>}/>
+                </Routes>
+            </BrowserRouter>
+</Provider>
+
 )
+
+

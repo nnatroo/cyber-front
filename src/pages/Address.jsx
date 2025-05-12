@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 import classes from "../modules/Address.module.scss";
-import CreditCard from "../assets/credit-card.svg"
-import Shopping from "../assets/shopping.svg"
-import Location from "../assets/location.svg"
 import Edit from "../assets/edit.svg"
 import Close from "../assets/close.svg"
 import Subtract from "../assets/subtract.svg"
 import Line from "../assets/line.svg"
 import Line2 from "../assets/line-second.svg"
 import Header from "../components/Header.jsx";
+import PaymentSteps from "../components/PaymentSteps.jsx";
+import {Link} from "react-router";
+import layout from "../modules/layout.module.scss";
 
 export const Address = () => {
     const [addresses, setAddresses] = useState([]);
@@ -94,32 +94,11 @@ export const Address = () => {
     };
 
     return (
-        <>
+
+            <div className={`${classes['main-wrapper']} ${layout['container']}`}>
             <Header/>
-            <div className={classes["stepper"]}>
-                <div className={classes["step"]}>
-                    <div className={classes["step-icon"]}><img src={Location} alt={"destination"}/></div>
-                    <div className={classes["step-label"]}>
-                        <span>Step 1</span>
-                        <h3>Address</h3>
-                    </div>
-                </div>
-                <div className={classes["step"]}>
-                    <div className={classes["step-icon"]}><img src={Shopping} alt={"shipping"}/></div>
-                    <div className={classes["step-label"]}>
-                        <span>Step 2</span>
-                        <h3>Shipping</h3>
-                    </div>
-                </div>
-                <div className={`${classes["step"]} ${classes["step-mobile"]}`}>
-                    <div className={classes["step-icon"]}><img src={CreditCard} alt={"payment"}/></div>
-                    <div className={classes["step-label"]}>
-                        <span>Step 3</span>
-                        <h3>Payment</h3>
-                    </div>
-                </div>
-            </div>
-            <div className={classes["address-container"]}>
+            <PaymentSteps/>
+                <div className={classes["address-container"]}>
                 {addresses.length === 0 ? (<h3>Add Address</h3>) : (<h3>Select Address</h3>)}
                 {addresses.map((address) => (
                     <div key={address.id} className={classes["address-card"]}>
@@ -227,9 +206,11 @@ export const Address = () => {
                 </div>
                 <div className={classes["buttons"]}>
                     <button className={classes["back-button"]}>Back</button>
+                    <Link to='/shipping'>
                     <button className={classes["next-button"]}>Next</button>
+                    </Link>
                 </div>
             </div>
-        </>
+        </div>
     );
 };

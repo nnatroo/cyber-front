@@ -1,165 +1,156 @@
 import classes from '../modules/Shipping.module.scss'
 import layout from '../modules/layout.module.scss'
-import ShippingIcon from '../assets/shipping-icon.svg'
-import AddressIcon from '../assets/location-icon.svg'
-import PaymentIcon from '../assets/payment-icon.svg'
 import Calendar from 'react-calendar';
-import {useEffect, useState} from "react";
+import { useState} from "react";
 import Header from "../components/Header.jsx";
 import 'react-calendar/dist/Calendar.css';
-import useShippingDataStore from '../store/shippingStore.js';
+import PaymentSteps from "../components/PaymentSteps.jsx";
 import {Link} from "react-router";
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setPaymentDetails } from '../store/paymentSlice.js';
 
 export const Shipping = () => {
     const [selectedDate, setSelectedDate] = useState(null);
     const [isCalendarVisible, setCalendarVisible] = useState(false);
     const [formatedSelectedDate, setFormatedSelectedDate] = useState("");
     const [showError, setShowError] = useState(false);
+    const [price, setPrice] = useState(0);
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("free");
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        setSelectedMethod(JSON.stringify({method: "free", date: "17 Oct, 2023"}));
-    }, []);
-
-    const {
-        selectedMethod,
-        setSelectedMethod,
-    } = useShippingDataStore();
+    const today = new Date();
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    const formattedDate = today.toLocaleDateString('en-US', options);
+    const twoWeeksLater = new Date();
+    twoWeeksLater.setDate(today.getDate() + 14);
+    const twoWeeksFormattedDate=twoWeeksLater.toLocaleDateString('en-US', options);
 
     const handleDateChange = (date) => {
-        console.log(date);
         const monthsNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
-        setFormatedSelectedDate(`${date.getDate()} ${monthsNames[date.getMonth()]}, ${date.getFullYear()}`);
+        const formatted = `${date.getDate()} ${monthsNames[date.getMonth()]}, ${date.getFullYear()}`;
+
+        setFormatedSelectedDate(formatted);
         setSelectedDate(date);
         setCalendarVisible(false);
-    };
 
-    const inputChangeHandler = (e) => {
-        setSelectedMethod(e.target.value);
-        console.log(e.target.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const selected = new Date(date);
+        selected.setHours(0, 0, 0, 0);
+        const diffInMs = selected - today;
+        const diffInDays = Math.max(Math.ceil(diffInMs / (1000 * 60 * 60 * 24)), 0);
+        const updatedPrice =  diffInDays * 0.607;
+        setPrice(updatedPrice);
+
+        dispatch(setPaymentDetails(
+            {
+                paymentType: 'schedule',
+                deliveryDate: formatted,
+                price: updatedPrice,
+            }
+        ));
+    };
+    const inputChangeHandler = (e, paymentType, deliveryDate) => {
+        dispatch(setPaymentDetails({
+            paymentType,
+            deliveryDate,
+        }));
         setShowError(false);
-    }
-
-    const buttonHandler = () => {
-        const parsed = selectedMethod ? JSON.parse(selectedMethod) : null;
-        if (!selectedMethod || (parsed.method === "schedule" && !parsed.date)) {
-            setShowError(true);
-            return;
-        }
-        console.log("Selected Method:", parsed);
     };
+    const paymentInfo = useSelector(state => state.payment.paymentDetails);
+    console.log("Redux store:", paymentInfo);
 
     return (
         <>
             <Header/>
             <div className={`${classes['main-wrapper']} ${layout['container']}`}>
-                <div className={classes['page-options']}>
-                    <Link className={classes['mobile-hide']} to='/address'>
-                        <div className={`${classes['steps']} ${classes['mobile-hide']}`}>
-                            <img src={AddressIcon} alt={'location-icon'}/>
-                            <span>
-                            <p>Step 1</p>
-                            <h2>Address</h2>
-                        </span>
-                        </div>
-                    </Link>
-                    <div className={`${classes['steps']}  ${classes['active']}`}>
-                        <img src={ShippingIcon} alt={'shipping-icon'}/>
-                        <span>
-                            <p>Step 2</p>
-                            <h2>Shipping</h2>
-                        </span>
-                    </div>
-                    <div className={classes['steps']}>
-                        <img src={PaymentIcon} alt={'payment-icon'}/>
-                        <span>
-                            <p>Step 3</p>
-                            <h2>Payment</h2>
-                        </span>
-                    </div>
-                </div>
+                <PaymentSteps/>
                 <div className={classes['shipment-method']}>
                     <h1>Shipment Method</h1>
                     {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
                     <div className={classes['methods-wrapper']}>
                         <label className={classes['methods']}>
                             <div className={classes['methods-info']}>
-                                <input type="radio"
-                                       name="payment-method"
-                                       defaultChecked
-                                       onChange={inputChangeHandler}
-                                       value={JSON.stringify(
-                                           {method: "free", date: "17 Oct, 2023"}
-                                       )}/>
+                                <input
+                                    type="radio"
+                                    name="payment-method"
+                                    value="free"
+                                    checked={selectedPaymentMethod === "free"}
+                                    onChange={() => {
+                                        setSelectedPaymentMethod("free");
+                                        inputChangeHandler(null, "Free", formattedDate);
+                                    }}
+                                />
                                 <b>Free</b>
                                 <p>Regularly shipment</p>
                             </div>
                             <div className={classes['methods-date']}>
-                                <p>17 Oct, 2023 </p>
+                                <p>{formattedDate}</p>
                             </div>
                         </label>
-                        <label className={classes['methods']}>
-                            <div className={classes['methods-info']}>
-                                <input type="radio"
-                                       name="payment-method"
-                                       value={JSON.stringify(
-                                           {method: "$8.50", date: "1 Oct, 2023"}
-                                       )}
-                                       onChange={inputChangeHandler}/>
-                                <b>$8.50</b>
-                                <p> Get your delivery as soon as possible</p>
-                            </div>
-                            <div className={classes['methods-date']}>
-                                <p>1 Oct, 2023</p>
-                            </div>
-                        </label>
-
                         <label className={classes['methods']}>
                             <div className={classes['methods-info']}>
                                 <input
                                     type="radio"
                                     name="payment-method"
-                                    value={JSON.stringify({
-                                        method: "schedule",
-                                        date: selectedDate ? formatedSelectedDate : null
-                                    })}
-                                    checked={selectedMethod === JSON.stringify({
-                                        method: "schedule",
-                                        date: selectedDate ? formatedSelectedDate : null
-                                    })}
-                                    onChange={inputChangeHandler}
+                                    value="8.50$"
+                                    checked={selectedPaymentMethod === "asap"}
+                                    onChange={() => {
+                                        setSelectedPaymentMethod("asap");
+                                        inputChangeHandler(null, "8.50$", twoWeeksFormattedDate);
+                                    }}
                                 />
-                                <b>Schedule</b>
+                                <b>$8.50</b>
+                                <p> Get your delivery as soon as possible</p>
+                            </div>
+                            <div className={classes['methods-date']}>
+                                <p>{twoWeeksFormattedDate}</p>
+                            </div>
+                        </label>
+                        <label className={classes['methods']}>
+                            <div className={classes['methods-info']}>
+                                <input
+                                    type="radio"
+                                    name="payment-method"
+                                    value="scheduled"
+                                    checked={selectedPaymentMethod === "scheduled"}
+                                    onChange={() => {
+                                        setSelectedPaymentMethod("scheduled");
+                                        inputChangeHandler(null, {price}, formatedSelectedDate || "");
+                                    }}
+                                />
+                                <b>{selectedDate ? `$${price.toFixed(2)}` : 'schedule'}</b>
                                 <p>Pick a date for your delivery</p>
                             </div>
                             <div className={classes['methods-date']}>
                                 <div
                                     onClick={() => setCalendarVisible(prev => !prev)}
-                                    className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}
-                                >
+                                    className={`${classes['date-display']} ${selectedDate ? classes['active-date'] : ''}`}>
                                     {selectedDate ? formatedSelectedDate : <p>Select Date &gt;</p>}
                                 </div>
-
                                 {isCalendarVisible && (
                                     <div className={classes['calendar-dropdown']}>
                                         <Calendar
                                             onChange={handleDateChange}
-                                            value={selectedDate || new Date()}
                                         />
                                     </div>
                                 )}
                             </div>
                         </label>
-
                         <div className={classes['buttons-wrapper']}>
-                            <button className={classes['btn-back']}>
-                                Back
-                            </button>
-
-                            <button className={classes['btn-next']} onClick={buttonHandler}>
-                                Next
-                            </button>
+                            <Link to='/address'>
+                                <button className={classes['btn-back']}>
+                                    Back
+                                </button>
+                            </Link>
+                            <Link to='/payment'>
+                                <button className={classes['btn-next']}>
+                                    Next
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
