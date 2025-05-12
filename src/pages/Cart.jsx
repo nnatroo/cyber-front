@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import classes from '../modules/ShoppingCart.module.scss';
+import classes from '../modules/Cart.module.scss';
 import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
 import close from "../assets/close.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
+import {useNavigate} from "react-router";
 
 export const ShoppingCart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -14,6 +15,7 @@ export const ShoppingCart = () => {
     const [estimatedTax, setEstimatedTax] = useState(0);
     const estimatedShipping = 29;
     const taxRate = 0.02;
+    const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -29,6 +31,10 @@ export const ShoppingCart = () => {
         setEstimatedTax(tax);
         setTotal(totalAmount);
     }, [cartItems]);
+
+    const checkoutClickHandler = () => {
+        navigate('/address')
+    }
 
     return (
         <>
@@ -110,7 +116,7 @@ export const ShoppingCart = () => {
                             </div>
                         </div>
 
-                        <button className={classes["checkout"]}>Checkout</button>
+                        <button onClick={checkoutClickHandler} className={classes["checkout"]}>Checkout</button>
                     </div>
                 </div>
             </div>
