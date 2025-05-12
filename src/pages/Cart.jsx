@@ -74,8 +74,10 @@ export const ShoppingCart = () => {
 
                         <div className={classes["card-input"]}>
                             <p>Your bonus card number</p>
-                            <input type="text" placeholder="Enter Card Number" />
-                            <button>Apply</button>
+                            <div>
+                                <input type="text" placeholder="Enter Card Number"/>
+                                <button>Apply</button>
+                            </div>
                         </div>
 
                         <div className={classes["summary-box"]}>
