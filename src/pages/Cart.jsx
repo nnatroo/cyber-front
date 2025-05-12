@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import classes from '../modules/ShoppingCart.module.scss';
 import Header from "../components/Header.jsx";
-import { Footer } from "../components/Footer.jsx";
+import {Footer} from "../components/Footer.jsx";
 import close from "../assets/close.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { decreaseQuantity, increaseQuantity, removeFromCart } from '../redux/cartSlice';
+import {useDispatch, useSelector} from "react-redux";
+import {decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
 
 export const ShoppingCart = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -16,6 +16,8 @@ export const ShoppingCart = () => {
     const taxRate = 0.02;
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         const newSubtotal = cartItems.reduce(
             (acc, item) => acc + item.price * item.quantity,
             0
@@ -30,7 +32,7 @@ export const ShoppingCart = () => {
 
     return (
         <>
-            <Header />
+            <Header/>
             <div className={classes["shopping-cart"]}>
                 <div className={classes["shopping-cart-container"]}>
                     <div className={classes["cart-items"]}>
@@ -42,7 +44,7 @@ export const ShoppingCart = () => {
                         {cartItems.map((item) => (
                             <div className={classes["cart-item"]} key={item.id}>
                                 <figure>
-                                    <img src={`http://localhost:5000${item?.image}`} alt={"image"} />
+                                    <img src={`http://localhost:5000${item?.image}`} alt={"image"}/>
                                 </figure>
                                 <div className={classes["item-details"]}>
                                     <div className={classes["item-header"]}>
@@ -55,8 +57,9 @@ export const ShoppingCart = () => {
                                             <button onClick={() => dispatch(increaseQuantity(item.id))}>+</button>
                                         </div>
                                         <h3 className={classes["price"]}>${item.price}</h3>
-                                        <button className={classes["remove"]} onClick={() => dispatch(removeFromCart(item.id))}>
-                                            <img src={close} alt={"close"} />
+                                        <button className={classes["remove"]}
+                                                onClick={() => dispatch(removeFromCart(item.id))}>
+                                            <img src={close} alt={"close"}/>
                                         </button>
                                     </div>
                                 </div>
@@ -69,7 +72,7 @@ export const ShoppingCart = () => {
 
                         <div className={classes["discount-code-input"]}>
                             <p>Discount code / Promo code</p>
-                            <input type="text" placeholder="Code" />
+                            <input type="text" placeholder="Code"/>
                         </div>
 
                         <div className={classes["card-input"]}>

@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {addToCart} from "../redux/cartSlice.js";
 import {useState} from "react";
 import {Link} from "react-router";
+
 export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
@@ -11,7 +12,6 @@ export const Product = ({product}) => {
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
         setIsAdded(true);
-
     };
     return (
         <>
@@ -24,10 +24,10 @@ export const Product = ({product}) => {
                         <p>{product?.name}</p>
                         <h2>${product?.price}</h2>
                         {isAdded ? <button className={classes["link-btn"]}>
-                            <Link to={"/ShoppingCart"} className={classes["link"]}>In
-                                cart</Link></button> : <button  onClick={() => handleAddToCart(product)}
-                        className={classes["buy-btn"]}>Buy Now
-                    </button>}
+                            <Link to={"/shopping-cart"} className={classes["link"]}>In
+                                cart</Link></button> : <button onClick={() => handleAddToCart(product)}
+                                                               className={classes["buy-btn"]}>Buy Now
+                        </button>}
                     </div>
                 </div>
             </div>
