@@ -21,7 +21,7 @@ export const Error = () => {
                     </Link>
                 </div>
             </div>
-            <Footer></Footer>
+            <Footer />
         </>
     )
 }
