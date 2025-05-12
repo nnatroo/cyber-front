@@ -75,6 +75,14 @@
     @media (max-width: 1024px) {
       display: none;
     }
+    a{
+      width: 32px;
+      height: 32px;
+      img{
+        width: 32px;
+        height: 32px;
+      }
+    }
   }
 
   .burger-menu-icon {
