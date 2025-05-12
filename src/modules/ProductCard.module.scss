@@ -25,6 +25,32 @@
     .like-img {
       width: 32px;
       height: 32px;
+      opacity: 0.5;
+      transition: 0.2s;
+      cursor: pointer;
+      @media(max-width: 700px) {
+        transform: translateX(100%);
+      }
+
+      &:hover {
+        transition: 0.2s;
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
+
+    .active-like-img {
+      width: 32px;
+      height: 32px;
+      @media(max-width: 700px) {
+        transform: translateX(100%);
+      }
+
+      &:hover {
+        transition: 0.2s;
+        opacity: 0.5;
+        cursor: pointer;
+      }
     }
   }
 
@@ -74,6 +100,7 @@
 
     @media(max-width: 700px) {
       width: 130px;
+      text-align: center;
     }
 
     &:hover {

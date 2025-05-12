@@ -1,41 +1,12 @@
 .main-div {
   background-color: #FFFFFF;
   height: 100%;
-.product {
-  display: flex;
-  padding: 24px 16px 24px 16px;
-  flex-direction: column;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   @media(max-width: 1150px) {
-  box-sizing: border-box;
-  background-color: #f6f6f6;
-  border-radius: 9px;
-  margin: 0 auto;
-
-  @media screen and (max-width: 1280px) {
-  }
-
-  @media screen and (max-width: 992px) {
-  }
-
-  @media screen and (max-width: 576px) {
-  }
-
-  .fav-icon {
-    width: 29px;
-    height: 29px;
-    cursor: pointer;
-    z-index: 1;
-    align-self: flex-end;
-  }
-
-  .flex-center {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
   }
 
@@ -46,45 +17,26 @@
     gap: 16px;
     display: flex;
     align-items: center;
-    text-align: center;
-    margin-top: 20px;
 
     @media(max-width: 1150px) {
       transform: translateX(-10%);
     }
-    .products-image {
-      max-width: 160px;
-      max-height: 160px !important;
 
     @media(max-width: 850px) {
       transform: translateX(-15%);
     }
-      @media screen and (max-width: 1024px) {
-        width: 120px;
-        height: 120px;
-      }
 
     @media(max-width: 490px) {
       transform: translateX(-25%);
     }
-      @media screen and (max-width: 992px) {
-        width: 140px;
-        height: 140px;
-      }
 
     @media(max-width: 400px) {
       transform: translateX(-40%);
-      @media screen and (max-width: 576px) {
-        width: 104px;
-        height: 104px;
-      }
     }
 
     a {
       font-family: Inter, serif;
       font-weight: 500;
-    p {
-      margin-top: 16px;
       font-size: 16px;
       line-height: 16px;
       letter-spacing: 0;
@@ -163,13 +115,6 @@
 
       @media(max-width: 1150px) {
         width: 600px;
-      font-weight: 500;
-      height: 48px;
-
-      @media screen and (max-width: 1024px) {
-        margin-top: 12px;
-        font-size: 15px;
-        height: 55px;
       }
 
       .top-part {
@@ -177,6 +122,10 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @media(max-width: 700px) {
+          position: relative;
+          transform: translateX(-30%);
+        }
 
         .header-container {
           h1 {
@@ -186,16 +135,6 @@
             line-height: 16px;
             letter-spacing: 1px;
             color: #6C6C6C;
-      @media screen and (max-width: 992px) {
-        margin-top: 16px;
-        font-size: 16px;
-      }
-    }
-
-    h2 {
-      margin-top: 16px;
-      font-size: 24px;
-      font-weight: 600;
 
             span {
               font-family: Inter, serif;
@@ -205,6 +144,12 @@
               letter-spacing: 1px;
               text-align: center;
               color: #000000;
+            }
+
+            @media(max-width: 700px) {
+              justify-content: flex-start;
+              align-items: flex-start;
+              padding: 8px;
             }
           }
         }
@@ -280,33 +225,7 @@
       background: #F6F6F6;
       border-color: transparent;
       transition: 0.2s;
-      @media screen and (max-width: 1024px) {
-        margin-top: 34px;
-      }
-    }
-
-    button {
-      margin-top: 24px;
-      width: 100%;
-      max-width: 188px;
-      height: 48px;
-      background-color: black;
-      border: 1px solid #000;
-      color: white;
-      font-family: "Inter", sans-serif;
-      font-weight: 500;
-      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.2s;
-
-
-      @media screen and (max-width: 1024px) {
-        margin-top: 16px;
-      }
-
-      @media screen and (max-width: 992px) {
-        margin-top: 24px;
-      }
 
       &:hover {
         transition: 0.2s;
@@ -333,9 +252,6 @@
         transition: 0.2s;
         color: black;
         background: #F6F6F6;
-        background-color: #fff;
-        border: 1px solid #000;
-        color: #000;
       }
     }
   }

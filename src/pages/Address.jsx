@@ -46,13 +46,13 @@ export const Address = () => {
     const handleChange = (id, field, value) => {
         setAddresses((prevAddresses) =>
             prevAddresses.map((address) =>
-                address.id === id ? {...address, [field]: value} : address
+                address.id === id ? { ...address, [field]: value } : address
             )
         );
 
         setErrors((prevErrors) => ({
             ...prevErrors,
-            [id]: {...prevErrors[id], [field]: ""}
+            [id]: { ...prevErrors[id], [field]: "" }
         }));
     };
 
@@ -70,7 +70,7 @@ export const Address = () => {
                             return address;
                         }
                     }
-                    return {...address, isEditing: !address.isEditing};
+                    return { ...address, isEditing: !address.isEditing };
                 }
                 return address;
             })
@@ -95,7 +95,7 @@ export const Address = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className={classes["stepper"]}>
                 <div className={classes["step"]}>
                     <div className={classes["step-icon"]}><img src={Location} alt={"destination"}/></div>
@@ -104,6 +104,7 @@ export const Address = () => {
                         <h3>Address</h3>
                     </div>
                 </div>
+
                 <div className={classes["step"]}>
                     <div className={classes["step-icon"]}><img src={Shopping} alt={"shipping"}/></div>
                     <div className={classes["step-label"]}>
@@ -111,6 +112,7 @@ export const Address = () => {
                         <h3>Shipping</h3>
                     </div>
                 </div>
+
                 <div className={`${classes["step"]} ${classes["step-mobile"]}`}>
                     <div className={classes["step-icon"]}><img src={CreditCard} alt={"payment"}/></div>
                     <div className={classes["step-label"]}>
@@ -119,15 +121,16 @@ export const Address = () => {
                     </div>
                 </div>
             </div>
+
             <div className={classes["address-container"]}>
-                {addresses.length === 0 ? (<h3>Add Address</h3>) : (<h3>Select Address</h3>)}
+                <h3>Select Address</h3>
                 {addresses.map((address) => (
                     <div key={address.id} className={classes["address-card"]}>
                         <div className={classes["address-details"]}>
                             {address.isEditing ? (
                                 <div className={classes["edit-address"]}>
                                     <div className={classes["flexes"]}>
-                                        <div className={classes["flexes-text"]}>
+                                        <div  className={classes["flexes-text"]}>
                                             <h4>Name</h4>
                                             <input
                                                 type="text"
@@ -136,7 +139,7 @@ export const Address = () => {
                                                 placeholder="Enter Name"
                                             />
                                             {errors[address.id]?.name &&
-                                                <p>{errors[address.id].name}</p>}
+                                                <p className={classes["error"]}>{errors[address.id].name}</p>}
                                         </div>
                                         <div className={classes["flexes-text"]}>
                                             <h4>Address</h4>
@@ -147,7 +150,7 @@ export const Address = () => {
                                                 placeholder="Enter Address"
                                             />
                                             {errors[address.id]?.details &&
-                                                <p>{errors[address.id].details}</p>}
+                                                <p className={classes["error"]}>{errors[address.id].details}</p>}
                                         </div>
                                     </div>
                                     <div className={classes["flexes"]}>
@@ -160,7 +163,7 @@ export const Address = () => {
                                                 placeholder="Enter Phone"
                                             />
                                             {errors[address.id]?.phone &&
-                                                <p>{errors[address.id].phone}</p>}
+                                                <p className={classes["error"]}>{errors[address.id].phone}</p>}
                                         </div>
                                         <div className={classes["btns-add-delete"]}>
                                             <button onClick={() => toggleEdit(address.id)}>
@@ -196,9 +199,7 @@ export const Address = () => {
                                             <button onClick={() => toggleEdit(address.id)}>
                                                 <img src={Edit} alt={"edit"}/>
                                             </button>
-                                            <button onClick={() => deleteAddress(address.id)}><img src={Close}
-                                                                                                   alt={"close"}/>
-                                            </button>
+                                            <button onClick={() => deleteAddress(address.id)}><img src={Close} alt={"close"}/></button>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +224,6 @@ export const Address = () => {
                         <img src={Subtract} alt={"add"}/>
                         <img src={Line2} alt={"line"} className={classes["line"]}/>
                     </button>
-                    <h3>Add New Address</h3>
                 </div>
                 <div className={classes["buttons"]}>
                     <button className={classes["back-button"]}>Back</button>
