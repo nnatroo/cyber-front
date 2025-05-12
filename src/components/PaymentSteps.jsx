@@ -14,8 +14,7 @@ const PaymentSteps = () => {
                 <div className={`
                     ${classes.steps} 
                     ${currentPath === '/address' ? classes.active : ''} 
-                    ${currentPath === '/address' ? classes['active-address'] : ''}
-                       ${currentPath === '/shipping' ? classes['mobile-hide'] : ''} 
+                   ${currentPath === '/shipping' ? classes['mobile-hide'] : ''} 
                           ${currentPath === '/payment' ? classes['mobile-hide'] : ''} 
                 `}>
                     <img
@@ -34,9 +33,7 @@ const PaymentSteps = () => {
                 <div className={`
                     ${classes.steps} 
                     ${currentPath === '/shipping' ? classes.active : ''} 
-                    ${currentPath === '/shipping' ? classes['active-shipping'] : ''}
-                    
-                `}>
+`}>
                     <img
                         src={ShippingIcon}
                         alt="shipping-icon"
@@ -53,8 +50,7 @@ const PaymentSteps = () => {
                 <div className={`
                     ${classes.steps} 
                     ${currentPath === '/payment' ? classes.active : ''} 
-                    ${currentPath === '/payment' ? classes['active-payment'] : ''}
-                         ${currentPath === '/address' ? classes['mobile-hide'] : ''} 
+                    ${currentPath === '/address' ? classes['mobile-hide'] : ''} 
        
                 `}>
                     <img

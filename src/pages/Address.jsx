@@ -9,6 +9,7 @@ import Header from "../components/Header.jsx";
 import PaymentSteps from "../components/PaymentSteps.jsx";
 import {Link} from "react-router";
 import layout from "../modules/layout.module.scss";
+import {Footer} from "../components/Footer.jsx";
 
 export const Address = () => {
     const [addresses, setAddresses] = useState([]);
@@ -94,10 +95,10 @@ export const Address = () => {
     };
 
     return (
-
+<>
+    <Header/>
             <div className={`${classes['main-wrapper']} ${layout['container']}`}>
-            <Header/>
-            <PaymentSteps/>
+                <PaymentSteps/>
                 <div className={classes["address-container"]}>
                 {addresses.length === 0 ? (<h3>Add Address</h3>) : (<h3>Select Address</h3>)}
                 {addresses.map((address) => (
@@ -212,5 +213,7 @@ export const Address = () => {
                 </div>
             </div>
         </div>
+<Footer/>
+</>
     );
 };

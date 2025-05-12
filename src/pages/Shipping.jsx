@@ -9,6 +9,7 @@ import {Link} from "react-router";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { setPaymentDetails } from '../store/paymentSlice.js';
+import {Footer} from "../components/Footer.jsx";
 
 export const Shipping = () => {
     const [selectedDate, setSelectedDate] = useState(null);
@@ -155,6 +156,7 @@ export const Shipping = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </>
     )
 };
