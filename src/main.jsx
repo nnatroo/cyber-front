@@ -7,6 +7,7 @@ import Home from "./pages/Home.jsx";
 import {ShoppingCart} from "./pages/Cart.jsx";
 import {Provider} from 'react-redux';
 import {store} from './redux/store.js';
+import Error from './pages/Error.jsx'
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/address" element={<Address/>}/>
                 <Route path="/shopping-cart" element={<ShoppingCart/>}/>
+                <Route path="/*" element={<Error />} />
             </Routes>
         </BrowserRouter>
     </Provider>
