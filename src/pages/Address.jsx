@@ -9,9 +9,11 @@ import Subtract from "../assets/subtract.svg"
 import Line from "../assets/line.svg"
 import Line2 from "../assets/line-second.svg"
 import Header from "../components/Header.jsx";
+import {useNavigate} from "react-router";
 
 export const Address = () => {
     const [addresses, setAddresses] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const savedAddresses = localStorage.getItem("addresses");
@@ -92,6 +94,10 @@ export const Address = () => {
             return Object.keys(validationErrors).length > 0;
         });
     };
+
+    const backClickHandler = () => {
+        navigate('/shopping-cart')
+    }
 
     return (
         <>
@@ -226,7 +232,7 @@ export const Address = () => {
                     <h3>Add New Address</h3>
                 </div>
                 <div className={classes["buttons"]}>
-                    <button className={classes["back-button"]}>Back</button>
+                    <button onClick={backClickHandler} className={classes["back-button"]}>Back</button>
                     <button className={classes["next-button"]}>Next</button>
                 </div>
             </div>
