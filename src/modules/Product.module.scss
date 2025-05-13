@@ -7,6 +7,12 @@
   background-color: #f6f6f6;
   border-radius: 9px;
   margin: 0 auto;
+  transition: 0.2s;
+  cursor: pointer;
+  &:hover{
+    background-color: rgba(218, 213, 213, 0.4);
+  }
+
 
   .fav-icon {
     width: 29px;
