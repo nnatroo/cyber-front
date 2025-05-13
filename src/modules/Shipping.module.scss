@@ -8,12 +8,11 @@
     padding-top: 48px;
     padding-bottom: 48px;
     gap: 32px;
-    h1 {
+    h3 {
       font-family: Inter, 'sans-serif';
       font-weight: 600;
       font-size: 20px;
       line-height: 24px;
-      padding-bottom: 8px;
       color: rgba(23, 24, 59, 1);
       @media (max-width: 992px) {
         display: flex;

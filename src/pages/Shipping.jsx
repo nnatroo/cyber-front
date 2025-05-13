@@ -54,10 +54,12 @@ export const Shipping = () => {
             }
         ));
     };
-    const inputChangeHandler = (e, paymentType, deliveryDate) => {
+    const inputChangeHandler = (e, paymentType, deliveryDate,) => {
+
         dispatch(setPaymentDetails({
             paymentType,
             deliveryDate,
+
         }));
         setShowError(false);
     };
@@ -70,7 +72,7 @@ export const Shipping = () => {
             <div className={`${classes['main-wrapper']} ${layout['container']}`}>
                 <PaymentSteps/>
                 <div className={classes['shipment-method']}>
-                    <h1>Shipment Method</h1>
+                    <h3>Shipment Method</h3>
                     {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
                     <div className={classes['methods-wrapper']}>
                         <label className={classes['methods']}>

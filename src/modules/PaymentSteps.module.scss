@@ -4,6 +4,13 @@
   padding-top: 72px;
   align-items: center;
 
+  @media (max-width: 576px){
+    padding: 0 20px;
+    width: 100%;
+  }
+
+
+
   .steps {
     display: flex;
     align-items: center;
@@ -58,9 +65,10 @@
     }
   }
   .mobile-hide {
-    @media (max-width: 375px){
+    @media (max-width: 576px){
       display: none !important;
     }
   }
+
  }
 

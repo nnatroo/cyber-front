@@ -10,30 +10,29 @@ const PaymentSteps = () => {
 
     return (
         <div className={classes['page-options']}>
-            <Link to='/address'>
+            <Link
+                to='/address'
+                className={ currentPath === '/shipping' || currentPath === '/payment' ? classes['mobile-hide'] : ''}>
                 <div className={`
-                    ${classes.steps} 
-                    ${currentPath === '/address' ? classes.active : ''} 
-                   ${currentPath === '/shipping' ? classes['mobile-hide'] : ''} 
-                          ${currentPath === '/payment' ? classes['mobile-hide'] : ''} 
-                `}>
+                 ${classes.steps}
+                 ${currentPath === '/address' ? classes.active : ''}`}>
                     <img
                         src={AddressIcon}
                         alt="location-icon"
                         className={currentPath === '/address' ? classes['active-icon'] : ''}
-                    />
+                     />
                     <span>
-                        <p>Step 1</p>
-                        <h2>Address</h2>
+                    <p>Step 1</p>
+                    <h2>Address</h2>
                     </span>
                 </div>
             </Link>
 
+
             <Link to='/shipping'>
                 <div className={`
                     ${classes.steps} 
-                    ${currentPath === '/shipping' ? classes.active : ''} 
-`}>
+                    ${currentPath === '/shipping' ? classes.active : ''}`}>
                     <img
                         src={ShippingIcon}
                         alt="shipping-icon"
@@ -46,13 +45,12 @@ const PaymentSteps = () => {
                 </div>
             </Link>
 
-            <Link to='/payment'>
+            <Link
+                to='/payment'
+                className={currentPath === '/address' ? classes['mobile-hide'] : ''}>
                 <div className={`
-                    ${classes.steps} 
-                    ${currentPath === '/payment' ? classes.active : ''} 
-                    ${currentPath === '/address' ? classes['mobile-hide'] : ''} 
-       
-                `}>
+                 ${classes.steps} 
+                 ${currentPath === '/payment' ? classes.active : ''}`}>
                     <img
                         src={PaymentIcon}
                         alt="payment-icon"
