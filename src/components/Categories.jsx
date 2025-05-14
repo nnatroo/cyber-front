@@ -1,10 +1,11 @@
 import classes from '../modules/Categories.module.scss'
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router";
 
 export const Categories = () => {
     const [categories, setCategories] = useState([]);
-
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get('http://localhost:5000/categories')
             .then((response) => {
@@ -14,7 +15,9 @@ export const Categories = () => {
                 console.error(error);
             });
     }, []);
-
+    const handleCategoryClick = (img) => {
+        navigate(`/products/${img.category}`);
+    };
     return (
         <>
             <section className={classes["category-section"]}>
@@ -24,7 +27,7 @@ export const Categories = () => {
                     </div>
                     <div className={classes["category-cards-wrapper"]}>
                         {categories.map((img, index) => (
-                            <figure key={index} className={classes["category-card"]}>
+                            <figure key={index} className={classes["category-card"]}  onClick={() => handleCategoryClick(img)}>
                                 <img src={`http://localhost:5000/${img.ImageSrc}`} alt={img.category}
                                      className={classes["category-card-img"]}/>
                                 <p className={classes["category-card-text"]}>{img.category}</p>
