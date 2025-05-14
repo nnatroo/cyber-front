@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
 import close from "../assets/close.svg";
 import {useDispatch, useSelector} from "react-redux";
-import {decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
+import {decreaseQuantity, increaseQuantity, removeFromCart} from '../store/cartSlice.js';
 import {useNavigate} from "react-router";
 
 export const ShoppingCart = () => {

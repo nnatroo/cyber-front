@@ -1,7 +1,7 @@
 import classes from "../modules/Product.module.scss"
 import favoriteIcon from "../assets/favorites-icon.png";
 import {useDispatch} from "react-redux";
-import {addToCart} from "../redux/cartSlice.js";
+import {addToCart} from "../store/cartSlice.js";
 import {useState} from "react";
 import {Link} from "react-router";
 

@@ -7,7 +7,7 @@ import {Address} from "./pages/Address.jsx";
 import {Error} from './pages/Error.jsx'
 import {ShoppingCart} from "./pages/Cart.jsx";
 import {Provider} from 'react-redux';
-import {store} from './redux/store.js';
+import {store} from './store/store.js';
 import {Shipping} from "./pages/Shipping.jsx";
 
 
