@@ -1,0 +1,110 @@
+.summary {
+    h1{
+        font-family: Inter, 'sans-serif';
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 16px;
+    }
+.products {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+  .cart-items{
+    padding: 16px 24px 16px 16px;
+    box-sizing: border-box;
+    gap: 6px;
+    border-radius: 13px;
+    background-color: #F6F6F6;
+    border: transparent;
+    .item-details{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #000000;
+      h3{
+        font-family: Inter, 'sans-serif';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      span{
+        font-family: Inter, 'sans-serif';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: right;
+      }
+    }
+  }
+
+    .info{
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        .address{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                span{
+                    font-family: Inter,'sans-serif' ;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: #545454;
+                }
+                p{
+                    font-family: Inter,'sans-serif' ;
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                    vertical-align: middle;
+                    color: #000000;
+                }
+            }
+        }
+    .summary-box {
+        .total {
+                display: flex;
+                justify-content: space-between;
+
+                p {
+                    font-family: Inter, 'sans-serif';
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 32px;
+                }
+
+                span {
+                    font-family: Inter, 'sans-serif';
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 24px;
+                    vertical-align: bottom;
+                    color: #000000;
+                }
+            }
+
+        .tax {
+                display: flex;
+                justify-content: space-between;
+
+                span {
+                    font-family: Inter, 'sans-serif';
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 32px;
+                    vertical-align: bottom;
+                    color: #545454;
+                }
+
+                p {
+                    font-family: Inter, 'sans-serif';
+                    font-weight: 500;
+                    font-size: 16px;
+                    line-height: 32px;
+                }
+            }
+        }
+    }
+}
