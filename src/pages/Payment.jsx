@@ -10,7 +10,7 @@ import {useState} from "react";
 
 export const  Payment = () => {
     const [cardNumber, setCardNumber] = useState('')
-    const [cardName, setCardName] = useState('Cardholder')
+    const [cardName, setCardName] = useState('')
     const [expDate, setExpDate] = useState('');
     const [cvv, setCvv] = useState('');
 
@@ -65,7 +65,7 @@ export const  Payment = () => {
         const hasErrors = Object.values(newErrors).some(error => error !== '');
         if (hasErrors) return;
 
-        navigate("/payment");
+        navigate("/final");
     };
 
 
@@ -92,7 +92,7 @@ export const  Payment = () => {
                                     <span>{cardNumber || '0000 0000 0000 0000'}</span>
                                 </div>
                                 <div className={classes['card-name']}>
-                                    <span>{cardName}</span>
+                                    <span>{cardName || 'Cardholder'}</span>
                                 </div>
                             </div>
                             <div className={classes['input-wrapper']}>
@@ -101,6 +101,7 @@ export const  Payment = () => {
                                     placeholder='Card Name'
                                     type="text"
                                     value={cardName}
+                                    maxLength={30}
                                     onChange={(e) => {
                                         setCardName(e.target.value);
                                         if (errors.cardName) {
@@ -108,8 +109,6 @@ export const  Payment = () => {
                                         }
                                     }}
                                 />
-                                {errors.cardName && <p className={classes['error-text']}>{errors.cardName}</p>}
-
                                 {errors.cardName && <p className={classes['error-text']}>{errors.cardName}</p>}
 
                                 <input
@@ -124,8 +123,6 @@ export const  Payment = () => {
                                     }}
                                     maxLength={19}
                                 />
-                                {errors.cardNumber && <p className={classes['error-text']}>{errors.cardNumber}</p>}
-
                                 {errors.cardNumber && <p className={classes['error-text']}>{errors.cardNumber}</p>}
 
                                 <form>
@@ -143,8 +140,6 @@ export const  Payment = () => {
                                     />
                                     {errors.expDate && <p className={classes['error-text']}>{errors.expDate}</p>}
 
-                                    {errors.expDate && <p className={classes['error-text']}>{errors.expDate}</p>}
-
                                     <input
                                         placeholder='CVV'
                                         type="password"
@@ -155,11 +150,11 @@ export const  Payment = () => {
                                             if (errors.cvv) {
                                                 setErrors(prev => ({ ...prev, cvv: '' }));
                                             }
+
                                         }}
                                     />
                                     {errors.cvv && <p className={classes['error-text']}>{errors.cvv}</p>}
 
-                                    {errors.cvv && <p className={classes['error-text']}>{errors.cvv}</p>}
 
                                 </form>
                             </div>
