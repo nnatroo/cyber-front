@@ -20,7 +20,7 @@ export const Shipping = () => {
     const [isCalendarVisible, setCalendarVisible] = useState(false);
     const [formatedSelectedDate, setFormatedSelectedDate] = useState("");
     const [showError, setShowError] = useState(false);
-    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("free");
+    const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("Free");
     const dispatch = useDispatch();
 
     const currentDate = new Date();
@@ -29,9 +29,10 @@ export const Shipping = () => {
     twoWeeksLater.setDate(currentDate.getDate() + 14);
     const twoWeeksFormattedDate = twoWeeksLater.toLocaleDateString('en-US', dateFormatOptions);
 
+
     useEffect(() => {
         dispatch(setShippingDetails({
-            paymentType: 'free',
+            paymentType: 'Free',
             deliveryDate: twoWeeksFormattedDate,
             price: 0
         }))
@@ -60,7 +61,7 @@ export const Shipping = () => {
         dispatch(setShippingDetails({
             shippingType,
             deliveryDate,
-            price: shippingType === 'free' ? 0 : shippingType === 'asap' ? 8.50 : 8.50
+            price: shippingType === 'Free' ? 0 : shippingType === 'Express' ? 8.50 : 8.50
         }));
         setShowError(false);
     };
@@ -71,6 +72,7 @@ export const Shipping = () => {
 
     const nextClickHandler = () => {
         navigate("/payment")
+
     }
 
     return (
@@ -80,18 +82,17 @@ export const Shipping = () => {
                 <PaymentSteps/>
                 <div className={classes['shipment-method']}>
                     <h3>Shipment Method</h3>
-                    {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
                     <div className={classes['methods-wrapper']}>
                         <label className={classes['methods']}>
                             <div className={classes['methods-info']}>
                                 <input
                                     type="radio"
                                     name="payment-method"
-                                    value="free"
-                                    checked={selectedPaymentMethod === "free"}
+                                    value="Free"
+                                    checked={selectedPaymentMethod === "Free"}
                                     onChange={() => {
-                                        setSelectedPaymentMethod("free");
-                                        inputChangeHandler(null, "free", twoWeeksFormattedDate);
+                                        setSelectedPaymentMethod("Free");
+                                        inputChangeHandler(null, "Free", twoWeeksFormattedDate);
                                     }}
                                 />
                                 <b>Free</b>
@@ -107,10 +108,10 @@ export const Shipping = () => {
                                     type="radio"
                                     name="payment-method"
                                     value="8.50$"
-                                    checked={selectedPaymentMethod === "asap"}
+                                    checked={selectedPaymentMethod === "Express"}
                                     onChange={() => {
-                                        setSelectedPaymentMethod("asap");
-                                        inputChangeHandler(null, "asap", formattedDate);
+                                        setSelectedPaymentMethod("Express");
+                                        inputChangeHandler(null, "Express", formattedDate);
                                     }}
                                 />
                                 <b>Express - $8.50</b>
@@ -125,14 +126,20 @@ export const Shipping = () => {
                                 <input
                                     type="radio"
                                     name="payment-method"
-                                    value="scheduled"
-                                    checked={selectedPaymentMethod === "scheduled"}
+                                    value="Scheduled"
+                                    checked={selectedPaymentMethod === "Scheduled"}
                                     onChange={() => {
-                                        setSelectedPaymentMethod("scheduled");
-                                        inputChangeHandler(null, 'scheduled', formatedSelectedDate || "");
+                                        if (!formatedSelectedDate) {
+                                            setShowError(true);
+                                            return;
+                                        }
+                                        setSelectedPaymentMethod("Scheduled");
+                                        inputChangeHandler(null, 'Scheduled', formatedSelectedDate);
                                     }}
                                 />
+
                                 <b>Schedule - $8.50</b>
+                                {showError && <p className={classes['error-text']}>Please select a shipment method.</p>}
                                 <p>Pick a date for your delivery</p>
                             </div>
                             <div className={classes['methods-date']}>
