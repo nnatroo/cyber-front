@@ -4,49 +4,70 @@ import {useParams} from "react-router";
 import classes from "../modules/ProductPage.module.scss";
 import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
-import favoriteIcon from "../assets/favorites-icon.png";
+import chunk from 'lodash.chunk'
+import {ProductCard} from "../components/ProductCard.jsx";
+import arrowRight from "../assets/rightarrow.png";
+import arrowLeft from "../assets/leftarrow.png";
 
 export const Products = () => {
     const { category } = useParams();
     const [products, setProducts] = useState([]);
+    const [paginatedProducts, setPaginatedProducts] = useState([]);
+    const PRODUCT_PER_PAGE = 8;
+    const [currentPage, setCurrentPage] = useState(1)
+    const [sortType, setSortType] = useState("relevant");
+
 
     useEffect(() => {
         axios.get(`http://localhost:5000/products/${category}`)
             .then((response) => {
                 const data = response.data;
-                setProducts(data);
-                console.log(response.data)
+                if (sortType === 'highest') {
+                    data.sort((a, b) => b.price - a.price);
+                } else if (sortType === 'lowest') {
+                    data.sort((a, b) => a.price - b.price);
+                }
+                const paginated = chunk(data, PRODUCT_PER_PAGE);
+                setPaginatedProducts(paginated);
+                setCurrentPage(1);
             })
             .catch((error) => {
                 console.error(error);
                 setProducts([]);
             });
-    }, [category]);
+    }, [category, sortType]);
+    const changePage = (number) => {
+        setCurrentPage(number)
+    }
+    const handleSortChange = (e) => {
+        setSortType(e.target.value);
+    };
     return (
         <>
             <Header/>
-            <div className={classes["products-container"]}>
-                <div className={classes["product"]}>
-                    {products.length > 0 ? (
-                            products.map((product, index) => (
-                                <div key={index} className={classes["product-card"]}>
-                                    <div className={classes["product-card-inner"]}>
-                                        <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
-                                        <div className={classes["flex-center"]}>
-                                            <img src={`http://localhost:5000/images/${product.picture}`}
-                                                 alt={product.name} className={classes["product-image"]}/>
-                                            <div className={classes['about-product']}>
-                                                <p>{product.name}</p>
-                                                <h2>${product.price}</h2>
-                                            </div>
-                                            <button className={classes["buy-btn"]}>Buy Now</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                    ) : (
-                        <p>No products found for {category}.</p>
-                    )}
+            <div className={classes['main-div']}>
+                <div className={classes['main-container']}>
+                    <select onChange={handleSortChange} className={classes['sort-dropdown']}>
+                        <option value="relevant">By relevant</option>
+                        <option value="highest">Highest Price</option>
+                        <option value="lowest">Lowest Price</option>
+                    </select>
+                    <div className={classes['product-wrapper']}>
+                        {(paginatedProducts[currentPage - 1] || []).map((item, index) => (
+                            <ProductCard item={item} key={index}/>
+                        ))}
+                    </div>
+                    <div className={classes['pagination-container']}>
+                        <button className={classes['arrow-button']}><img src={arrowLeft} alt="Previous"/></button>
+                        {paginatedProducts.map((_, index) => (
+                            <button key={index} onClick={() => changePage(index + 1)}
+                                    className={classes['page-button']}>
+                                {index + 1}
+                            </button>
+                        ))}
+
+                        <button className={classes['arrow-button']}><img src={arrowRight} alt="Next"/></button>
+                    </div>
                 </div>
             </div>
             <Footer/>
