@@ -11,7 +11,6 @@ import arrowLeft from "../assets/leftarrow.png";
 
 export const Products = () => {
     const { category } = useParams();
-    const [products, setProducts] = useState([]);
     const [paginatedProducts, setPaginatedProducts] = useState([]);
     const PRODUCT_PER_PAGE = 8;
     const [currentPage, setCurrentPage] = useState(1)
@@ -33,11 +32,11 @@ export const Products = () => {
             })
             .catch((error) => {
                 console.error(error);
-                setProducts([]);
             });
     }, [category, sortType]);
     const changePage = (number) => {
         setCurrentPage(number)
+        window.scrollTo(0, 0);
     }
     const handleSortChange = (e) => {
         setSortType(e.target.value);

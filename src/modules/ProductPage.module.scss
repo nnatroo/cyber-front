@@ -41,6 +41,18 @@
     justify-content: center;
     gap: 32px;
     padding: 64px;
+    @media (max-width: 1120px) {
+      width: 1000px;
+    }
+    @media screen and (max-width: 1024px) {
+      width: auto;
+      padding-inline: 50px;
+    }
+
+    @media screen and (max-width: 576px) {
+      width: auto;
+      padding-inline: 25px;
+    }
     .sort-dropdown {
       align-self: flex-end;
       width: 256px;
@@ -65,6 +77,9 @@
       justify-content: center;
       gap: 16px;
       background-color: #FFFFFF;
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 
