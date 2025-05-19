@@ -7,6 +7,7 @@ import PaymentSteps from "../components/PaymentSteps.jsx";
 import creditCard from '../assets/credit-card.png'
 import {useNavigate} from "react-router";
 import {useState} from "react";
+import axios from 'axios';
 
 export const  Payment = () => {
     const [cardNumber, setCardNumber] = useState('')
@@ -22,14 +23,14 @@ export const  Payment = () => {
         cvv: ''
     });
     const handleCardNumberChange = (e) => {
-        let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
-        value = value.slice(0, 16); // Limit to 16 digits
-        const formatted = value.replace(/(.{4})/g, '$1 ').trim(); // Insert spaces every 4 digits
+        let value = e.target.value.replace(/\D/g, '');
+        value = value.slice(0, 16);
+        const formatted = value.replace(/(.{4})/g, '$1 ').trim();
         setCardNumber(formatted);
     };
     const handleExpDateChange = (e) => {
-        let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
-        value = value.slice(0, 8); // Limit to 8 digits: DDMMYYYY
+        let value = e.target.value.replace(/\D/g,'');
+        value = value.slice(0, 8);
 
         if (value.length >= 5) {
             value = value.replace(/(\d{2})(\d{2})(\d{1,4})/, '$1/$2/$3');
@@ -41,19 +42,44 @@ export const  Payment = () => {
 
     const backClickHandler = () => {
         navigate("/address")
-    }
-    const nextClickHandler = () => {
+    };
+
+    const nextClickHandler = async () => {
         const newErrors = {
             cardName: cardName.trim() ? '' : 'Card name can’t be empty.',
             cardNumber: cardNumber.trim() ? '' : 'Card Number can’t be empty.',
             expDate: expDate.trim() ? '' : 'Expiration Date can’t be empty.',
-            cvv: cvv.trim() ? '' : 'cvv  can’t be empty.',
+            cvv: cvv.trim() ? '' : 'cvv can’t be empty.',
         };
+
         setErrors(newErrors);
         const hasErrors = Object.values(newErrors).some(error => error !== '');
         if (hasErrors) return;
-        navigate("/final");
+
+        try {
+            const response = await axios.post('http://localhost:5000/payment', {
+                cardName,
+                cardNumber,
+                expDate,
+                cvv
+            });
+
+            console.log("Payment submitted successfully", response.data);
+            navigate("/final");
+        } catch (error) {
+            if (error.response) {
+                console.error("Server responded with error:", error.response.data);
+            } else if (error.request) {
+                console.error("No response received:", error.request);
+            } else {
+                console.error("Error setting up request:", error.message);
+            }
+            alert("Failed to submit payment");
+        }
     };
+
+
+
     return (
         <>
             <Header/>
@@ -88,6 +114,7 @@ export const  Payment = () => {
                                         }
                                     }}
                                 />
+
                                 {errors.cardName && <p className={classes['error-text']}>{errors.cardName}</p>}
                                 <input
                                     placeholder="Card Number"
