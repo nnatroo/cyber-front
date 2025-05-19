@@ -45,7 +45,6 @@ export const Summary = () => {
                             <figure>
                                 <img src={`http://localhost:5000${item?.image}`} alt="product"/>
                             </figure>
-
                             <div className={classes['item-details']}>
                                 <h3>{item.name}</h3>
                                 <span >${item.price}</span>

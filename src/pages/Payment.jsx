@@ -79,7 +79,6 @@ export const  Payment = () => {
     };
 
 
-
     return (
         <>
             <Header/>
