@@ -2,7 +2,6 @@ import classes from '../modules/Summary.module.scss'
 import {  useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 
-
 export const Summary = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
     const shippingDetails = useSelector((state) => state.shipping.shippingDetails);
@@ -16,20 +15,16 @@ export const Summary = () => {
         const savedAddresses = JSON.parse(localStorage.getItem("addresses")) || [];
         const selectedId = Number(localStorage.getItem("selectedAddress"));
         const foundAddress = savedAddresses.find((a) => a.id === selectedId);
-
         if (foundAddress) {
             setAddress(foundAddress);
         }
     }, []);
-
     useEffect(() => {
         window.scrollTo(0, 0);
-
         const newSubtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
         const tax = +(newSubtotal * taxRate).toFixed(2);
         const shippingCost = +(shippingDetails.price || 0);
         const totalAmount = +(newSubtotal + tax + shippingCost).toFixed(2);
-
         setSubtotal(+newSubtotal.toFixed(2));
         setEstimatedTax(tax);
         setGrandTotal(totalAmount);
@@ -43,20 +38,21 @@ export const Summary = () => {
                     {cartItems.length === 0 ? (
                         <h3 className={classes["empty-cart"]}>no order placed </h3>
                     ) : (
-                        <h2>Shopping Cart</h2>
+                  ''
                     )}
                     {cartItems.map((item) => (
                         <div className={classes["cart-item"]} key={item.id}>
-                            <img src={`http://localhost:5000${item?.image}`} alt="product"/>
+                            <figure>
+                                <img src={`http://localhost:5000${item?.image}`} alt="product"/>
+                            </figure>
+
                             <div className={classes['item-details']}>
                                 <h3>{item.name}</h3>
                                 <span >${item.price}</span>
                             </div>
-
                         </div>
                     ))}
                 </div>
-
                 <div className={classes['info']}>
                     {address ? (
                         <div className={classes['address']}>
@@ -70,9 +66,7 @@ export const Summary = () => {
                         <span>Shipment method</span>
                         <p> {shippingDetails.shippingType}</p>
                     </div>
-
                 </div>
-
                 <div className={classes["summary-box"]}>
                     <div className={classes["total"]}>
                         <span>Subtotal</span>

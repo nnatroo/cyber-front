@@ -13,6 +13,7 @@ export const  Payment = () => {
     const [cardName, setCardName] = useState('')
     const [expDate, setExpDate] = useState('');
     const [cvv, setCvv] = useState('');
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({
         cardName: '',
@@ -20,18 +21,12 @@ export const  Payment = () => {
         expDate: '',
         cvv: ''
     });
-
-
-
-    const navigate = useNavigate();
-
     const handleCardNumberChange = (e) => {
         let value = e.target.value.replace(/\D/g, ''); // Remove all non-digits
         value = value.slice(0, 16); // Limit to 16 digits
         const formatted = value.replace(/(.{4})/g, '$1 ').trim(); // Insert spaces every 4 digits
         setCardNumber(formatted);
     };
-
     const handleExpDateChange = (e) => {
         let value = e.target.value.replace(/\D/g, ''); // Remove non-digits
         value = value.slice(0, 8); // Limit to 8 digits: DDMMYYYY
@@ -41,17 +36,12 @@ export const  Payment = () => {
         } else if (value.length >= 3) {
             value = value.replace(/(\d{2})(\d{1,2})/, '$1/$2');
         }
-
         setExpDate(value);
     };
-
-
 
     const backClickHandler = () => {
         navigate("/address")
     }
-
-
     const nextClickHandler = () => {
         const newErrors = {
             cardName: cardName.trim() ? '' : 'Card name can’t be empty.',
@@ -59,30 +49,20 @@ export const  Payment = () => {
             expDate: expDate.trim() ? '' : 'Expiration Date can’t be empty.',
             cvv: cvv.trim() ? '' : 'cvv  can’t be empty.',
         };
-
         setErrors(newErrors);
-
         const hasErrors = Object.values(newErrors).some(error => error !== '');
         if (hasErrors) return;
-
         navigate("/final");
     };
-
-
-
     return (
         <>
-
             <Header/>
             <div className={`${classes['main-wrapper']} ${layout['container']}`}>
                 <PaymentSteps/>
                 <div className={classes['content']}>
-
                     <div className={classes['left-side']}>
-      <Summary/>
+                <Summary/>
                     </div>
-
-
                     <div className={classes['right-side']}>
                         <div className={classes['payment']}>
                             <h1>Payment</h1>
@@ -96,7 +76,6 @@ export const  Payment = () => {
                                 </div>
                             </div>
                             <div className={classes['input-wrapper']}>
-
                                 <input
                                     placeholder='Card Name'
                                     type="text"
@@ -110,7 +89,6 @@ export const  Payment = () => {
                                     }}
                                 />
                                 {errors.cardName && <p className={classes['error-text']}>{errors.cardName}</p>}
-
                                 <input
                                     placeholder="Card Number"
                                     type="text"
@@ -124,7 +102,6 @@ export const  Payment = () => {
                                     maxLength={19}
                                 />
                                 {errors.cardNumber && <p className={classes['error-text']}>{errors.cardNumber}</p>}
-
                                 <form>
                                     <input
                                         placeholder="Exp.Date"
@@ -150,12 +127,9 @@ export const  Payment = () => {
                                             if (errors.cvv) {
                                                 setErrors(prev => ({ ...prev, cvv: '' }));
                                             }
-
                                         }}
                                     />
                                     {errors.cvv && <p className={classes['error-text']}>{errors.cvv}</p>}
-
-
                                 </form>
                             </div>
                         </div>
@@ -166,13 +140,9 @@ export const  Payment = () => {
                             <button onClick={nextClickHandler} className={classes['btn-next']}>
                                 Next
                             </button>
-
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
             <Footer/>
         </>
