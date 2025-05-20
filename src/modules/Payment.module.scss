@@ -109,9 +109,7 @@ justify-content: center;
     .buttons-wrapper {
       display: flex;
       gap: 23px;
-      justify-content: flex-end;
-      margin-top: 224px;
-
+   padding-top: 180px;
       @media (max-width: 1024px) {
         justify-content: center;
         align-items: center;
