@@ -10,28 +10,6 @@
   margin-bottom: 56px;
 
 
-  .breadcrumb {
-    width: calc(100% - 320px);
-    height: 24px;
-    padding: 40px 160px;
-    gap: 16px;
-    display: flex;
-    align-items: center;
-    a {
-      font-family: Inter, serif;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 16px;
-      letter-spacing: 0;
-      color: #A4A4A4;
-      text-decoration: none;
-
-      &.active {
-        color: #000000;
-      }
-    }
-  }
-
   .main-container {
     width: 1120px;
     background-color: #FFFFFF;
@@ -53,21 +31,33 @@
       width: auto;
       padding-inline: 25px;
     }
-    .sort-dropdown {
+    .filter-container{
+      display: flex;
       align-self: flex-end;
-      width: 256px;
-      height: 40px;
-      padding-inline: 16px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      option{
-        width: 256px;
-        height: 40px;
-        padding-inline: 16px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
+      .sort-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .sort-btn-wrapper{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 121px;
+          border: 0.5px solid #D4D4D4;
+          button{
+            border: none;
+            background: transparent;
+            cursor: pointer;
+          }
+        }
+        .options-container{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+
       }
     }
     .product-wrapper {

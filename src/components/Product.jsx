@@ -7,17 +7,15 @@ import {Link} from "react-router";
 export const Product = ({ product }) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
-
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
-
     return (
         <div className={classes["product"]}>
             <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]} />
             <div className={classes["flex-center"]}>
-                <img src={`http://localhost:5000${product.image}`} alt="product"
+                <img src={`http://localhost:5000/${product.picture}`} alt="product"
                      className={classes["products-image"]} />
                 <div className={classes['about-product']}>
                     <p>{product.name}</p>
