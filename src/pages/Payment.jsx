@@ -41,7 +41,7 @@ export const  Payment = () => {
     };
 
     const backClickHandler = () => {
-        navigate("/address")
+        navigate("/shipping")
     };
 
     const nextClickHandler = async () => {
@@ -128,7 +128,7 @@ export const  Payment = () => {
                                     maxLength={19}
                                 />
                                 {errors.cardNumber && <p className={classes['error-text']}>{errors.cardNumber}</p>}
-                                <form>
+                                <div className={classes['date-cvv']}>
                                     <input
                                         placeholder="Exp.Date"
                                         type="text"
@@ -139,7 +139,7 @@ export const  Payment = () => {
                                                 setErrors(prev => ({ ...prev, expDate: '' }));
                                             }
                                         }}
-                                        maxLength={13}
+                                        maxLength={5}
                                     />
                                     {errors.expDate && <p className={classes['error-text']}>{errors.expDate}</p>}
 
@@ -156,7 +156,7 @@ export const  Payment = () => {
                                         }}
                                     />
                                     {errors.cvv && <p className={classes['error-text']}>{errors.cvv}</p>}
-                                </form>
+                                </div>
                             </div>
                         </div>
                         <div className={classes['buttons-wrapper']}>
@@ -164,7 +164,7 @@ export const  Payment = () => {
                                 Back
                             </button>
                             <button onClick={nextClickHandler} className={classes['btn-next']}>
-                                Next
+                                Pay
                             </button>
                         </div>
                     </div>
