@@ -131,6 +131,11 @@
         color: white;
         background: #000000;
       }
+
+      &.active-page {
+        background-color: #000000;
+        color: white;
+      }
     }
 
     .active-button {

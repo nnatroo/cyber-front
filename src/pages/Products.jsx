@@ -83,15 +83,20 @@ export const Products = () => {
                         ))}
                     </div>
                     <div className={classes['pagination-container']}>
-                        <button className={classes['arrow-button']}><img src={arrowLeft} alt="Previous"/></button>
+                        <button className={classes['arrow-button']}  onClick={() => {
+                            if (currentPage > 1) changePage(currentPage - 1);
+                        }}><img src={arrowLeft} alt="Previous"/></button>
                         {paginatedProducts.map((_, index) => (
                             <button key={index} onClick={() => changePage(index + 1)}
-                                    className={classes['page-button']}>
+                             className={`${classes['page-button']} ${currentPage === index + 1 ? classes['active-page'] : ''}`}
+                            >
                                 {index + 1}
                             </button>
                         ))}
 
-                        <button className={classes['arrow-button']}><img src={arrowRight} alt="Next"/></button>
+                        <button className={classes['arrow-button']}  onClick={() => {
+                            if (currentPage < paginatedProducts.length) changePage(currentPage + 1);
+                        }}><img src={arrowRight} alt="Next"/></button>
                     </div>
                 </div>
             </div>
