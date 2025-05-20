@@ -39,23 +39,47 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        cursor: pointer;
         .sort-btn-wrapper{
           display: flex;
           align-items: center;
-          justify-content: center;
-          gap: 121px;
+          justify-content: space-between;
           border: 0.5px solid #D4D4D4;
+          width: 256px;
+          height: 40px;
+          border-radius: 8px;
+          padding-inline: 16px;
+          box-sizing: border-box;
           button{
             border: none;
             background: transparent;
             cursor: pointer;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 16px;
+            width: fit-content;
+            height: 40px;
+
           }
         }
         .options-container{
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-content: center;
           flex-direction: column;
+          padding-top: 8px;
+          width: 100%;
+          button{
+            margin-bottom: 8px;
+            width: 100%;
+            background: transparent;
+            cursor: pointer;
+            border: 0.5px solid #D4D4D4;
+            padding-inline: 16px;
+            text-align: start;
+            height: 40px;
+            border-radius: 8px;
+          }
         }
 
       }

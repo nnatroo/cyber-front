@@ -59,7 +59,7 @@ export const Products = () => {
             <div className={classes['main-div']}>
                 <div className={classes['main-container']}>
                     <div className={classes['filter-container']}>
-                        <div className={classes['sort-container']}>
+                        <div className={classes['sort-container']} onClick={() => setOpen(!open)}>
                             <div className={classes['sort-btn-wrapper']}>
                                 <button onClick={() => setOpen(!open)} className={classes['sort-button']}>
                                     {selected}
