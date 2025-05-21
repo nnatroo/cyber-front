@@ -7,7 +7,7 @@ export const RelatedProducts = () => {
     const [productData, setProductData] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/discounts`)
+        axios.get(`http://localhost:5000/products/related`)
             .then(function (response) {
                 setProductData(response.data);
             })

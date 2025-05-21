@@ -19,7 +19,7 @@ export const ProductDetails = () => {
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
+    const [selectedImage, setSelectedImage] = useState(null);
 
 
     useEffect(() => {
@@ -35,6 +35,14 @@ export const ProductDetails = () => {
                 setLoading(false);
             })
     }, [name]);
+
+    useEffect(() => {
+        if (product) {
+            setSelectedImage(`http://localhost:5000${product["picture"]}`);
+        }
+    }, [product]);
+
+
 
     if (loading) {
         return <div>Loading...</div>;
@@ -55,6 +63,11 @@ export const ProductDetails = () => {
         navigate(`/shopping-cart`)
     };
 
+    console.log("Top image:", product["top-img"]);
+    console.log("Side image:", product["side-img"]);
+
+
+
     return (
         <>
             <Header/>
@@ -65,11 +78,19 @@ export const ProductDetails = () => {
                     <h3 className={classes["bold-title"]}>{product?.name}</h3>
                 </div>
                 <div className={classes["product-description-wrapper"]}>
-                    <div className={classes["small-img"]}>
-                        <img src="" alt=""/>
+                    <div className={classes["small-images"]}>
+                        <img src={`http://localhost:5000${product["small-front-img"]}`} alt="Front"
+                             onClick={() => setSelectedImage(`http://localhost:5000${product["picture"]}`)}/>
+                        <img src={`http://localhost:5000${product["small-back-img"]}`} alt="Back"
+                             onClick={() => setSelectedImage(`http://localhost:5000${product["back-img"]}`)}/>
+                        <img src={`http://localhost:5000${product["small-side-img"]}`} alt="Side"
+                             onClick={() => setSelectedImage(`http://localhost:5000${product["side-img"]}`)}/>
+                        <img src={`http://localhost:5000${product["small-top-img"]}`} alt="Top"
+                             onClick={() => setSelectedImage(`http://localhost:5000${product["top-img"]}`)}/>
                     </div>
                     <div className={classes["img-wrapper"]}>
-                        <img className={classes['big-img']} alt="product img" src={`http://localhost:5000${product?.picture}`}/>
+                        <img className={classes['big-img']} alt="product img"
+                             src={selectedImage}/>
                     </div>
                     <div className={classes["product-details-wrapper"]}>
                         <div className={classes["product-details-txt"]}>

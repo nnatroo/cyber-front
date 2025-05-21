@@ -11,9 +11,27 @@
     flex-direction: row;
     gap: 48px;
     justify-content: center;
+    margin-left: 140px;
   }
   .home-h3:hover{
     cursor: pointer;
+  }
+  .small-images{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    img{
+      width: 75px;
+      height: 93px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
   }
 
   .buying-details-container{
@@ -55,7 +73,8 @@
   }
 
   .big-img{
-    height: 516px
+    height: 516px;
+    width: 100%;
   }
 
   .product-details-title-wrapper{
