@@ -28,7 +28,6 @@ export const ProductDetails = () => {
             .then(function (response) {
                 setProduct(response.data);
                 setLoading(false);
-                console.log("Loaded product:", response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -63,8 +62,6 @@ export const ProductDetails = () => {
         navigate(`/shopping-cart`)
     };
 
-    console.log("Top image:", product["top-img"]);
-    console.log("Side image:", product["side-img"]);
 
 
 
@@ -95,7 +92,7 @@ export const ProductDetails = () => {
                     <div className={classes["product-details-wrapper"]}>
                         <div className={classes["product-details-txt"]}>
                             <h1>{product?.name}</h1>
-                            <h2>$1399</h2>
+                            <h2>${product?.price}</h2>
                         </div>
                         <div className={classes["button-container"]}>
                             <button className={classes["add-to-wishlist"]}>Add to Wishlist</button>
