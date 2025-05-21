@@ -19,9 +19,11 @@
     justify-content: center;
     gap: 32px;
     padding: 64px;
+
     @media (max-width: 1120px) {
       width: 1000px;
     }
+
     @media screen and (max-width: 1024px) {
       width: auto;
       padding-inline: 50px;
@@ -31,16 +33,19 @@
       width: auto;
       padding-inline: 25px;
     }
-    .filter-container{
+
+    .filter-container {
       display: flex;
       align-self: flex-end;
-      .sort-container{
+
+      .sort-container {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         cursor: pointer;
-        .sort-btn-wrapper{
+
+        .sort-btn-wrapper {
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -50,11 +55,13 @@
           border-radius: 8px;
           padding-inline: 16px;
           box-sizing: border-box;
-          @media (max-width: 1024px){
+
+          @media (max-width: 1024px) {
             width: 164px;
             height: 56px;
           }
-          button{
+
+          button {
             border: none;
             background: transparent;
             cursor: pointer;
@@ -66,28 +73,44 @@
 
           }
         }
-        .options-container{
+
+        .options-container {
+          background-color: #fff;
+          position: absolute;
+          top: 46px;
+          left: 0;
+          z-index: 10000;
           display: flex;
           align-items: flex-start;
           justify-content: center;
           flex-direction: column;
-          padding-top: 8px;
           width: 100%;
-          button{
-            margin-bottom: 8px;
+          border-radius: 8px;
+          border: 0.5px solid #D4D4D4;
+
+          @media (max-width: 1024px) {
+            top: 64px;
+          }
+
+          button {
             width: 100%;
             background: transparent;
             cursor: pointer;
-            border: 0.5px solid #D4D4D4;
+            border: none;
             padding-inline: 16px;
             text-align: start;
             height: 40px;
-            border-radius: 8px;
+            border-bottom: 0.5px solid #D4D4D4;
+          }
+
+          button:last-child {
+            border-bottom: none;
           }
         }
 
       }
     }
+
     .product-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -95,6 +118,7 @@
       justify-content: center;
       gap: 16px;
       background-color: #FFFFFF;
+
       @media screen and (max-width: 1024px) {
         grid-template-columns: 1fr 1fr;
       }
@@ -114,6 +138,7 @@
       height: 24px;
       background: transparent;
       border: none;
+      cursor: pointer;
     }
 
     .page-button {

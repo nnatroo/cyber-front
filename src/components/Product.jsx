@@ -4,7 +4,8 @@ import {useDispatch} from "react-redux";
 import {addToCart} from "../redux/cartSlice.js";
 import {useState} from "react";
 import {Link} from "react-router";
-export const Product = ({ product }) => {
+
+export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
     const handleAddToCart = (product) => {
@@ -13,10 +14,10 @@ export const Product = ({ product }) => {
     };
     return (
         <div className={classes["product"]}>
-            <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]} />
+            <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
             <div className={classes["flex-center"]}>
                 <img src={`http://localhost:5000/${product.picture}`} alt="product"
-                     className={classes["products-image"]} />
+                     className={classes["products-image"]}/>
                 <div className={classes['about-product']}>
                     <p>{product.name}</p>
                     <h2>${product.price}</h2>
