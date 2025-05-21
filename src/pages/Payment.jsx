@@ -4,12 +4,12 @@ import {Footer} from "../components/Footer.jsx";
 import {Summary} from "../components/Summary.jsx";
 import layout from "../modules/Layout.module.scss";
 import PaymentSteps from "../components/PaymentSteps.jsx";
-import creditCard from '../assets/credit-card.png'
+import creditCard from '../assets/credit-card-image.svg'
 import {useNavigate} from "react-router";
 import {useState} from "react";
 import axios from 'axios';
 
-export const  Payment = () => {
+export const Payment = () => {
     const [cardNumber, setCardNumber] = useState('')
     const [cardName, setCardName] = useState('')
     const [expDate, setExpDate] = useState('');
@@ -22,14 +22,16 @@ export const  Payment = () => {
         expDate: '',
         cvv: ''
     });
+
     const handleCardNumberChange = (e) => {
         let value = e.target.value.replace(/\D/g, '');
         value = value.slice(0, 16);
         const formatted = value.replace(/(.{4})/g, '$1 ').trim();
         setCardNumber(formatted);
     };
+
     const handleExpDateChange = (e) => {
-        let value = e.target.value.replace(/\D/g,'');
+        let value = e.target.value.replace(/\D/g, '');
         value = value.slice(0, 8);
 
         if (value.length >= 3) {
@@ -47,7 +49,7 @@ export const  Payment = () => {
             cardName: cardName.trim() ? '' : 'Card name can’t be empty.',
             cardNumber: cardNumber.trim() ? '' : 'Card Number can’t be empty.',
             expDate: expDate.trim() ? '' : 'Expiration Date can’t be empty.',
-            cvv: cvv.trim() ? '' : 'cvv can’t be empty.',
+            cvv: cvv.trim() ? '' : 'CVV can’t be empty.',
         };
 
         setErrors(newErrors);
@@ -83,9 +85,7 @@ export const  Payment = () => {
             <div className={`${classes['main-wrapper']} ${layout['container']}`}>
                 <PaymentSteps/>
                 <div className={classes['content']}>
-                    <div className={classes['left-side']}>
-                <Summary/>
-                    </div>
+                    <Summary/>
                     <div className={classes['right-side']}>
                         <div className={classes['payment']}>
                             <h1>Payment</h1>
@@ -107,7 +107,7 @@ export const  Payment = () => {
                                     onChange={(e) => {
                                         setCardName(e.target.value);
                                         if (errors.cardName) {
-                                            setErrors(prev => ({ ...prev, cardName: '' }));
+                                            setErrors(prev => ({...prev, cardName: ''}));
                                         }
                                     }}
                                 />
@@ -120,7 +120,7 @@ export const  Payment = () => {
                                     onChange={(e) => {
                                         handleCardNumberChange(e);
                                         if (errors.cardNumber) {
-                                            setErrors(prev => ({ ...prev, cardNumber: '' }));
+                                            setErrors(prev => ({...prev, cardNumber: ''}));
                                         }
                                     }}
                                     maxLength={19}
@@ -134,7 +134,7 @@ export const  Payment = () => {
                                         onChange={(e) => {
                                             handleExpDateChange(e);
                                             if (errors.expDate) {
-                                                setErrors(prev => ({ ...prev, expDate: '' }));
+                                                setErrors(prev => ({...prev, expDate: ''}));
                                             }
                                         }}
                                         maxLength={5}
@@ -149,7 +149,7 @@ export const  Payment = () => {
                                         onChange={(e) => {
                                             setCvv(e.target.value);
                                             if (errors.cvv) {
-                                                setErrors(prev => ({ ...prev, cvv: '' }));
+                                                setErrors(prev => ({...prev, cvv: ''}));
                                             }
                                         }}
                                     />
