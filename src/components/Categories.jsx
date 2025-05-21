@@ -17,6 +17,7 @@ export const Categories = () => {
     }, []);
     const handleCategoryClick = (img) => {
         navigate(`/products/${img.category}`);
+        window.scrollTo(0, 0);
     };
     return (
         <>
