@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = () => ({
     shippingDetails: {
-        shippingType: 'free',
+        shippingType: 'Free',
         deliveryDate: '',
         price: 0
     },

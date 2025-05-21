@@ -1,0 +1,92 @@
+.main-wrapper {
+  max-width: 600px;
+  width: 100%;
+  margin: 200px auto 275px;
+  padding: 0 20px 50px;
+  box-sizing: border-box;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 78px;
+  align-content: center;
+.inside-content {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+  .checked {
+      width: 150px;
+      height: 150px;
+      display: block;
+      margin: 0 auto;
+    }
+    h1 {
+      color: #055c05;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 115px;
+      @media screen and (max-width: 1024px) {
+        font-size: 50px;
+        text-align: center;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 40px;
+      }
+      @media screen and (max-width: 576px) {
+        font-size: 30px;
+      }
+      @media screen and (max-width: 365px) {
+        font-size: 20px;
+      }
+    }
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      color: #055c05;
+      @media screen and (max-width: 1024px) {
+        font-size: 15px;
+        text-align: center;
+      }
+      @media screen and (max-width: 768px) {
+        font-size: 14px;
+      }
+    }
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+    }
+    button {
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      border: 1px solid #000000;
+      padding: 16px 48px;
+      text-decoration: none;
+      background-color: #000000;
+      font-family: 'Poppins', sans-serif;
+      color: #FFFFFF;
+      transition: 0.2s all;
+      &:hover {
+        background-color: #FFFFFF;
+        color: #000000;
+      }
+    }
+  }
+}

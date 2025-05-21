@@ -96,7 +96,7 @@ export const Address = () => {
     };
 
     const backClickHandler = () => {
-        navigate(-1)
+        navigate('/shopping-cart')
     }
 
     const nextClickHandler = () => {
