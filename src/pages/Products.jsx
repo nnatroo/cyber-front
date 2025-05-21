@@ -24,7 +24,6 @@ export const Products = () => {
         axios.get(`http://localhost:5000/products/${category}`)
             .then((response) => {
                 const data = response.data;
-                console.log(data)
                 if (sortType === 'highest') {
                     data.sort((a, b) => b.price - a.price);
                 } else if (sortType === 'lowest') {
@@ -52,7 +51,6 @@ export const Products = () => {
         setSortType(sort);
         setOpen(false);
     };
-    console.log(open)
     return (
         <>
             <Header/>
