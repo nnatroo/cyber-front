@@ -1,6 +1,7 @@
 import classes from '../modules/Summary.module.scss'
 import {  useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
+import {useNavigate} from "react-router";
 
 export const Summary = () => {
     const cartItems = useSelector((state) => state.cart.cartItems);
@@ -29,13 +30,21 @@ export const Summary = () => {
         setEstimatedTax(tax);
         setGrandTotal(totalAmount);
     }, [cartItems, shippingDetails]);
+    const navigate = useNavigate();
 
     return (
         <div className={classes['products']}>
                 <div className={classes["cart-items"]}>
                     <h1>Summary</h1>
                     {cartItems.length === 0 ? (
-                        <h3 className={classes["empty-cart"]}>no order placed </h3>
+                        <div className={classes['empty-state']}>
+                            <h2>No Order Found</h2>
+                            <p>Please complete your order before proceeding to payment.</p>
+                            <button onClick={() => navigate('/')} className={classes['btn-back']}>
+                                Go to Home Page
+                            </button>
+                        </div>
+
                     ) : (
                         ''
                     )}

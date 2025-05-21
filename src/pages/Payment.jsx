@@ -32,9 +32,7 @@ export const  Payment = () => {
         let value = e.target.value.replace(/\D/g,'');
         value = value.slice(0, 8);
 
-        if (value.length >= 5) {
-            value = value.replace(/(\d{2})(\d{2})(\d{1,4})/, '$1/$2/$3');
-        } else if (value.length >= 3) {
+        if (value.length >= 3) {
             value = value.replace(/(\d{2})(\d{1,2})/, '$1/$2');
         }
         setExpDate(value);
