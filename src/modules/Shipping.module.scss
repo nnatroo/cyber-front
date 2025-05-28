@@ -1,0 +1,204 @@
+.main-wrapper {
+  .error-text {
+    color: red;
+  }
+
+  .shipment-method {
+    display: flex;
+    flex-direction: column;
+    padding-top: 48px;
+    padding-bottom: 48px;
+    gap: 32px;
+
+    h3 {
+      font-family: Inter, 'sans-serif';
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 24px;
+      color: rgba(23, 24, 59, 1);
+
+      @media (max-width: 992px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      @media (max-width: 500px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }
+    }
+
+    .methods-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .methods {
+        display: flex;
+        justify-content: space-between;
+        border: 1px solid #D1D1D8;
+        border-radius: 11px;
+        padding: 24px;
+        cursor: pointer;
+        transition: 0.2s ease;
+
+        &:has(input:checked) {
+          p, b, .active-date {
+            color: #000000;
+          }
+        }
+
+        @media (max-width: 992px) {
+          padding: 10px;
+          display: flex;
+          flex-direction: row;
+        }
+
+        .methods-date {
+          color: #B2B2B2;
+
+          .date-display {
+            cursor: pointer;
+            color: #B2B2B2;
+          }
+
+          @media (max-width: 992px) {
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+          }
+
+          .calendar-dropdown {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            z-index: 10;
+
+            .selected-tile {
+              background-color: transparent;
+              color: black;
+              font-weight: bold;
+            }
+
+            .default-tile {
+              color: black;
+            }
+          }
+        }
+
+        .methods-info {
+          display: flex;
+          gap: 16px;
+          align-items: center;
+          color: #B2B2B2;
+
+          @media (max-width: 992px) {
+            justify-content: center;
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            max-width: 160px;
+          }
+
+          input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: relative;
+            margin-right: 10px;
+            cursor: pointer;
+
+            &:checked::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 8px;
+              height: 8px;
+              background-color: black;
+              border-radius: 50%;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons-wrapper {
+      display: flex;
+      gap: 23px;
+      justify-content: flex-end;
+      margin-top: 224px;
+
+      @media (max-width: 1024px) {
+        justify-content: center;
+        align-items: center;
+        margin-top: 104px;
+      }
+
+      button {
+        @media (max-width: 1024px) {
+          flex: 1;
+        }
+      }
+
+      .btn-back {
+        padding: 24px 86px;
+        gap: 8px;
+        border-radius: 6px;
+        border: 1px solid #000000;
+        background-color: #fff;
+        font-family: Inter, 'sans-serif';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: center;
+        color: #000;
+        transition: 0.2s all;
+        cursor: pointer;
+
+        &:hover {
+          color: #fff;
+          background-color: #000;
+        }
+
+        @media (max-width: 1024px) {
+          padding: 24px 46px;
+        }
+      }
+
+      .btn-next {
+        padding: 24px 86px;
+        gap: 8px;
+        color: #fff;
+        border: 1px solid #000000;
+        border-radius: 6px;
+        background-color: #000;
+        font-family: Inter, 'sans-serif';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: center;
+        transition: 0.2s all;
+        cursor: pointer;
+
+        &:hover {
+          color: #000;
+          background-color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+          padding: 24px 46px;
+        }
+      }
+    }
+  }
+}
+

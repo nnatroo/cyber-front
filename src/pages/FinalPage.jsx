@@ -1,16 +1,18 @@
-import classes from '../modules/Error.module.scss'
-import {Link} from "react-router";
+import { Link } from "react-router";
 import Header from "../components/Header.jsx";
-import {Footer} from "../components/Footer.jsx";
+import { Footer } from "../components/Footer.jsx";
+import checked from '../assets/checked-icon.svg';
+import classes from '../modules/FinalPage.module.scss';
 
-export const Error = () => {
+export const FinalPage = () => {
     return (
         <>
-            <Header/>
+            <Header />
             <div className={classes['main-wrapper']}>
                 <div className={classes['inside-content']}>
-                    <h1>404 Not Found</h1>
-                    <p>Your visited page not found. You may go home page.</p>
+                    <h1>Payment was successful!</h1>
+                    <img src={checked} alt="Success" className={classes['checked']}/>
+                    <p>Thank You For Your Purchase</p>
                 </div>
 
                 <div className={classes['btn-wrapper']}>
@@ -21,7 +23,7 @@ export const Error = () => {
                     </Link>
                 </div>
             </div>
-            <Footer></Footer>
+            <Footer />
         </>
-    )
-}
+    );
+};
