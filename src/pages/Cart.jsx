@@ -50,7 +50,7 @@ export const ShoppingCart = () => {
                         {cartItems.map((item) => (
                             <div className={classes["cart-item"]} key={item.id}>
                                 <figure>
-                                    <img src={`http://localhost:5000${item?.image}`} alt={"image"}/>
+                                    <img src={`http://localhost:5000${item?.picture}`} alt={"image"}/>
                                 </figure>
                                 <div className={classes["item-details"]}>
                                     <div className={classes["item-header"]}>

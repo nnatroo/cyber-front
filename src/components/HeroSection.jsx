@@ -8,8 +8,15 @@ import PlaystationMobile from "../assets/playstation-mobile.png"
 import Macbook from "../assets/macbook.png"
 import MacbookMobile from "../assets/macbook-mobile.png"
 import VisionproMobile from "../assets/visionpro-mobile.png"
+import {useNavigate} from "react-router";
 
 const HeroSection = () => {
+    const navigate = useNavigate();
+
+    const pageHandler = () => {
+        navigate('products/all');
+    }
+
     return (
         <>
             <section className={classes["hero-section"]}>
@@ -20,7 +27,7 @@ const HeroSection = () => {
                         <p className={classes["hero-third-line"]}>Created to change everything for the better. For
                             everyone</p>
                         <div className={classes["hero-btn-wrapper"]}>
-                            <button className={classes["white-btn-large"]}>Shop Now</button>
+                            <button onClick={pageHandler} className={classes["white-btn-large"]}>Shop Now</button>
                         </div>
                     </div>
                     <figure className={classes["hero-img-wrapper"]}>
@@ -73,7 +80,7 @@ const HeroSection = () => {
                             The new 15‑inch MacBook Air makes room for more of what you love
                             with a spacious Liquid Retina display.
                         </p>
-                        <button className={classes["black-btn-large"]}>Shop Now</button>
+                        <button onClick={pageHandler} className={classes["black-btn-large"]}>Shop Now</button>
                     </div>
                     <figure className={classes["right-side-product-img-wrapper"]}>
                         <img className={classes["mac-img"]} src={Macbook} alt="macbook-air"/>
