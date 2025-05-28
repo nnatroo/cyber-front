@@ -27,6 +27,7 @@ export const ProductDetails = () => {
         axios.get(`http://localhost:5000/products/item/${decodedName}`)
             .then(function (response) {
                 setProduct(response.data);
+                setSelectedImage(`http://localhost:5000${response.data.picture}`);
                 setLoading(false);
             })
             .catch(function (error) {
@@ -35,11 +36,6 @@ export const ProductDetails = () => {
             })
     }, [name]);
 
-    useEffect(() => {
-        if (product) {
-            setSelectedImage(`http://localhost:5000${product["picture"]}`);
-        }
-    }, [product]);
 
 
 
@@ -62,6 +58,12 @@ export const ProductDetails = () => {
         navigate(`/shopping-cart`)
     };
 
+    const smallImgClickHandler = (e) => {
+        const clickedImgSrc = e.target.src;
+        setSelectedImage(clickedImgSrc);
+    };
+
+
 
 
 
@@ -76,14 +78,10 @@ export const ProductDetails = () => {
                 </div>
                 <div className={classes["product-description-wrapper"]}>
                     <div className={classes["small-images"]}>
-                        <img src={`http://localhost:5000${product["small-front-img"]}`} alt="Front"
-                             onClick={() => setSelectedImage(`http://localhost:5000${product["picture"]}`)}/>
-                        <img src={`http://localhost:5000${product["small-back-img"]}`} alt="Back"
-                             onClick={() => setSelectedImage(`http://localhost:5000${product["back-img"]}`)}/>
-                        <img src={`http://localhost:5000${product["small-side-img"]}`} alt="Side"
-                             onClick={() => setSelectedImage(`http://localhost:5000${product["side-img"]}`)}/>
-                        <img src={`http://localhost:5000${product["small-top-img"]}`} alt="Top"
-                             onClick={() => setSelectedImage(`http://localhost:5000${product["top-img"]}`)}/>
+                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["picture"]}`} alt="Front" onClick={smallImgClickHandler}/>
+                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["back-img"]}`} alt="Back" onClick={smallImgClickHandler}/>
+                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["side-img"]}`} alt="Side" onClick={smallImgClickHandler}/>
+                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["top-img"]}`} alt="Top" onClick={smallImgClickHandler}/>
                     </div>
                     <div className={classes["img-wrapper"]}>
                         <img className={classes['big-img']} alt="product img"
