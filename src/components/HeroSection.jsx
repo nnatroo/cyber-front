@@ -80,7 +80,7 @@ const HeroSection = () => {
                             The new 15‑inch MacBook Air makes room for more of what you love
                             with a spacious Liquid Retina display.
                         </p>
-                        <button className={classes["black-btn-large"]}>Shop Now</button>
+                        <button onClick={pageHandler} className={classes["black-btn-large"]}>Shop Now</button>
                     </div>
                     <figure className={classes["right-side-product-img-wrapper"]}>
                         <img className={classes["mac-img"]} src={Macbook} alt="macbook-air"/>
