@@ -8,6 +8,7 @@ import {Link} from "react-router";
 export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
+
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
         setIsAdded(true);
