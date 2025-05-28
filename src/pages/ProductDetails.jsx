@@ -5,9 +5,9 @@ import classes from "../modules/ProductDetails.module.scss";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useParams} from "react-router";
-import delivery from '../assets/delivery.png'
-import guaranteed from "../assets/guaranteed.png"
-import stock from "../assets/stock.png"
+import delivery from '../assets/delivery.svg'
+import guaranteed from "../assets/guaranteed.svg"
+import stock from "../assets/stock.svg"
 import {useNavigate} from "react-router";
 import {addToCart} from "../redux/cartSlice.js";
 import {useDispatch} from "react-redux";

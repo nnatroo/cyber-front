@@ -14,7 +14,6 @@
 
   }
 
-
   .product-description-wrapper{
     display: flex;
     flex-direction: row;
@@ -74,6 +73,9 @@
       gap: 8px;
       border-radius: 11px;
       padding: 16px;
+      width: 56px;
+      height: 56px;
+      background-color: #F6F6F6;
     }
     .details-p{
       font-weight: 500;
