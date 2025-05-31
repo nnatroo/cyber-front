@@ -25,4 +25,6 @@ store.subscribe(() => {
         console.error('Error saving wishlist to localStorage:', error);
     }
 });
+
+
 loadWishlistFromStorage();
