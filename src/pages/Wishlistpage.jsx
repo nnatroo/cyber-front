@@ -2,8 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromWishlist } from '../store/wishlistSlice';
 import Header from "../components/Header.jsx";
-import {Footer} from "../components/Footer.jsx"; // adjust path if needed
-
+import {Footer} from "../components/Footer.jsx";
 export const Wishlistpage = () => {
     const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
     const dispatch = useDispatch();
@@ -18,11 +17,12 @@ export const Wishlistpage = () => {
             ) : (
                 <ul>
                     {wishlistItems.map((item) => (
-                        <li key={item.id}>
+                        <li key={item.name}>
                             <div>
                                 <h3>{item.name}</h3>
                                 <p>${item.price}</p>
-                                <button onClick={() => dispatch(removeFromWishlist(item.id))}>
+                                <img src={`http://localhost:5000${item?.picture}`} alt="product"/>
+                                <button onClick={() => dispatch(removeFromWishlist(item.name))}>
                                     Remove
                                 </button>
                             </div>

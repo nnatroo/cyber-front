@@ -15,11 +15,11 @@ export const Product = ({product}) => {
         setIsAdded(true);
     };
     const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
-    const isWishlisted = wishlistItems.some((item) => item.id === product.id);
+    const isWishlisted = wishlistItems.some((item) => item.name === product.name);
 
     const handleToggleWishlist = () => {
         if (isWishlisted) {
-            dispatch(removeFromWishlist(product.id));
+            dispatch(removeFromWishlist(product.name));
         } else {
             dispatch(addToWishlist(product));
         }
@@ -27,8 +27,7 @@ export const Product = ({product}) => {
 
     return (
         <div className={classes["product"]}>
-            <img
-                src={isWishlisted ? favoriteIconFilled : favoriteIcon}
+            <img src={isWishlisted ? favoriteIconFilled : favoriteIcon}
                 alt="wishlist-icon"
                 className={classes["fav-icon"]}
                 onClick={handleToggleWishlist}
