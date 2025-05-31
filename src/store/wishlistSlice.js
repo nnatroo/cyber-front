@@ -13,7 +13,7 @@ const wishlistSlice = createSlice({
             }
         },
         removeFromWishlist(state, action) {
-            state.wishlistItems = state.wishlistItems.filter(i => i.id !== action.payload);
+            state.wishlistItems = state.wishlistItems.filter(i => i.name !== action.payload);
         },
         clearWishlist(state) {
             state.wishlistItems = [];
