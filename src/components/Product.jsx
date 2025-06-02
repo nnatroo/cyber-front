@@ -13,9 +13,16 @@ export const Product = ({product}) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
+
+    const handleAddToWishlist = (product) => {
+        let oldItems = JSON.parse(localStorage.getItem('wishlist')) || [];
+        oldItems.push(product);
+        localStorage.setItem('wishlist', JSON.stringify(oldItems));
+    }
+
     return (
         <div className={classes["product"]}>
-            <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
+            <img src={favoriteIcon} className={classes["fav-icon"]} onClick={() => handleAddToWishlist(product)}/>
             <div className={classes["flex-center"]}>
                 <img src={`http://localhost:5000/${product.picture}`} alt="product"
                      className={classes["products-image"]}/>

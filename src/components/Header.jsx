@@ -51,7 +51,7 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <figure className={classes['actions-wrapper']}>
-                    <img src={favorites} alt="favorites-icon"/>
+                    <Link to={'/wishlist'}><img src={favorites} alt="favorites-icon"/></Link>
                     <Link to={'/shopping-cart'}><img src={cart} alt="cart-icon"/></Link>
                     <img src={profile} alt="profile-icon"/>
                 </figure>
