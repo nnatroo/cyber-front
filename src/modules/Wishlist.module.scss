@@ -1,0 +1,37 @@
+.main-wrapper{
+padding-left: 50px;
+  h2{
+    font-family: Inter, serif;
+  }
+}
+.wishlist-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 656px;
+  gap: 40px;
+  width: 536px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .wishlist-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 536px;
+    height: 138px;
+    gap:30px;
+border-bottom:1px solid rgba(115, 112, 112, 0.56);
+    padding: 16px 0 32px 0;
+    box-sizing: border-box;
+    figure {
+      height: 90px;
+
+      img {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
+}
