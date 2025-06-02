@@ -8,6 +8,11 @@ import {Link} from "react-router";
 export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
+    const handleAddToWishlist = (product) => {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist.push(product);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    }
 
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
@@ -15,7 +20,9 @@ export const Product = ({product}) => {
     };
     return (
         <div className={classes["product"]}>
+            <button onClick={()=> handleAddToWishlist(product)}className={classes["fav-icon"]}>
             <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
+            </button>
             <div className={classes["flex-center"]}>
                 <img src={`http://localhost:5000/${product.picture}`} alt="product"
                      className={classes["products-image"]}/>
