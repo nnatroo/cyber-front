@@ -13,11 +13,22 @@ export const Product = ({product}) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
+    const toggleWishlist = (productName) => {
+        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        if (wishlist.includes(productName)) {
+            const updated = wishlist.filter(name => name !== productName);
+            localStorage.setItem('wishlist', JSON.stringify(updated));
+        } else {
+            wishlist.push(productName);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+    };
     return (
         <div className={classes["product"]}>
             <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
             <div className={classes["flex-center"]}>
-                <img src={`http://localhost:5000/${product.picture}`} alt="product"
+                <img onClick={toggleWishlist} src={`http://localhost:5000/${product.picture}`} alt="product"
                      className={classes["products-image"]}/>
                 <div className={classes['about-product']}>
                     <p>{product.name}</p>
