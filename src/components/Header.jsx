@@ -8,6 +8,7 @@ import favorites from '../assets/favorites-icon.svg';
 import profile from '../assets/profile-icon.svg';
 import logo from '../assets/cyber-logo.svg'
 
+
 export const Header = () => {
     const [navItems, setNavItems] = useState([]);
     const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
@@ -51,7 +52,9 @@ export const Header = () => {
                     </ul>
                 </nav>
                 <figure className={classes['actions-wrapper']}>
-                    <img src={favorites} alt="favorites-icon"/>
+                    <Link to={'/wishlist'}>
+                        <img src={favorites} alt="favorites-icon"/>
+                    </Link>
                     <Link to={'/shopping-cart'}><img src={cart} alt="cart-icon"/></Link>
                     <img src={profile} alt="profile-icon"/>
                 </figure>
