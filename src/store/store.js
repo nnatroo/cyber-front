@@ -5,6 +5,6 @@ import shippingReducer from "./shippingSlice.js";
 export const store = configureStore({
     reducer: {
         cart: cartReducer,
-        shipping: shippingReducer
+        shipping: shippingReducer,
     },
 });
