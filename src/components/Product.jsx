@@ -1,38 +1,49 @@
 import classes from "../modules/Product.module.scss"
 import favoriteIcon from "../assets/favorites-icon.png";
-import favoriteIconFilled from "../assets/favoriteIconFilled.svg";
+import favorite from "../assets/favoriteIconFilled.svg"
+import {useDispatch} from "react-redux";
 import {addToCart} from "../store/cartSlice.js";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Link} from "react-router";
-import { useDispatch, useSelector } from "react-redux";
-import { addToWishlist, removeFromWishlist } from "../store/wishlistSlice";
+
 export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);
-
+    const [isfavorite, setIsfavorite] = useState(false);
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
-    const wishlistItems = useSelector((state) => state.wishlist.wishlistItems);
-    const isWishlisted = wishlistItems.some((item) => item.name === product.name);
+    useEffect(() => {
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const exists = favorites.some((item) => item._id === product._id);
+        setIsfavorite(exists);
+    }, [product._id]);
+    const favoriteHandler = (product) => {
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+        const exists = favorites.some((item) => item._id === product._id);
+        let updatedFavorites;
 
-    const handleToggleWishlist = () => {
-        if (isWishlisted) {
-            dispatch(removeFromWishlist(product.name));
+        if (exists) {
+            updatedFavorites = favorites.filter((item) => item._id !== product._id);
+            setIsfavorite(false);
         } else {
-            dispatch(addToWishlist(product));
+            updatedFavorites = [...favorites, product];
+            setIsfavorite(true);
         }
-    };
+
+        localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    }
 
     return (
         <div className={classes["product"]}>
-            <img src={isWishlisted ? favoriteIconFilled : favoriteIcon}
-                alt="wishlist-icon"
-                className={classes["fav-icon"]}
-                onClick={handleToggleWishlist}
-            />
+            {isfavorite ?
+                <img src={favorite} alt="product-img" className={classes["fav-icon"]}
+                                                    onClick={() => favoriteHandler(product)}/>:
+                <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]} onClick={() => favoriteHandler(product)}/>
 
+            }
             <div className={classes["flex-center"]}>
                 <img src={`http://localhost:5000/${product.picture}`} alt="product"
                      className={classes["products-image"]}/>

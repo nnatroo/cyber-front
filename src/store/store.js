@@ -1,30 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-import wishlistReducer, { rehydrate } from './wishlistSlice';
+import {configureStore} from '@reduxjs/toolkit';
+import cartReducer from './cartSlice.js';
+import shippingReducer from "./shippingSlice.js";
 
 export const store = configureStore({
     reducer: {
-        wishlist: wishlistReducer,
+        cart: cartReducer,
+        shipping: shippingReducer
     },
 });
-const loadWishlistFromStorage = () => {
-    try {
-        const savedWishlist = localStorage.getItem('wishlist');
-        if (savedWishlist) {
-            const parsedWishlist = JSON.parse(savedWishlist);
-            store.dispatch(rehydrate(parsedWishlist));
-        }
-    } catch (error) {
-        console.error('Error loading wishlist from localStorage:', error);
-    }
-};
-store.subscribe(() => {
-    const state = store.getState();
-    try {
-        localStorage.setItem('wishlist', JSON.stringify(state.wishlist.wishlistItems));
-    } catch (error) {
-        console.error('Error saving wishlist to localStorage:', error);
-    }
-});
-
-
-loadWishlistFromStorage();
