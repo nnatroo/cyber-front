@@ -1,11 +1,12 @@
 import classes from "../modules/Product.module.scss"
-import favoriteIcon from "../assets/favorites-icon.png";
-import favoriteIconFilled from "../assets/favoriteIconFilled.svg";
+import favoriteIconFilled from "../assets/wishlist-icon-filled.svg";
+import favoriteIcon from "../assets/wishlist-icon-empty.svg";
 import {addToCart} from "../store/cartSlice.js";
 import {useState} from "react";
 import {Link} from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist, removeFromWishlist } from "../store/wishlistSlice";
+
 export const Product = ({product}) => {
     const dispatch = useDispatch();
     const [isAdded, setIsAdded] = useState(false);

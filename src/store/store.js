@@ -6,6 +6,7 @@ export const store = configureStore({
         wishlist: wishlistReducer,
     },
 });
+
 const loadWishlistFromStorage = () => {
     try {
         const savedWishlist = localStorage.getItem('wishlist');
@@ -17,6 +18,7 @@ const loadWishlistFromStorage = () => {
         console.error('Error loading wishlist from localStorage:', error);
     }
 };
+
 store.subscribe(() => {
     const state = store.getState();
     try {
