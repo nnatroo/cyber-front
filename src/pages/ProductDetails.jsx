@@ -64,9 +64,6 @@ export const ProductDetails = () => {
     };
 
 
-
-
-
     return (
         <>
             <Header/>
@@ -78,11 +75,19 @@ export const ProductDetails = () => {
                 </div>
                 <div className={classes["product-description-wrapper"]}>
                     <div className={classes["small-images"]}>
-                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["picture"]}`} alt="Front" onClick={smallImgClickHandler}/>
-                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["back-img"]}`} alt="Back" onClick={smallImgClickHandler}/>
-                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["side-img"]}`} alt="Side" onClick={smallImgClickHandler}/>
-                        <img className={classes["scaled-img"]} src={`http://localhost:5000${product["top-img"]}`} alt="Top" onClick={smallImgClickHandler}/>
+                        {Object.entries(product)
+                            .filter(([key, value]) =>
+                                key === "picture" || key.endsWith("-img") && typeof value === "string"
+                            )
+                            .map(([key, value]) => {
+                                return (
+                                    <img
+                                        key={key}
+                                        className={classes["scaled-img"]} src={`http://localhost:5000${value}`} alt="img" onClick={smallImgClickHandler}/>
+                                );
+                            })}
                     </div>
+
                     <div className={classes["img-wrapper"]}>
                         <img className={classes['big-img']} alt="product img"
                              src={selectedImage}/>
@@ -94,7 +99,9 @@ export const ProductDetails = () => {
                         </div>
                         <div className={classes["button-container"]}>
                             <button className={classes["add-to-wishlist"]}>Add to Wishlist</button>
-                            <button onClick={(e) => handleAddToCart(e,product)} className={classes["add-to-cart"]}>Add to Cart</button>
+                            <button onClick={(e) => handleAddToCart(e, product)} className={classes["add-to-cart"]}>Add
+                                to Cart
+                            </button>
                         </div>
                         <div className={classes["buying-details-container"]}>
                             <div className={classes["buying-detail"]}>
