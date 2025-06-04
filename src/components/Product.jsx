@@ -1,6 +1,6 @@
 import classes from "../modules/Product.module.scss"
-import favoriteIcon from "../assets/favorites-icon.png";
-import favorite from "../assets/favoriteIconFilled.svg"
+import favoriteIcon from "../assets/wishlist-icon-empty.svg";
+import favorite from "../assets/wishlist-icon-filled.svg"
 import {useDispatch} from "react-redux";
 import {addToCart} from "../store/cartSlice.js";
 import {useEffect, useState} from "react";
