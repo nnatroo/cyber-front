@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router';
 import classes from '../modules/Header.module.scss'
-import search from '../assets/search-icon.svg';
+import search from '../assets/search-icon.svg'
 import cart from '../assets/cart-icon.svg';
 import favorites from '../assets/favorites-icon.svg';
 import profile from '../assets/profile-icon.svg';
@@ -11,6 +11,15 @@ import logo from '../assets/cyber-logo.svg'
 export const Header = () => {
     const [navItems, setNavItems] = useState([]);
     const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
+    const [searchInput, setSearchInput] = useState('');
+
+    const searchHandler = (e) => {
+        const value = e.target.value;
+        setSearchInput(value);
+        onSearchChange(value); // 👈 send to parent
+    };
+
+
 
     useEffect(() => {
         axios.get('http://localhost:5000/menus/navbarItems')
@@ -35,9 +44,13 @@ export const Header = () => {
                     </Link>
                 </figure>
                 <div className={classes['search-wrapper']}>
-                    <img src={search} alt="search-icon"/>
-                    <input placeholder='Search' type='text'
-                           className={classes['input']}/>
+                    {/*<img src={search} alt="search-icon"/>*/}
+                    <input placeholder='Search'
+                           type='text'
+                           className={classes['input']}
+                           onChange={searchHandler}
+                           value={searchInput}
+                    />
                 </div>
                 <nav>
                     <ul className={classes['ul']}>
@@ -62,9 +75,12 @@ export const Header = () => {
                 </div>
             </header> : <header className={classes['header-wrapper-mobile']}>
                 <div className={classes['search-wrapper']}>
-                    <img src={search} alt="search-icon"/>
-                    <input placeholder='Search' type='text'
-                           className={classes['input']}/>
+                    {/*<img src={search} alt="search-icon"/>*/}
+                    <input placeholder='Search'
+                           type='text'
+                           className={classes['input']}
+                           onChange={(e) => onSearchChange?.(e.target.value)}  // safe check                           value={searchInput}
+                    />
                 </div>
                 <nav>
                     <ul className={classes['ul']}>
