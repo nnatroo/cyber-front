@@ -15,17 +15,17 @@ export const Product = ({product}) => {
         setIsAdded(true);
     };
     useEffect(() => {
-        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        const exists = favorites.some((item) => item._id === product._id);
+        const favorites = JSON.parse(localStorage.getItem("favorites"))|| [] ;
+        const exists = favorites.some((item) => item.name === product.name);
         setIsfavorite(exists);
-    }, [product._id]);
+    }, [product.name]);
     const favoriteHandler = (product) => {
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-        const exists = favorites.some((item) => item._id === product._id);
+        const exists = favorites.some((item) => item.name === product.name);
         let updatedFavorites;
 
         if (exists) {
-            updatedFavorites = favorites.filter((item) => item._id !== product._id);
+            updatedFavorites = favorites.filter((item) => item.name !== product.name);
             setIsfavorite(false);
         } else {
             updatedFavorites = [...favorites, product];
