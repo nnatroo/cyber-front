@@ -68,10 +68,14 @@ export const Header = ({onSearch }) => {
                     <div className={classes.line}></div>
                 </div>
             </header> : <header className={classes['header-wrapper-mobile']}>
-                <div className={classes['search-wrapper']}>
+                <div className={classes["search-wrapper"]}>
                     <img src={search} alt="search-icon"/>
-                    <input placeholder='Search' type='text'
-                           className={classes['input']}/>
+                    <input
+                        type="text"
+                        placeholder="Search"
+                        className={classes["input"]}
+                        onChange={handleInputChange}
+                    />
                 </div>
                 <nav>
                     <ul className={classes['ul']}>
