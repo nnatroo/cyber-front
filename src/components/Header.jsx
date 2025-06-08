@@ -16,7 +16,7 @@ export const Header = () => {
     const searchHandler = (e) => {
         const value = e.target.value;
         setSearchInput(value);
-        onSearchChange(value); // 👈 send to parent
+        onSearchChange(value);
     };
 
 
