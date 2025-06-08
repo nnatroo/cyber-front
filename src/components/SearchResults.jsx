@@ -15,13 +15,11 @@ export const SearchResults = ({ searchTerm, category = 'all' }) => {
         axios.get(`http://localhost:5000/products/${category}`)
             .then(res => {
                 let prods = [];
-
                 if (category === 'all') {
                     prods = res.data;
                 } else {
                     prods = res.data || [];
                 }
-
                 const filtered = prods.filter(p =>
                     p.name.toLowerCase().includes(searchTerm.toLowerCase())
                 );
