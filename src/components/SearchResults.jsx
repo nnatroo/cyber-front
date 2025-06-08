@@ -6,7 +6,6 @@ import classes from '../modules/SearchResults.module.scss'
 
 export const SearchResults = ({ searchTerm, category = 'all' }) => {
     const [products, setProducts] = useState([]);
-
     useEffect(() => {
         if (!searchTerm) {
             setProducts([]);
