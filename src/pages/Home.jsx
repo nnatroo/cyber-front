@@ -8,11 +8,9 @@ import {DiscountSection} from "../components/DiscountSection.jsx"
 import {SearchResults} from "../components/SearchResults.jsx";
 import {useState} from "react";
 
-
 const Home = () => {
 
     const [searchTerm, setSearchTerm] = useState("");
-
 
     return (
         <>

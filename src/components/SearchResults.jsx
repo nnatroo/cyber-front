@@ -1,28 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Product } from "./Product.jsx";
-import classes from '../modules/SearchResults.module.scss'
-
+import classes from '../modules/SearchResults.module.scss';
 
 export const SearchResults = ({ searchTerm, category = 'all' }) => {
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         if (!searchTerm) {
             setProducts([]);
             return;
         }
+
         axios.get(`http://localhost:5000/products/${category}`)
             .then(res => {
-                let items = [];
-                if (category === 'all') {
-                    items = res.data;
-                } else {
-                    items = res.data || [];
-                }
+                const items = res.data || [];
                 const filtered = items.filter(item =>
                     item.name.toLowerCase().includes(searchTerm.toLowerCase())
                 );
-
                 setProducts(filtered);
             })
             .catch(err => {
@@ -39,7 +34,7 @@ export const SearchResults = ({ searchTerm, category = 'all' }) => {
             <div className={classes['product-wrapper']}>
                 {products.length > 0 ? (
                     products.map(product => (
-                        <Product key={product.id} product={product} />
+                        <Product key={product.id || product.id || product.name} product={product}/>
                     ))
                 ) : (
                     <p>No products match your search.</p>
