@@ -9,7 +9,7 @@ import profile from "../assets/profile-icon.svg";
 import logo from "../assets/cyber-logo.svg";
 import SearchDropdown from "./SearchDropdown";
 
-export  const Header = ({ onSearch, searchTerm  }) => {
+export  const Header = ({onSearch, searchTerm}) => {
     const [navItems, setNavItems] = useState([]);
     const [isOpenBurgerMenu, setIsOpenBurgerMenu] = useState(false);
 
