@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router";
 import classes from "../modules/Header.module.scss";
-import search from "../assets/search-icon.svg";
 import cart from "../assets/cart-icon.svg";
 import favorites from "../assets/favorites-icon.svg";
 import profile from "../assets/profile-icon.svg";
@@ -35,9 +34,7 @@ export  const Header = ({onSearch, searchTerm}) => {
                             <img src={logo} alt="cyber-logo" id="logo"/>
                         </Link>
                     </figure>
-
                     <div className={classes["search-wrapper"]}>
-                        <img src={search} alt="search-icon"/>
                         <SearchDropdown onSelect={onSearch} value={searchTerm}/>
                     </div>
                     <nav>
@@ -67,8 +64,7 @@ export  const Header = ({onSearch, searchTerm}) => {
             ) : (
                 <header className={classes['header-wrapper-mobile']}>
                     <div className={classes["search-wrapper"]}>
-                        <img src={search} alt="search-icon"/>
-                        <SearchDropdown onSelect={onSearch} value={searchTerm}/>
+                    <SearchDropdown onSelect={onSearch} value={searchTerm}/>
                     </div>
                     <nav>
                         <ul className={classes['ul']}>
