@@ -13,6 +13,7 @@ export const Categories = () => {
             })
             .catch((error) => {
                 console.error(error);
+
             });
     }, []);
     const handleCategoryClick = (img) => {
