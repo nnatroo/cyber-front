@@ -10,6 +10,7 @@ export const Categories = () => {
         axios.get('http://localhost:5000/categories')
             .then((response) => {
                 setCategories(response.data);
+                console.log(response.data)
             })
             .catch((error) => {
                 console.error(error);
@@ -17,7 +18,7 @@ export const Categories = () => {
             });
     }, []);
     const handleCategoryClick = (img) => {
-        navigate(`/products/${img.category}`);
+        navigate(`/products/${img.categoryName}`);
         window.scrollTo(0, 0);
     };
     return (
@@ -30,9 +31,7 @@ export const Categories = () => {
                     <div className={classes["category-cards-wrapper"]}>
                         {categories.map((img, index) => (
                             <figure key={index} className={classes["category-card"]}  onClick={() => handleCategoryClick(img)}>
-                                <img src={`http://localhost:5000/${img.ImageSrc}`} alt={img.category}
-                                     className={classes["category-card-img"]}/>
-                                <p className={classes["category-card-text"]}>{img.category}</p>
+                                <p className={classes["category-card-text"]}>{img.categoryName}</p>
                             </figure>
                         ))}
                     </div>
