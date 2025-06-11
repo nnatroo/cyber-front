@@ -14,11 +14,13 @@ export const Product = ({product}) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
+
     useEffect(() => {
-        const favorites = JSON.parse(localStorage.getItem("favorites"))|| [] ;
+        const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         const exists = favorites.some((item) => item.name === product.name);
         setIsfavorite(exists);
     }, [product.name]);
+
     const favoriteHandler = (product) => {
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
         const exists = favorites.some((item) => item.name === product.name);
@@ -31,22 +33,19 @@ export const Product = ({product}) => {
             updatedFavorites = [...favorites, product];
             setIsfavorite(true);
         }
-
         localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-
     }
 
     return (
         <div className={classes["product"]}>
             {isfavorite ?
                 <img src={favorite} alt="product-img" className={classes["fav-icon"]}
-                                                    onClick={() => favoriteHandler(product)}/>:
-                <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]} onClick={() => favoriteHandler(product)}/>
-
+                     onClick={() => favoriteHandler(product)}/> :
+                <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}
+                     onClick={() => favoriteHandler(product)}/>
             }
             <div className={classes["flex-center"]}>
-                <img src={`http://localhost:5000/${product.picture}`} alt="product"
-                     className={classes["products-image"]}/>
+                <img src={product.imageUrl} alt="product" className={classes["products-image"]}/>
                 <div className={classes['about-product']}>
                     <p>{product.name}</p>
                     <h2>${product.price}</h2>

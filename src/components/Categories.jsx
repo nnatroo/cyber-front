@@ -6,17 +6,24 @@ import {useNavigate} from "react-router";
 export const Categories = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
+        setIsLoading(true);
         axios.get('http://localhost:5000/categories')
             .then((response) => {
-                setCategories(response.data);
+                setCategories(response.data.slice(0, 6));
             })
             .catch((error) => {
                 console.error(error);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     }, []);
+
     const handleCategoryClick = (img) => {
-        navigate(`/products/${img.category}`);
+        navigate(`/products/${img.categoryName}`);
         window.scrollTo(0, 0);
     };
     return (
@@ -27,11 +34,10 @@ export const Categories = () => {
                         <h3>Browse By Category</h3>
                     </div>
                     <div className={classes["category-cards-wrapper"]}>
-                        {categories.map((img, index) => (
+                        {isLoading && <div className={classes["loading-wrapper"]}>...Loading</div>}
+                        {categories.map((category, index) => (
                             <figure key={index} className={classes["category-card"]}  onClick={() => handleCategoryClick(img)}>
-                                <img src={`http://localhost:5000/${img.ImageSrc}`} alt={img.category}
-                                     className={classes["category-card-img"]}/>
-                                <p className={classes["category-card-text"]}>{img.category}</p>
+                                <p className={classes["category-card-text"]}>{category.name}</p>
                             </figure>
                         ))}
                     </div>
