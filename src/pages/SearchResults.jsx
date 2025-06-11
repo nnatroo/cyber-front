@@ -6,7 +6,7 @@ import { Footer } from "../components/Footer.jsx";
 import { Product } from "../components/Product.jsx";
 import classes from "../modules/SearchResults.module.scss";
 
-const SearchResultPage = () => {
+const SearchResults = () => {
     const [params] = useSearchParams();
     const searchTerm = params.get("query") || "";
     const category = "all";
@@ -54,4 +54,4 @@ const SearchResultPage = () => {
     );
 };
 
-export default SearchResultPage;
+export default SearchResults;
