@@ -4,7 +4,7 @@ import Header from "../components/Header.jsx";
 import {Footer} from "../components/Footer.jsx";
 import close from "../assets/close.svg";
 import {useDispatch, useSelector} from "react-redux";
-import {decreaseQuantity, increaseQuantity, removeFromCart} from '../redux/cartSlice';
+import {decreaseQuantity, increaseQuantity, removeFromCart} from '../store/cartSlice.js';
 import {useNavigate} from "react-router";
 
 export const ShoppingCart = () => {
@@ -50,7 +50,7 @@ export const ShoppingCart = () => {
                         {cartItems.map((item) => (
                             <div className={classes["cart-item"]} key={item.id}>
                                 <figure>
-                                    <img src={`http://localhost:5000${item?.image}`} alt={"image"}/>
+                                    <img src={`http://localhost:5000${item?.picture}`} alt={"image"}/>
                                 </figure>
                                 <div className={classes["item-details"]}>
                                     <div className={classes["item-header"]}>
