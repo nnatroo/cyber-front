@@ -19,9 +19,7 @@ export const ProductDetails = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [selectedImage, setSelectedImage] = useState(null);
-    const { id } = useParams();
-
-
+    const {id} = useParams();
 
     useEffect(() => {
         axios.get(`http://localhost:5000/products/item/id/${id}`)
@@ -36,9 +34,6 @@ export const ProductDetails = () => {
             })
     }, [id]);
 
-
-
-
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -49,16 +44,16 @@ export const ProductDetails = () => {
 
     const returnHomeHandler = () => {
         navigate(`/`)
-
     }
-    const handleAddToCart = (e,product) => {
+
+    const handleAddToCart = (e, product) => {
         dispatch(addToCart(product));
         e.stopPropagation();
         e.preventDefault();
         navigate(`/shopping-cart`)
     };
 
-    const handleAddToWishlist = (e,product) => {
+    const handleAddToWishlist = (e, product) => {
         dispatch(addToCart(product));
         e.stopPropagation();
         e.preventDefault();
@@ -69,7 +64,6 @@ export const ProductDetails = () => {
         const clickedImgSrc = e.target.src;
         setSelectedImage(clickedImgSrc);
     };
-
 
     return (
         <>
@@ -82,21 +76,16 @@ export const ProductDetails = () => {
                 </div>
                 <div className={classes["product-description-wrapper"]}>
                     <div className={classes["small-images"]}>
-                        {(() => {
-                            const uniqueImages = Array.from(
-                                new Set([product.imageUrl, ...(product.images || [])])
-                            ).slice(0, 4);
-
-                            return uniqueImages.map((img, index) => (
-                                <img
-                                    key={index}
-                                    className={classes["scaled-img"]}
-                                    src={img}
-                                    alt={`product-img-${index}`}
-                                    onClick={smallImgClickHandler}
-                                />
-                            ));
-                        })()}
+                        {product.images.slice(0, 4).map((img, index) => (
+                            <img
+                                key={index}
+                                className={classes["scaled-img"]}
+                                src={img}
+                                alt={`product-img-${index}`}
+                                onClick={smallImgClickHandler}
+                            />
+                        ))
+                        }
                     </div>
 
                     <div className={classes["img-wrapper"]}>
@@ -115,7 +104,9 @@ export const ProductDetails = () => {
                             </div>
                         </div>
                         <div className={classes["button-container"]}>
-                            <button onClick={handleAddToWishlist} className={classes["add-to-wishlist"]}>Add to Wishlist</button>
+                            <button onClick={handleAddToWishlist} className={classes["add-to-wishlist"]}>Add to
+                                Wishlist
+                            </button>
                             <button onClick={(e) => handleAddToCart(e, product)} className={classes["add-to-cart"]}>Add
                                 to Cart
                             </button>
