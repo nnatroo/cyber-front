@@ -15,6 +15,7 @@ const SearchInput = ({ onSelect, value }) => {
     }, [value]);
 
     useEffect(() => {
+
         if (!searchTerm) {
             setSuggestions([]);
             setHasSearched(false);

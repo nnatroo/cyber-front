@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
         <>
-            <Header  onSearch={setSearchTerm}/>
+            <Header onSearch={setSearchTerm} searchTerm={searchTerm} />
             <HeroSection/>
             <Categories/>
             <NewArrivalSection/>
