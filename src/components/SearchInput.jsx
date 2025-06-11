@@ -8,6 +8,7 @@ const SearchInput = ({ onSelect, value }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const navigate = useNavigate();
+    const [hasSearched, setHasSearched] = useState(false);
 
     useEffect(() => {
         setSearchTerm(value);
@@ -16,6 +17,7 @@ const SearchInput = ({ onSelect, value }) => {
     useEffect(() => {
         if (!searchTerm) {
             setSuggestions([]);
+            setHasSearched(false);
             return;
         }
 
@@ -25,16 +27,21 @@ const SearchInput = ({ onSelect, value }) => {
                     product.name.toLowerCase().includes(searchTerm.toLowerCase())
                 );
                 setSuggestions(filtered.slice(0, 3));
+
+                if (hasSearched && filtered.length === 0) {
+                    navigate(`/searchresults?query=${encodeURIComponent(searchTerm.trim())}`);
+                }
             })
             .catch(err => {
                 console.error(err);
                 setSuggestions([]);
             });
-    }, [searchTerm]);
+    }, [searchTerm, hasSearched, navigate]);
 
     const handleChange = (e) => {
         const newTerm = e.target.value;
         setSearchTerm(newTerm);
+        setHasSearched(true);
         onSelect(newTerm);
     };
 
