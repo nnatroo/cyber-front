@@ -6,7 +6,7 @@ import cart from "../assets/cart-icon.svg";
 import favorites from "../assets/favorites-icon.svg";
 import profile from "../assets/profile-icon.svg";
 import logo from "../assets/cyber-logo.svg";
-import SearchDropdown from "./SearchDropdown";
+import SearchInput from "./SearchInput.jsx";
 
 export  const Header = ({onSearch, searchTerm}) => {
     const [navItems, setNavItems] = useState([]);
@@ -35,7 +35,7 @@ export  const Header = ({onSearch, searchTerm}) => {
                         </Link>
                     </figure>
                     <div className={classes["search-wrapper"]}>
-                        <SearchDropdown onSelect={onSearch} value={searchTerm}/>
+                        <SearchInput onSelect={onSearch} value={searchTerm}/>
                     </div>
                     <nav>
                         <ul className={classes['ul']}>
@@ -64,7 +64,7 @@ export  const Header = ({onSearch, searchTerm}) => {
             ) : (
                 <header className={classes['header-wrapper-mobile']}>
                     <div className={classes["search-wrapper"]}>
-                    <SearchDropdown onSelect={onSearch} value={searchTerm}/>
+                    <SearchInput onSelect={onSearch} value={searchTerm}/>
                     </div>
                     <nav>
                         <ul className={classes['ul']}>

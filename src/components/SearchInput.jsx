@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import classes from "../modules/SearchDropdown.module.scss";
+import classes from "../modules/SearchInput.module.scss";
 import { useNavigate } from 'react-router';
 import search from "../assets/search-icon.svg";
 
-const SearchDropdown = ({ onSelect, value }) => {
+const SearchInput = ({ onSelect, value }) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const navigate = useNavigate();
@@ -79,4 +79,4 @@ const SearchDropdown = ({ onSelect, value }) => {
     );
 };
 
-export default SearchDropdown;
+export default SearchInput;
