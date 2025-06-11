@@ -53,6 +53,38 @@ export const Products = () => {
         setSortType(sort);
         setOpen(false);
     };
+    const renderPagination = () => {
+        const pages = [];
+        const totalPages = paginatedProducts.length;
+
+        const addButton = (page) => {
+            pages.push(
+                <button key={page} onClick={() => changePage(page)} className={`${classes['page-button']} ${currentPage === page ? classes['active-page'] : ''}`}>{page}</button>
+            );
+        };
+
+        if (totalPages <= 7) {
+            for (let i = 1; i <= totalPages; i++) addButton(i);
+        } else {
+            addButton(1);
+            if (currentPage > 4) {
+                pages.push(<span key="start-ellipsis" className={classes['ellipsis']}>...</span>);
+            }
+
+            const start = Math.max(2, currentPage - 1);
+            const end = Math.min(totalPages - 1, currentPage + 1);
+
+            for (let i = start; i <= end; i++) addButton(i);
+
+            if (currentPage < totalPages - 3) {
+                pages.push(<span key="end-ellipsis" className={classes['ellipsis']}>...</span>);
+            }
+
+            addButton(totalPages);
+        }
+
+        return pages;
+    };
     return (
         <>
             <Header/>
@@ -91,18 +123,17 @@ export const Products = () => {
                             <div className={classes['pagination-container']}>
                                 <button className={classes['arrow-button']} onClick={() => {
                                     if (currentPage > 1) changePage(currentPage - 1);
-                                }}><img src={arrowLeft} alt="Previous"/></button>
-                                {paginatedProducts.map((_, index) => (
-                                    <button key={index} onClick={() => changePage(index + 1)}
-                                            className={`${classes['page-button']} ${currentPage === index + 1 ? classes['active-page'] : ''}`}
-                                    >
-                                        {index + 1}
-                                    </button>
-                                ))}
+                                }}>
+                                    <img src={arrowLeft} alt="Previous"/>
+                                </button>
+
+                                {renderPagination()}
 
                                 <button className={classes['arrow-button']} onClick={() => {
                                     if (currentPage < paginatedProducts.length) changePage(currentPage + 1);
-                                }}><img src={arrowRight} alt="Next"/></button>
+                                }}>
+                                    <img src={arrowRight} alt="Next"/>
+                                </button>
                             </div>
                         </div>
                     </div>)}
