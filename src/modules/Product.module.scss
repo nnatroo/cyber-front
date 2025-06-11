@@ -7,6 +7,12 @@
   background-color: #f6f6f6;
   border-radius: 9px;
   margin: 0 auto;
+  transition: 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(218, 213, 213, 0.4);
+  }
 
   .fav-icon {
     width: 29px;
@@ -29,6 +35,7 @@
       max-height: 160px !important;
       mix-blend-mode: multiply;
 
+
       @media screen and (max-width: 1024px) {
         width: 120px;
         height: 120px;
@@ -44,7 +51,8 @@
         height: 104px;
       }
     }
-    .about-product{
+
+    .about-product {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -67,6 +75,7 @@
           font-size: 16px;
         }
       }
+
       h2 {
         margin-top: 16px;
         font-size: 24px;
@@ -107,11 +116,13 @@
         border: 1px solid #000;
         color: #000;
       }
-      .link{
+
+      .link {
         color: #FFFFFF;
         text-decoration: none;
       }
     }
+
     .link-btn {
       margin-top: 24px;
       width: 100%;
@@ -126,7 +137,6 @@
       cursor: pointer;
       transition: all 0.2s;
 
-
       @media screen and (max-width: 1024px) {
         margin-top: 16px;
       }
@@ -134,10 +144,24 @@
       @media screen and (max-width: 992px) {
         margin-top: 24px;
       }
-      .link{
+
+      .link {
         color: #000000;
         text-decoration: none;
       }
     }
+  }
+
+  .scaled-img {
+    width: 73px;
+    height: 93px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  .big-img {
+    width: 413px;
+    height: 516px;
+    object-fit: contain;
   }
 }
