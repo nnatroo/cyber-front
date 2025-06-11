@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/address" element={<Address/>}/>
                 <Route path="/shopping-cart" element={<ShoppingCart/>}/>
-                <Route path="/products/:name" element={<ProductDetails/>}/>
+                <Route path="/products/:id" element={<ProductDetails/>}/>
                 <Route path="/products/:category" element={<Products />} />
                 <Route path="/wishlist" element={<Wishlistpage/>}/>
                 <Route path="/shipping" element={<Shipping/>}/>

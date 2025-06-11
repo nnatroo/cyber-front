@@ -9,32 +9,32 @@ import delivery from '../assets/delivery.svg'
 import guaranteed from "../assets/guaranteed.svg"
 import stock from "../assets/stock.svg"
 import {useNavigate} from "react-router";
-import {addToCart} from "../redux/cartSlice.js";
+import {addToCart} from "../store/cartSlice.js";
 import {useDispatch} from "react-redux";
 
 
 export const ProductDetails = () => {
-    const { name } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [selectedImage, setSelectedImage] = useState(null);
+    const { id } = useParams();
+
 
 
     useEffect(() => {
-        const decodedName = decodeURIComponent(name);
-        axios.get(`http://localhost:5000/products/item/${decodedName}`)
+        axios.get(`http://localhost:5000/products/item/id/${id}`)
             .then(function (response) {
                 setProduct(response.data);
-                setSelectedImage(`http://localhost:5000${response.data.picture}`);
+                setSelectedImage(response.data.imageUrl);
                 setLoading(false);
             })
             .catch(function (error) {
                 console.log(error);
                 setLoading(false);
             })
-    }, [name]);
+    }, [id]);
 
 
 
@@ -58,6 +58,13 @@ export const ProductDetails = () => {
         navigate(`/shopping-cart`)
     };
 
+    const handleAddToWishlist = (e,product) => {
+        dispatch(addToCart(product));
+        e.stopPropagation();
+        e.preventDefault();
+        navigate(`/wishlist`)
+    };
+
     const smallImgClickHandler = (e) => {
         const clickedImgSrc = e.target.src;
         setSelectedImage(clickedImgSrc);
@@ -75,17 +82,21 @@ export const ProductDetails = () => {
                 </div>
                 <div className={classes["product-description-wrapper"]}>
                     <div className={classes["small-images"]}>
-                        {Object.entries(product)
-                            .filter(([key, value]) =>
-                                key === "picture" || key.endsWith("-img") && typeof value === "string"
-                            )
-                            .map(([key, value]) => {
-                                return (
-                                    <img
-                                        key={key}
-                                        className={classes["scaled-img"]} src={`http://localhost:5000${value}`} alt="img" onClick={smallImgClickHandler}/>
-                                );
-                            })}
+                        {(() => {
+                            const uniqueImages = Array.from(
+                                new Set([product.imageUrl, ...(product.images || [])])
+                            ).slice(0, 4);
+
+                            return uniqueImages.map((img, index) => (
+                                <img
+                                    key={index}
+                                    className={classes["scaled-img"]}
+                                    src={img}
+                                    alt={`product-img-${index}`}
+                                    onClick={smallImgClickHandler}
+                                />
+                            ));
+                        })()}
                     </div>
 
                     <div className={classes["img-wrapper"]}>
@@ -95,10 +106,16 @@ export const ProductDetails = () => {
                     <div className={classes["product-details-wrapper"]}>
                         <div className={classes["product-details-txt"]}>
                             <h1>{product?.name}</h1>
-                            <h2>${product?.price}</h2>
+                            <div className={classes["price-row"]}>
+                                <h2> ${product?.price}
+                                    {product?.previousPrice && product.previousPrice > product.price && (
+                                        <span className={classes["previous-price"]}>
+                ${product.previousPrice}
+            </span>)}</h2>
+                            </div>
                         </div>
                         <div className={classes["button-container"]}>
-                            <button className={classes["add-to-wishlist"]}>Add to Wishlist</button>
+                            <button onClick={handleAddToWishlist} className={classes["add-to-wishlist"]}>Add to Wishlist</button>
                             <button onClick={(e) => handleAddToCart(e, product)} className={classes["add-to-cart"]}>Add
                                 to Cart
                             </button>
@@ -122,7 +139,7 @@ export const ProductDetails = () => {
                                 <img className={classes["details-img"]} src={guaranteed} alt=""/>
                                 <div className={classes["details-text"]}>
                                     <p className={classes["details-p"]}>Guaranteed</p>
-                                    <span>1 year</span>
+                                    <span>{product.warranty} days</span>
                                 </div>
                             </div>
                         </div>

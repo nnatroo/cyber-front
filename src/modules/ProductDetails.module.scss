@@ -14,6 +14,14 @@
 
   }
 
+  .previous-price{
+    font-weight: 400;
+    font-size: 24px;
+    vertical-align: bottom;
+    color: #A0A0A0;
+    text-decoration: line-through;
+  }
+
   .product-description-wrapper{
     display: flex;
     flex-direction: row;
@@ -140,6 +148,7 @@
       order: 2;
     }
   }
+
   .product-details-txt{
     display: flex;
     flex-direction: column;
@@ -150,7 +159,7 @@
       font-size: 32px;
       line-height: 48px;
       letter-spacing: 3px;
-    }
+      }
     h1{
       font-weight: 700;
       font-size: 40px;
