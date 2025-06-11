@@ -51,9 +51,11 @@ export const Products = () => {
         setSortType(sort);
         setOpen(false);
     };
+    const [searchTerm, setSearchTerm] = useState("");
+
     return (
         <>
-            <Header/>
+            <Header  onSearch={setSearchTerm} searchTerm={searchTerm}/>
             <div className={classes['main-div']}>
                 <div className={classes['main-container']}>
                     <div className={classes['filter-container']}>

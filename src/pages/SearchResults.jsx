@@ -7,8 +7,13 @@ import { Product } from "../components/Product.jsx";
 import classes from "../modules/SearchResults.module.scss";
 
 const SearchResults = () => {
-    const [params] = useSearchParams();
-    const searchTerm = params.get("query") || "";
+    const [params, setParams] = useSearchParams();
+    const [searchTerm, setSearchTerm] = useState(params.get("query") || "");
+
+    useEffect(() => {
+        setSearchTerm(params.get("query") || "");
+    }, [params]);
+
     const category = "all";
     const [products, setProducts] = useState([]);
 
@@ -32,9 +37,12 @@ const SearchResults = () => {
             });
     }, [searchTerm, category]);
 
+
+
+
     return (
         <>
-            <Header />
+            <Header onSearch={setSearchTerm} searchTerm={searchTerm} />
             {searchTerm && (
                 <div>
                     <h4>Search Results for: "{searchTerm}"</h4>
