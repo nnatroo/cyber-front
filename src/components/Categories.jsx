@@ -10,7 +10,6 @@ export const Categories = () => {
         axios.get('http://localhost:5000/categories')
             .then((response) => {
                 setCategories(response.data);
-                console.log(response.data)
             })
             .catch((error) => {
                 console.error(error);
