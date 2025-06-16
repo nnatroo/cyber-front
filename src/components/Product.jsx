@@ -67,24 +67,7 @@ export const Product = ({product}) => {
                 </div>
             </div>
         </div>
-        // <>
-        //     <div className={classes["product"]} onClick={detailsHandler}>
-        //         <img src={favoriteIcon} alt="product-img" className={classes["fav-icon"]}/>
-        //         <div className={classes["flex-center"]}>
-        //             <img src={`http://localhost:5000${product?.picture}`} alt="product"
-        //                  className={classes["products-image"]}/>
-        //             <div className={classes['about-product']}>
-        //                 <p>{product?.name}</p>
-        //                 <h2>${product?.price}</h2>
-        //                 {isAdded ? <button className={classes["link-btn"]} onClick={(e) => e.stopPropagation()}>
-        //                     <Link to={"/shopping-cart"} className={classes["link"]} onClick={(e) => e.stopPropagation()}>In
-        //                         cart</Link></button> : <button onClick={(e) => handleAddToCart(e,product)}
-        //                                                        className={classes["buy-btn"]}>Buy Now
-        //                 </button>}
-        //             </div>
-        //         </div>
-        //     </div>
-        // </>
+
     );
 };
 

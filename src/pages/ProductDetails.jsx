@@ -4,14 +4,14 @@ import {RelatedProducts} from "../components/RelatedProducts.jsx";
 import classes from "../modules/ProductDetails.module.scss";
 import {useEffect, useState} from "react";
 import axios from "axios";
-import {useParams} from "react-router";
+import {Link, useParams} from "react-router";
 import delivery from '../assets/delivery.svg'
 import guaranteed from "../assets/guaranteed.svg"
 import stock from "../assets/stock.svg"
 import {useNavigate} from "react-router";
 import {addToCart} from "../store/cartSlice.js";
 import {useDispatch} from "react-redux";
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 export const ProductDetails = () => {
     const [product, setProduct] = useState(null);
@@ -22,7 +22,7 @@ export const ProductDetails = () => {
     const {id} = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/item/id/${id}`)
+        axios.get(`http://localhost:5000/products/item/${id}`)
             .then(function (response) {
                 setProduct(response.data);
                 setSelectedImage(response.data.imageUrl);
@@ -35,28 +35,18 @@ export const ProductDetails = () => {
     }, [id]);
 
     if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (!product) {
-        return <div>Product not found</div>;
-    }
-
-    const returnHomeHandler = () => {
-        navigate(`/`)
+        return <div className={classes["loading-container"]}>
+            <CircularProgress size={100} />
+        </div>;
     }
 
     const handleAddToCart = (e, product) => {
         dispatch(addToCart(product));
-        e.stopPropagation();
-        e.preventDefault();
         navigate(`/shopping-cart`)
     };
 
     const handleAddToWishlist = (e, product) => {
         dispatch(addToCart(product));
-        e.stopPropagation();
-        e.preventDefault();
         navigate(`/wishlist`)
     };
 
@@ -70,8 +60,8 @@ export const ProductDetails = () => {
             <Header/>
             <div className={classes["product-detail-container"]}>
                 <div className={classes["product-details-title-wrapper"]}>
-                    <h3 className={classes["home-h3"]} onClick={returnHomeHandler}>Home</h3>
-                    <h3> &gt; </h3>
+                    <Link to={"/"} className={classes["home-h3"]} >Home</Link>
+                    <h3 className={classes["h3-arrow"]}> &gt; </h3>
                     <h3 className={classes["bold-title"]}>{product?.name}</h3>
                 </div>
                 <div className={classes["product-description-wrapper"]}>
