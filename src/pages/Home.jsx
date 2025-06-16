@@ -18,7 +18,7 @@ const Home = () => {
             <Categories/>
             <NewArrivalSection/>
             <DiscountSection/>
-            <SaleBanner />
+            <SaleBanner/>
             <Footer/>
         </>
     )

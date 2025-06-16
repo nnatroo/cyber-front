@@ -13,6 +13,7 @@ import {Payment} from './pages/Payment.jsx'
 import {FinalPage} from "./pages/FinalPage.jsx";
 import {Products} from "./pages/Products.jsx";
 import SearchResults from "./pages/SearchResults.jsx";
+import {Wishlistpage} from "./pages/Wishlistpage.jsx";
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/address" element={<Address/>}/>
                 <Route path="/shopping-cart" element={<ShoppingCart/>}/>
                 <Route path="/products/:category" element={<Products />} />
+                <Route path="/wishlist" element={<Wishlistpage/>}/>
                 <Route path="/shipping" element={<Shipping/>}/>
                 <Route path="/payment" element={<Payment/>}/>
                 <Route path="/final" element={<FinalPage />} />
