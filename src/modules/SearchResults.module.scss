@@ -1,0 +1,29 @@
+.product-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: #FFFFFF;
+  padding: 50px;
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+h4{
+  font-family: Inter, 'sans-serif';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #474444;
+  padding-left: 25px;
+  padding-top: 20px;
+}
+
+.not-fount-text {
+  width: 100%;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 200px;
+}
