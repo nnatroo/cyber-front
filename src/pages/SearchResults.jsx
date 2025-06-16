@@ -1,29 +1,20 @@
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import {useEffect, useState} from "react";
+import {useParams, useSearchParams} from "react-router";
 import axios from "axios";
 import Header from "../components/Header.jsx";
-import { Footer } from "../components/Footer.jsx";
-import { Product } from "../components/Product.jsx";
+import {Footer} from "../components/Footer.jsx";
+import {Product} from "../components/Product.jsx";
 import classes from "../modules/SearchResults.module.scss";
 
+
 const SearchResults = () => {
-    const [params, setParams] = useSearchParams();
-    const [searchTerm, setSearchTerm] = useState(params.get("query") || "");
+    const CATEGORY = "all";
 
-    useEffect(() => {
-        setSearchTerm(params.get("query") || "");
-    }, [params]);
-
-    const category = "all";
+    const {searchTerm} = useParams()
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        if (!searchTerm) {
-            setProducts([]);
-            return;
-        }
-
-        axios.get(`http://localhost:5000/products/${category}`)
+        axios.get(`http://localhost:5000/products/${CATEGORY}`)
             .then(res => {
                 const items = res.data || [];
                 const filtered = items.filter(item =>
@@ -33,31 +24,27 @@ const SearchResults = () => {
             })
             .catch(err => {
                 console.error(err);
-                setProducts([]);
             });
-    }, [searchTerm, category]);
-
-
-
+    }, [searchTerm]);
 
     return (
         <>
-            <Header onSearch={setSearchTerm} searchTerm={searchTerm} />
+            <Header/>
             {searchTerm && (
                 <div>
                     <h4>Search Results for: "{searchTerm}"</h4>
                     <div className={classes['product-wrapper']}>
-                        {products.length > 0 ? (
-                            products.map(product => (
-                                <Product key={product.id || product.name} product={product} />
-                            ))
-                        ) : (
-                            <p>No products match your search.</p>
-                        )}
+                        {products.map((product) => (
+                            <Product key={product.id || product.name} product={product}/>
+                        ))}
                     </div>
+
+                    {products.length === 0 && (
+                        <p className={classes['not-fount-text']}>No products match your search.</p>
+                    )}
                 </div>
             )}
-            <Footer />
+            <Footer/>
         </>
     );
 };

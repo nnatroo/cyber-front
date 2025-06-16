@@ -26,7 +26,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/shipping" element={<Shipping/>}/>
                 <Route path="/payment" element={<Payment/>}/>
                 <Route path="/final" element={<FinalPage />} />
-                <Route path="/searchresults" element={<SearchResults />} />
+                <Route path="/searchresults/:searchTerm" element={<SearchResults />} />
                 <Route path="/*" element={<Error />} />
             </Routes>
         </BrowserRouter>
