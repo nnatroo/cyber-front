@@ -12,6 +12,7 @@ import {Shipping} from "./pages/Shipping.jsx";
 import {Payment} from './pages/Payment.jsx'
 import {FinalPage} from "./pages/FinalPage.jsx";
 import {Products} from "./pages/Products.jsx";
+import SearchResults from "./pages/SearchResults.jsx";
 import {Wishlistpage} from "./pages/Wishlistpage.jsx";
 import {ProductDetails} from "./pages/ProductDetails.jsx";
 
@@ -29,6 +30,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/shipping" element={<Shipping/>}/>
                 <Route path="/payment" element={<Payment/>}/>
                 <Route path="/final" element={<FinalPage />} />
+                <Route path="/searchresults/:searchTerm" element={<SearchResults />} />
                 <Route path="/*" element={<Error />} />
             </Routes>
         </BrowserRouter>

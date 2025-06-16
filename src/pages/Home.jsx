@@ -5,11 +5,15 @@ import SaleBanner from "../components/SaleBanner.jsx";
 import HeroSection from "../components/HeroSection.jsx";
 import {NewArrivalSection} from "../components/NewArrivalSection.jsx"
 import {DiscountSection} from "../components/DiscountSection.jsx"
+import {useState} from "react";
 
 const Home = () => {
+
+    const [searchTerm, setSearchTerm] = useState("");
+
     return (
         <>
-            <Header/>
+            <Header onSearch={setSearchTerm} searchTerm={searchTerm} />
             <HeroSection/>
             <Categories/>
             <NewArrivalSection/>
