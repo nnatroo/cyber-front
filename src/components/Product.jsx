@@ -2,9 +2,9 @@ import classes from "../modules/Product.module.scss"
 import favoriteIcon from "../assets/wishlist-icon-empty.svg";
 import favorite from "../assets/wishlist-icon-filled.svg"
 import {useDispatch} from "react-redux";
+import {Link,useNavigate} from "react-router";
 import {addToCart} from "../store/cartSlice.js";
 import {useEffect, useState} from "react";
-import {Link} from "react-router";
 
 export const Product = ({product}) => {
     const dispatch = useDispatch();
@@ -14,6 +14,12 @@ export const Product = ({product}) => {
         dispatch(addToCart(product));
         setIsAdded(true);
     };
+    const navigate = useNavigate();
+
+    const detailsHandler = () => {
+        navigate(`/products/${product.id}`)
+    };
+
     useEffect(() => {
         const favorites = JSON.parse(localStorage.getItem("favorites"))|| [] ;
         const exists = favorites.some((item) => item.name === product.name);
@@ -37,7 +43,7 @@ export const Product = ({product}) => {
     }
 
     return (
-        <div className={classes["product"]}>
+        <div className={classes["product"]} onClick={detailsHandler} >
             {isfavorite ?
                 <img src={favorite} alt="product-img" className={classes["fav-icon"]}
                                                     onClick={() => favoriteHandler(product)}/>:
@@ -45,8 +51,7 @@ export const Product = ({product}) => {
 
             }
             <div className={classes["flex-center"]}>
-                <img src={`http://localhost:5000/${product.picture}`} alt="product"
-                     className={classes["products-image"]}/>
+                <img src={product.imageUrl} alt="product" className={classes["products-image"]}/>
                 <div className={classes['about-product']}>
                     <p>{product.name}</p>
                     <h2>${product.price}</h2>
@@ -62,5 +67,7 @@ export const Product = ({product}) => {
                 </div>
             </div>
         </div>
+
     );
 };
+

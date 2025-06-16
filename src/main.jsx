@@ -14,6 +14,7 @@ import {FinalPage} from "./pages/FinalPage.jsx";
 import {Products} from "./pages/Products.jsx";
 import SearchResults from "./pages/SearchResults.jsx";
 import {Wishlistpage} from "./pages/Wishlistpage.jsx";
+import {ProductDetails} from "./pages/ProductDetails.jsx";
 
 createRoot(document.getElementById('root')).render(
     <Provider store={store}>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
                 <Route path="/contact" element={<Contact/>}/>
                 <Route path="/address" element={<Address/>}/>
                 <Route path="/shopping-cart" element={<ShoppingCart/>}/>
+                <Route path="/products/:id" element={<ProductDetails/>}/>
                 <Route path="/products/:category" element={<Products />} />
                 <Route path="/wishlist" element={<Wishlistpage/>}/>
                 <Route path="/shipping" element={<Shipping/>}/>
@@ -34,5 +36,3 @@ createRoot(document.getElementById('root')).render(
         </BrowserRouter>
     </Provider>
 )
-
-
