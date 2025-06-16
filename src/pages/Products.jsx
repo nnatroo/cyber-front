@@ -19,11 +19,14 @@ export const Products = () => {
     const [selected, setSelected] = useState("By relevant");
     const [sortType, setSortType] = useState("relevant");
     const options = ["By relevant", "Highest Price", "Lowest Price"];
+    const [Loading, setLoading] = useState(true);
 
     useEffect(() => {
         axios.get(`http://localhost:5000/products/${category}`)
             .then((response) => {
                 const data = response.data;
+                console.log(data)
+                setLoading(false);
                 if (sortType === 'highest') {
                     data.sort((a, b) => b.price - a.price);
                 } else if (sortType === 'lowest') {
@@ -51,53 +54,90 @@ export const Products = () => {
         setSortType(sort);
         setOpen(false);
     };
+    const renderPagination = () => {
+        const pages = [];
+        const totalPages = paginatedProducts.length;
+
+        const addButton = (page) => {
+            pages.push(
+                <button key={page} onClick={() => changePage(page)} className={`${classes['page-button']} ${currentPage === page ? classes['active-page'] : ''}`}>{page}</button>
+            );
+        };
+
+        if (totalPages <= 7) {
+            for (let i = 1; i <= totalPages; i++) addButton(i);
+        } else {
+            addButton(1);
+            if (currentPage > 4) {
+                pages.push(<span key="start-ellipsis" className={classes['ellipsis']}>...</span>);
+            }
+
+            const start = Math.max(2, currentPage - 1);
+            const end = Math.min(totalPages - 1, currentPage + 1);
+
+            for (let i = start; i <= end; i++) addButton(i);
+
+            if (currentPage < totalPages - 3) {
+                pages.push(<span key="end-ellipsis" className={classes['ellipsis']}>...</span>);
+            }
+
+            addButton(totalPages);
+        }
+
+        return pages;
+    };
     return (
         <>
             <Header/>
-            <div className={classes['main-div']}>
-                <div className={classes['main-container']}>
-                    <div className={classes['filter-container']}>
-                        <div className={classes['sort-container']} onClick={() => setOpen(!open)}>
-                            <div className={classes['sort-btn-wrapper']}>
-                                <button onClick={() => setOpen(!open)} className={classes['sort-button']}>
-                                    {selected}
-                                </button>
-                                <img src={arrowDown} alt={"arrow"}/>
-                            </div>
-                            {open && (
-                                <div className={classes['options-container']}>
-                                    {options.map((option, index) => (
-                                        <button key={index} onClick={() => handleSelect(option)}
-                                                className={classes['option-button']}>{option}</button>
-                                    ))}
+            {Loading ? (<div className={classes['main-div']}>
+                    <div className={classes['main-container']}>
+                            <h2 className={classes["loading"]}>Loading ...</h2>
+                    </div>
+                </div>)
+                : (
+                    <div className={classes['main-div']}>
+                        <div className={classes['main-container']}>
+                            <div className={classes['filter-container']}>
+                                <div className={classes['sort-container']} onClick={() => setOpen(!open)}>
+                                    <div className={classes['sort-btn-wrapper']}>
+                                        <button onClick={() => setOpen(!open)} className={classes['sort-button']}>
+                                            {selected}
+                                        </button>
+                                        <img src={arrowDown} alt={"arrow"}/>
+                                    </div>
+                                    {open && (
+                                        <div className={classes['options-container']}>
+                                            {options.map((option, index) => (
+                                                <button key={index} onClick={() => handleSelect(option)}
+                                                        className={classes['option-button']}>{option}</button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
-                            )}
+                            </div>
+
+                            <div className={classes['product-wrapper']}>
+                                {(paginatedProducts[currentPage - 1] || []).map((product, index) => (
+                                    <Product product={product} key={index}/>
+                                ))}
+                            </div>
+                            <div className={classes['pagination-container']}>
+                                <button className={classes['arrow-button']} onClick={() => {
+                                    if (currentPage > 1) changePage(currentPage - 1);
+                                }}>
+                                    <img src={arrowLeft} alt="Previous"/>
+                                </button>
+
+                                {renderPagination()}
+
+                                <button className={classes['arrow-button']} onClick={() => {
+                                    if (currentPage < paginatedProducts.length) changePage(currentPage + 1);
+                                }}>
+                                    <img src={arrowRight} alt="Next"/>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-
-                    <div className={classes['product-wrapper']}>
-                        {(paginatedProducts[currentPage - 1] || []).map((product, index) => (
-                            <Product product={product} key={index}/>
-                        ))}
-                    </div>
-                    <div className={classes['pagination-container']}>
-                        <button className={classes['arrow-button']} onClick={() => {
-                            if (currentPage > 1) changePage(currentPage - 1);
-                        }}><img src={arrowLeft} alt="Previous"/></button>
-                        {paginatedProducts.map((_, index) => (
-                            <button key={index} onClick={() => changePage(index + 1)}
-                                    className={`${classes['page-button']} ${currentPage === index + 1 ? classes['active-page'] : ''}`}
-                            >
-                                {index + 1}
-                            </button>
-                        ))}
-
-                        <button className={classes['arrow-button']} onClick={() => {
-                            if (currentPage < paginatedProducts.length) changePage(currentPage + 1);
-                        }}><img src={arrowRight} alt="Next"/></button>
-                    </div>
-                </div>
-            </div>
+                    </div>)}
             <Footer/>
         </>
     );
