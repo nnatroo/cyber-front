@@ -36,7 +36,7 @@ export const ProductDetails = () => {
 
     if (loading) {
         return <div className={classes["loading-container"]}>
-            <CircularProgress size={100} />
+            <CircularProgress size={100}/>
         </div>;
     }
 
@@ -60,7 +60,7 @@ export const ProductDetails = () => {
             <Header/>
             <div className={classes["product-detail-container"]}>
                 <div className={classes["product-details-title-wrapper"]}>
-                    <Link to={"/"} className={classes["home-h3"]} >Home</Link>
+                    <Link to={"/"} className={classes["home-h3"]}>Home</Link>
                     <h3 className={classes["h3-arrow"]}> &gt; </h3>
                     <h3 className={classes["bold-title"]}>{product?.name}</h3>
                 </div>
@@ -89,8 +89,9 @@ export const ProductDetails = () => {
                                 <h2> ${product?.price}
                                     {product?.previousPrice && product.previousPrice > product.price && (
                                         <span className={classes["previous-price"]}>
-                ${product.previousPrice}
-            </span>)}</h2>
+                                          ${product.previousPrice}
+                                        </span>)}
+                                </h2>
                             </div>
                         </div>
                         <div className={classes["button-container"]}>
@@ -106,23 +107,23 @@ export const ProductDetails = () => {
                                 <img className={classes["details-img"]} src={delivery} alt=""/>
                                 <div className={classes["details-text"]}>
                                     <p className={classes["details-p"]}>Free Delivery</p>
-                                    <span>1–2 day</span>
+                                    <span className={classes['details-description']}>1-2 day</span>
                                 </div>
                             </div>
                             <div className={classes["buying-detail"]}>
                                 <img className={classes["details-img"]} src={stock} alt=""/>
                                 <div className={classes["details-text"]}>
                                     <p className={classes["details-p"]}>In Stock</p>
-                                    <span>today</span>
+                                    <span className={classes['details-description']}>Today</span>
                                 </div>
                             </div>
-                            <div className={classes["buying-detail"]}>
+                            {product.warranty !== 0 && <div className={classes["buying-detail"]}>
                                 <img className={classes["details-img"]} src={guaranteed} alt=""/>
                                 <div className={classes["details-text"]}>
                                     <p className={classes["details-p"]}>Guaranteed</p>
-                                    <span>{product.warranty} days</span>
+                                    <span className={classes['details-description']}>{product.warranty} days</span>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                 </div>

@@ -15,6 +15,7 @@
   }
 
   .previous-price {
+    margin-left: 10px;
     font-weight: 400;
     font-size: 24px;
     vertical-align: bottom;
@@ -103,23 +104,11 @@
       color: #717171;
     }
 
-    span {
-      font-weight: bold;
+    .details-description {
       font-size: 14px;
       line-height: 24px;
       color: #000000;
-
     }
-
-    .loading-container{
-      display: flex;
-      justify-content: center;
-      margin-top: 32px;
-      align-items: center;
-      height: 100vh;
-      width: 100vw;
-    }
-
 
     .buying-detail {
       display: flex;
@@ -270,4 +259,12 @@
       color: #FFFFFF;
     }
   }
+}
+
+.loading-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
 }
